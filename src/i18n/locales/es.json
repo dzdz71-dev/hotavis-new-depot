@@ -1,0 +1,338 @@
+{
+  "common": {
+    "cta_order": "Quiero mi ficha de Google — 379 €",
+    "cta_start": "Empezar — 379 €",
+    "menu_home": "Inicio",
+    "menu_services": "Servicios",
+    "menu_process": "Cómo funciona",
+    "menu_pricing": "Precios",
+    "menu_testimonials": "Testimonios",
+    "menu_contact": "Contacto",
+    "language": "Idioma",
+    "contact_via_form": "Contáctanos por el formulario — respuesta en 24 h"
+  },
+  "reassurance": [
+    "✅ Entrega en 7 días",
+    "🔒 Pago seguro con Stripe",
+    "📄 Informe de entrega incluido",
+    "💬 Soporte por email incluido",
+    "🏆 Expertos en Google My Business",
+    "🇫🇷 Equipo 100% francés"
+  ],
+  "hero": {
+    "badge": "Expertos en Google My Business · 100% francés",
+    "title_a": "¿Tu empresa es",
+    "title_b": "invisible en Google",
+    "title_c": "? Nos encargamos.",
+    "subtitle": "Creamos y optimizamos tu ficha de Google My Business para que tus clientes te encuentren fácilmente en Google Maps y en las búsquedas locales.",
+    "cta": "Quiero ser visible en Google — 379 €",
+    "badge_delivery": "⭐ Entrega en 7 días",
+    "badge_secure": "🔒 Pago seguro",
+    "badge_report": "📄 Informe de entrega incluido",
+    "caption": "Así se verá tu ficha de Google My Business una vez entregada",
+    "mock_open": "Abierto",
+    "mock_closes": "Cierra a las 19:00",
+    "mock_complete": "Ficha completa ✅",
+    "mock_directions": "Cómo llegar",
+    "mock_photos": "Fotos",
+    "mock_website": "Sitio web",
+    "mock_photos_label": "Fotos",
+    "mock_see_all": "Ver todas →",
+    "mock_description": "Taller independiente en París 15. Mantenimiento, revisión, frenos, neumáticos. Presupuesto gratis en menos de 24 h.",
+    "mock_business_name": "Garage Martin — París 15",
+    "mock_reviews": "(127 reseñas)",
+    "mock_category": "Taller mecánico · 24 rue de Vaugirard, 75015 París"
+  },
+  "video": {
+    "title": "¿Por qué tu ficha de Google My Business es tu mejor herramienta de visibilidad local?",
+    "subtitle": "Mira este corto vídeo para entender por qué miles de comercios confían en Google My Business para captar clientes nuevos.",
+    "cta": "Quiero mi ficha de Google — 379 €"
+  },
+  "problem": {
+    "tag": "Estás perdiendo clientes sin saberlo",
+    "title": "Cada día, clientes buscan tu actividad en Google… y encuentran a tus competidores.",
+    "items": [
+      { "icon": "🔍", "title": "No te encuentran", "desc": "Cuando un cliente escribe «peluquero París 11» o «fontanero Lyon», ve a tus competidores. No a ti." },
+      { "icon": "📉", "title": "Pierdes ingresos", "desc": "El 97% de los consumidores busca una empresa en Google antes de ir. Sin ficha, pierdes esos clientes." },
+      { "icon": "⚠️", "title": "No existes", "desc": "Hoy, una empresa sin ficha de Google se percibe como cerrada o poco fiable." }
+    ]
+  },
+  "risks": {
+    "title": "Los peligros de no tener ficha de Google",
+    "items": [
+      "Invisible en Google Maps y en las búsquedas locales",
+      "Tus competidores se llevan tus clientes",
+      "Cualquiera puede crear una ficha no oficial a tu nombre",
+      "Sin botón de llamada directa desde Google",
+      "Sin indicaciones automáticas para tus clientes",
+      "Pierdes decenas de llamadas y visitas cada mes sin saberlo",
+      "Tu credibilidad cae frente a los competidores presentes en Google"
+    ]
+  },
+  "stats": {
+    "title": "Los números clave del SEO local",
+    "items": [
+      "de los consumidores busca una empresa local en Google antes de desplazarse",
+      "de las búsquedas en Google tienen intención local",
+      "más visitas para una ficha de Google My Business bien optimizada",
+      "de búsquedas realizadas en Google cada día"
+    ]
+  },
+  "before_after": {
+    "title": "Antes / Después de nuestro trabajo",
+    "subtitle": "La diferencia es inmediata.",
+    "before_tag": "Antes",
+    "before_title": "Sin ficha optimizada",
+    "after_tag": "Después",
+    "after_title": "Con Hotavis",
+    "before": [
+      "Empresa no encontrable en Google Maps",
+      "Sin fotos",
+      "Sin información de contacto visible",
+      "Sin posibilidad de recibir reseñas",
+      "Sin descripción",
+      "Horarios desconocidos",
+      "Categoría mal definida"
+    ],
+    "after": [
+      "Ficha visible y verificada en Google Maps",
+      "Fotos profesionales publicadas",
+      "Teléfono, dirección, web configurados",
+      "Ficha lista para recibir reseñas",
+      "Descripción optimizada para SEO local",
+      "Horarios completos rellenados",
+      "Categorías principal y secundarias optimizadas"
+    ]
+  },
+  "services": {
+    "title": "Lo que incluye nuestro servicio",
+    "subtitle": "Una ficha de Google profesional es la base de toda visibilidad local.",
+    "items": [
+      { "icon": "🔧", "title": "Creación y verificación de la ficha", "desc": "Creamos tu ficha oficial y la verificamos ante Google." },
+      { "icon": "🗂️", "title": "Perfil 100% completo", "desc": "Nombre, dirección, teléfono, web, horarios: todo rellenado con precisión." },
+      { "icon": "🎯", "title": "Categorías estratégicas", "desc": "Categorías elegidas para aparecer en las búsquedas locales adecuadas." },
+      { "icon": "📸", "title": "Subida de fotos", "desc": "Subida y organización de tus fotos para una ficha atractiva." },
+      { "icon": "⚙️", "title": "Configuración de servicios", "desc": "Lista completa de tus servicios con descripciones." },
+      { "icon": "✍️", "title": "Descripción optimizada para SEO", "desc": "Redacción profesional con palabras clave locales." },
+      { "icon": "📄", "title": "Informe de entrega en PDF", "desc": "Documento completo con capturas de toda la prestación." }
+    ]
+  },
+  "expertise": {
+    "title": "¿Por qué confiar en nosotros?",
+    "subtitle": "Nuestro equipo se especializa en SEO local y visibilidad en Google para comercios y pymes. Solo hacemos eso.",
+    "items": [
+      { "title": "Especialistas en Google My Business", "desc": "Dominamos todos los criterios de Google para maximizar la visibilidad local." },
+      { "title": "Expertos en SEO local", "desc": "Conocemos las técnicas que sitúan tu ficha en lo alto de Google Maps." },
+      { "title": "Rapidez de ejecución", "desc": "Tu ficha se crea, optimiza y entrega en 7 días laborables." },
+      { "title": "Acompañamiento personalizado", "desc": "Recopilamos tus datos, nos encargamos de todo y te informamos hasta la entrega." }
+    ],
+    "badge": "Servicio realizado en Google My Business — Plataforma oficial de Google"
+  },
+  "testimonials": {
+    "title": "Lo que dicen nuestros clientes",
+    "subtitle": "Profesionales como tú que dieron el paso.",
+    "items": [
+      { "name": "Sophie M.", "role": "Peluquera autónoma", "text": "Antes era totalmente invisible en Google. En una semana mi ficha estaba publicada, completa, con fotos y servicios. ¡La semana siguiente ya recibí mis primeras llamadas desde Google Maps!" },
+      { "name": "Thomas R.", "role": "Dueño de taller", "text": "Muy profesionales, lo gestionan todo de la A a la Z. El informe de entrega es muy completo, ves exactamente lo que han hecho. Lo recomiendo." },
+      { "name": "Nadia B.", "role": "Restauradora", "text": "No sabía que mi ficha de Google podía optimizarse tanto. Ahora aparezco entre los 3 primeros resultados cuando buscan restaurante en mi barrio." },
+      { "name": "Marc D.", "role": "Fontanero", "text": "Rápido, eficaz, profesional. Mi ficha estuvo lista en 5 días. El precio es muy razonable por el trabajo entregado." },
+      { "name": "Leila K.", "role": "Esteticista", "text": "Había intentado crear mi ficha sola pero quedaba incompleta. Ellos la retomaron, la optimizaron y ahora recibo clientes que me dicen haberme encontrado en Google Maps." },
+      { "name": "David L.", "role": "Electricista", "text": "Inversión amortizada en 2 semanas. Un cliente me contactó directamente desde Google My Business. Lo recomiendo a todos los autónomos." }
+    ]
+  },
+  "process": {
+    "title": "Cómo funciona, en 5 pasos",
+    "subtitle": "Simple, rápido y sin esfuerzo por tu parte.",
+    "items": [
+      { "title": "Nos contactas", "desc": "Rellena el formulario de contacto. Te respondemos en 24 h." },
+      { "title": "Pagas el servicio", "desc": "Pago seguro en línea de 379 € vía Stripe. Confirmación inmediata por email." },
+      { "title": "Nos envías tu información", "desc": "Nombre, dirección, horarios, fotos, servicios mediante nuestro cuestionario." },
+      { "title": "Creamos y optimizamos tu ficha", "desc": "Nuestro equipo se encarga de todo: creación, verificación, SEO, fotos, servicios." },
+      { "title": "Recibes tu informe de entrega", "desc": "En 7 días laborables: ficha completa + informe PDF detallado por email." }
+    ],
+    "badge": "Tiempo requerido por tu parte: 15 minutos. Nosotros nos encargamos del resto."
+  },
+  "pricing": {
+    "title": "Una oferta simple y transparente",
+    "subtitle": "Sin suscripciones, sin sorpresas. Un único pago.",
+    "popular": "⭐ Pack más popular",
+    "pack_name": "Pack Visibilidad Google",
+    "price_meta": "IVA incl.",
+    "one_time": "Servicio único, sin suscripción",
+    "features": [
+      "Creación y verificación de la ficha de Google My Business",
+      "Perfil 100% completado",
+      "Categorías optimizadas para SEO local",
+      "Subida y organización de fotos",
+      "Configuración completa de servicios",
+      "Descripción redactada y optimizada para SEO",
+      "Informe de entrega en PDF completo",
+      "Entrega en 7 días laborables",
+      "Soporte por email incluido"
+    ],
+    "cta": "Quiero mi ficha de Google — 379 €",
+    "badges": ["🔒 Pago seguro", "⚡ Entrega en 7 días", "📄 Informe incluido", "💬 Soporte por email incluido"]
+  },
+  "guarantee": {
+    "tag": "Nuestra promesa",
+    "title": "Garantía de satisfacción o reembolso",
+    "title_long_a": "Garantía de entrega en 7 días laborables",
+    "title_long_b": "o te devolvemos el dinero",
+    "body": "Te garantizamos la entrega de tu ficha de Google My Business en 7 días laborables con los datos exactos de tu empresa. En caso contrario, te reembolsamos íntegramente.",
+    "body_long": "Te garantizamos la entrega de tu ficha de Google My Business, totalmente configurada con los datos exactos de tu empresa, en un máximo de 7 días laborables. Si no cumplimos el plazo o los datos no son correctos, te reembolsamos íntegramente, sin discusión.",
+    "chip_delay": "7 días laborables máx.",
+    "chip_conform": "Datos 100% correctos",
+    "chip_refund": "Reembolso íntegro"
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "items": [
+      { "q": "¿Google My Business es realmente gratis?", "a": "Sí, la ficha es 100% gratuita. Pagas nuestra experiencia para crearla y optimizarla correctamente." },
+      { "q": "Ya tengo una ficha de Google, ¿podéis intervenir igualmente?", "a": "Por supuesto. Tomamos tu ficha existente y la hacemos 100% conforme a los criterios de Google." },
+      { "q": "¿Cuánto dura el servicio?", "a": "Entrega en 7 días laborables desde la recepción de tus datos." },
+      { "q": "¿Qué debo aportar?", "a": "Solo tus datos básicos mediante nuestro cuestionario: nombre, dirección, teléfono, horarios, fotos y servicios." },
+      { "q": "No tengo fotos, ¿es un problema?", "a": "Te aconsejamos qué fotos hacer con tu móvil. Fotos sencillas bien encuadradas bastan para empezar." },
+      { "q": "¿Mi ficha será visible justo después de la entrega?", "a": "Sí, es visible en Google Maps en cuanto se entrega. La visibilidad crece con las reseñas." },
+      { "q": "¿Qué contiene el informe de entrega?", "a": "Un PDF completo con capturas de tu ficha y resumen de todas las optimizaciones." },
+      { "q": "¿El servicio está garantizado?", "a": "Sí. Garantía de entrega en 7 días laborables o reembolso: si no se cumple el plazo o los datos no son correctos, te reembolsamos íntegramente." },
+      { "q": "¿Puedo editar mi ficha tras la entrega?", "a": "Sí, tienes acceso total y puedes modificarla cuando quieras." },
+      { "q": "¿Trabajáis en toda Francia?", "a": "Sí, nuestro servicio es 100% online. Trabajamos con comercios de toda Francia." },
+      { "q": "¿Cómo puedo contactaros?", "a": "Únicamente mediante el formulario de contacto de esta página. Respondemos por email en 24 h." }
+    ]
+  },
+  "contact": {
+    "title": "Contáctanos por el formulario",
+    "subtitle": "¿Una pregunta antes de pedir? Respondemos por email en 24 h.",
+    "first_name": "Nombre *",
+    "last_name": "Apellidos *",
+    "company": "Nombre de la empresa *",
+    "sector": "Sector de actividad *",
+    "city": "Ciudad *",
+    "email": "Email *",
+    "choose": "— Elegir —",
+    "existing_listing": "¿Ya tienes una ficha de Google?",
+    "yes": "Sí", "no": "No", "unsure": "No lo sé",
+    "message": "Mensaje o pregunta (opcional)",
+    "rgpd": "Acepto ser contactado por email sobre mi solicitud *",
+    "submit": "Enviar mi solicitud — Respuesta en 24 h",
+    "sending": "Enviando...",
+    "privacy": "🔒 Tus datos son confidenciales y nunca se comparten ni se venden.",
+    "sent_title": "✅ ¡Tu solicitud se ha enviado!",
+    "sent_body": "Te contactamos por email en 24 h.",
+    "send_another": "Enviar otra solicitud",
+    "sectors": ["Peluquero", "Restaurante", "Taller", "Fontanero", "Electricista", "Esteticista", "Panadería", "Otro"],
+    "errors": {
+      "required": "Obligatorio",
+      "sector": "Elige un sector",
+      "email": "Email no válido",
+      "choice": "Elige una opción",
+      "rgpd": "Debes aceptar ser contactado",
+      "generic": "Ha ocurrido un error. Inténtalo de nuevo."
+    }
+  },
+  "commander": {
+    "title": "Reserva tu pack",
+    "subtitle": "Rellena esta información en 1 min. Te redirigiremos al pago seguro con Stripe.",
+    "first_name": "Nombre",
+    "last_name": "Apellidos",
+    "email": "Email",
+    "phone": "Teléfono",
+    "company": "Nombre de la empresa",
+    "city": "Ciudad",
+    "activity": "Actividad",
+    "activity_placeholder": "Ej.: Panadería, Fontanero...",
+    "submit": "Pagar 379 € con tarjeta →",
+    "redirecting": "Redirigiendo...",
+    "secure_line": "Pago 100 % seguro vía Stripe · Garantía de satisfacción o reembolso",
+    "recap": "Resumen",
+    "pack": "Pack Hotavis",
+    "price_meta": "IVA incl. · pago único",
+    "feature_1": "Creación completa de tu ficha de Google",
+    "feature_2": "Optimización SEO local (palabras clave de ciudad)",
+    "feature_3": "Categorías, servicios, horarios, atributos",
+    "feature_4": "Integración de tus fotos",
+    "feature_5": "Entrega en 7 días laborables",
+    "feature_6": "Garantía de satisfacción o reembolso"
+  },
+  "onboarding": {
+    "validating_payment": "Pago en validación",
+    "wait_a_moment": "Espera unos segundos — esta página se actualizará automáticamente.",
+    "not_found_title": "Pedido no encontrado",
+    "not_found_body": "Este enlace ya no es válido.",
+    "hello": "Hola",
+    "briefing_for": "Briefing para",
+    "minutes": "10 minutos",
+    "steps": ["Empresa", "Actividad", "Horarios", "Servicios", "Fotos", "Documentos", "Validación"],
+    "prev": "← Anterior",
+    "next": "Siguiente",
+    "validate": "Validar mi briefing",
+    "must_accept_terms": "Debes aceptar las condiciones",
+    "upload_max": "Máx. 10 MB",
+    "upload_ok": "Foto subida",
+    "doc_ok": "Documento enviado de forma segura",
+    "upload_fail": "Error al subir",
+    "send_error": "Error al enviar",
+    "s1_title": "1. Tu empresa",
+    "s1_name": "Nombre comercial oficial *",
+    "s1_date": "Fecha de creación de la empresa",
+    "s1_address": "Dirección postal exacta *",
+    "s1_zip": "Código postal *",
+    "s1_city": "Ciudad *",
+    "s1_phone": "Teléfono profesional *",
+    "s1_website": "Sitio web (opcional)",
+    "s1_google_email": "Email de la cuenta Google (si la tienes)",
+    "s1_no_google": "No tengo cuenta de Google — crea una para mí",
+    "s2_title": "2. Tu actividad",
+    "s2_category": "Categoría de actividad principal *",
+    "s2_category_ph": "Ej.: Panadería, Fontanero, Restaurante...",
+    "s2_desc": "Descripción (20–750 caracteres) *",
+    "s2_desc_ph": "Describe tu actividad, tus puntos fuertes, lo que te diferencia...",
+    "s2_presence": "Tipo de presencia *",
+    "s2_shop": "Local", "s2_home": "En casa del cliente", "s2_both": "Ambos",
+    "s2_radius": "Radio de intervención (km)",
+    "s3_title": "3. Horarios de apertura completos",
+    "s3_closed": "Cerrado",
+    "s3_days": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+    "s4_title": "4. Servicios y atributos",
+    "s4_services": "Servicios ofrecidos",
+    "s4_services_ph": "Ej.: Entrega, Click & collect...",
+    "s4_add": "Añadir",
+    "s4_attributes": "Atributos",
+    "s4_attrs_list": ["Accesible PMR", "Wifi gratis", "Pago con tarjeta", "Pago sin contacto", "Reserva online", "Aparcamiento", "Terraza", "Animales permitidos", "Climatizado", "Entrega a domicilio", "Para llevar"],
+    "s5_title": "5. Fotos para tu ficha",
+    "s5_logo": "Logo",
+    "s5_cover": "Foto de portada",
+    "s5_more": "Fotos de fachada y adicionales (hasta 10)",
+    "s5_choose": "Elegir",
+    "s6_title": "6. Documentos oficiales",
+    "s6_photos_etab": "Fotos de tu establecimiento",
+    "s6_photos_etab_hint": "(fachada con rótulo, interior, vehículos rotulados)",
+    "s6_photos_etab_desc": "Estas fotos sirven para probar a Google que tu empresa existe físicamente.",
+    "s6_kbis_title": "Registro mercantil (Kbis o equivalente) — obligatorio",
+    "s6_kbis_desc": "Sube tu certificado de registro mercantil o cualquier documento legal de constitución. PDF, JPG, PNG · Máx. 10 MB. 🔒 Almacenamiento privado cifrado.",
+    "s6_invoice_title": "Factura a nombre de la empresa (energía, teléfono, agua...) — obligatorio",
+    "s6_invoice_desc": "Una factura reciente (menos de 6 meses) a nombre y dirección de la empresa. Sirve como segundo justificante para Google. PDF, JPG, PNG · Máx. 10 MB.",
+    "s6_upload": "Subir",
+    "s6_uploading": "Enviando…",
+    "s6_remove": "Quitar",
+    "s7_title": "7. Validación",
+    "s7_comments": "Comentarios libres (opcional)",
+    "s7_comments_ph": "Información adicional, solicitudes específicas...",
+    "s7_terms": "Acepto las condiciones y autorizo a Hotavis a crear mi ficha de Google Business Profile en mi nombre."
+  },
+  "merci": {
+    "title": "¡Briefing recibido, gracias! 🎉",
+    "body": "Nuestro equipo empieza a trabajar en tu ficha de Google. Recibirás un email en cuanto esté en línea (en 7 días laborables).",
+    "back": "Volver al inicio",
+    "question": "¿Una pregunta? Responde simplemente al email de confirmación."
+  },
+  "footer": {
+    "tagline": "Tu presencia en Google, nuestra prioridad. Agencia francesa especializada en la creación y optimización de fichas de Google Business Profile.",
+    "navigation": "Navegación",
+    "contact": "Contacto",
+    "reply_24h": "Respuesta por email en 24 h",
+    "hours": "Lun–Vie · 9h–18h",
+    "rights": "Todos los derechos reservados.",
+    "agency": "Agencia francesa · Pago seguro con Stripe"
+  }
+}

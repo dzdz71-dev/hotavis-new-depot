@@ -1,0 +1,338 @@
+{
+  "common": {
+    "cta_order": "Get my Google profile — €379",
+    "cta_start": "Get started — €379",
+    "menu_home": "Home",
+    "menu_services": "Services",
+    "menu_process": "How it works",
+    "menu_pricing": "Pricing",
+    "menu_testimonials": "Testimonials",
+    "menu_contact": "Contact",
+    "language": "Language",
+    "contact_via_form": "Contact us via the form — reply within 24h"
+  },
+  "reassurance": [
+    "✅ Delivery in 7 days",
+    "🔒 Secure Stripe payment",
+    "📄 Delivery report included",
+    "💬 Email support included",
+    "🏆 Google My Business experts",
+    "🇫🇷 100% French team"
+  ],
+  "hero": {
+    "badge": "Google My Business experts · 100% French team",
+    "title_a": "Is your business",
+    "title_b": "invisible on Google",
+    "title_c": "? We'll take care of it.",
+    "subtitle": "We create and optimize your Google My Business profile so your customers can easily find you on Google Maps and in local search.",
+    "cta": "I want to be visible on Google — €379",
+    "badge_delivery": "⭐ Delivered in 7 days",
+    "badge_secure": "🔒 Secure payment",
+    "badge_report": "📄 Delivery report included",
+    "caption": "Here's what your Google My Business profile will look like once delivered",
+    "mock_open": "Open",
+    "mock_closes": "Closes at 7:00 PM",
+    "mock_complete": "Complete profile ✅",
+    "mock_directions": "Directions",
+    "mock_photos": "Photos",
+    "mock_website": "Website",
+    "mock_photos_label": "Photos",
+    "mock_see_all": "See all →",
+    "mock_description": "Independent garage in Paris 15. Maintenance, servicing, brakes, tires. Free quote in under 24h.",
+    "mock_business_name": "Garage Martin — Paris 15",
+    "mock_reviews": "(127 reviews)",
+    "mock_category": "Auto repair shop · 24 rue de Vaugirard, 75015 Paris"
+  },
+  "video": {
+    "title": "Why is your Google My Business profile your best local visibility tool?",
+    "subtitle": "Watch this short video to understand why thousands of businesses rely on Google My Business to attract new customers.",
+    "cta": "Get my Google profile — €379"
+  },
+  "problem": {
+    "tag": "You're losing customers without knowing it",
+    "title": "Every day, customers search for your business on Google… and find your competitors instead.",
+    "items": [
+      { "icon": "🔍", "title": "You can't be found", "desc": "When a customer types \"hair salon Paris 11\" or \"plumber Lyon\", they see your competitors. Not you." },
+      { "icon": "📉", "title": "You're losing revenue", "desc": "97% of consumers search for a business on Google before visiting. Without a profile, you miss those customers." },
+      { "icon": "⚠️", "title": "You don't exist", "desc": "Today, a business without a Google profile is seen as closed or untrustworthy." }
+    ]
+  },
+  "risks": {
+    "title": "The dangers of not having a Google profile",
+    "items": [
+      "Invisible on Google Maps and local search",
+      "Your competitors capture your customers",
+      "Anyone can create an unofficial profile in your name",
+      "No direct call button from Google",
+      "No automatic directions for your customers",
+      "You lose dozens of calls and visits every month without knowing it",
+      "Your credibility suffers vs. competitors on Google"
+    ]
+  },
+  "stats": {
+    "title": "Local SEO key numbers",
+    "items": [
+      "of consumers search for a local business on Google before going there",
+      "of Google searches have local intent",
+      "more visits for a well-optimized Google My Business profile",
+      "searches performed on Google every day"
+    ]
+  },
+  "before_after": {
+    "title": "Before / After our work",
+    "subtitle": "The difference is immediate.",
+    "before_tag": "Before",
+    "before_title": "Without an optimized profile",
+    "after_tag": "After",
+    "after_title": "With Hotavis",
+    "before": [
+      "Business not found on Google Maps",
+      "No photos",
+      "No visible contact info",
+      "No reviews possible",
+      "No description",
+      "Hours unknown",
+      "Category poorly set"
+    ],
+    "after": [
+      "Profile visible and verified on Google Maps",
+      "Professional photos online",
+      "Phone, address, website configured",
+      "Profile ready to receive customer reviews",
+      "Local-SEO-optimized description",
+      "Full opening hours set",
+      "Main and secondary categories optimized"
+    ]
+  },
+  "services": {
+    "title": "What's included in our service",
+    "subtitle": "A professional Google profile is the foundation of all local visibility.",
+    "items": [
+      { "icon": "🔧", "title": "Profile creation & verification", "desc": "We create your official profile and get it verified by Google." },
+      { "icon": "🗂️", "title": "100% complete profile", "desc": "Name, address, phone, website, hours — all filled in accurately." },
+      { "icon": "🎯", "title": "Strategic categories", "desc": "Categories chosen to appear in the right local searches." },
+      { "icon": "📸", "title": "Photo upload", "desc": "Upload and organization of your photos for an attractive profile." },
+      { "icon": "⚙️", "title": "Services configuration", "desc": "Full list of your services with descriptions." },
+      { "icon": "✍️", "title": "SEO-optimized description", "desc": "Professional copywriting with local keywords." },
+      { "icon": "📄", "title": "PDF delivery report", "desc": "Full document with screenshots of the whole job." }
+    ]
+  },
+  "expertise": {
+    "title": "Why trust us?",
+    "subtitle": "Our team specializes in local SEO and Google visibility for shops and SMBs. That's all we do.",
+    "items": [
+      { "title": "Google My Business specialists", "desc": "We master every Google ranking factor to maximize local visibility." },
+      { "title": "Local SEO experts", "desc": "We know the techniques to rank your profile at the top of Google Maps." },
+      { "title": "Fast turnaround", "desc": "Your profile is created, optimized and delivered in 7 business days." },
+      { "title": "Personal support", "desc": "We gather your info, handle everything and keep you posted until delivery." }
+    ],
+    "badge": "Service performed on Google My Business — Google's official platform"
+  },
+  "testimonials": {
+    "title": "What our clients say",
+    "subtitle": "Professionals like you who took the leap.",
+    "items": [
+      { "name": "Sophie M.", "role": "Independent hairdresser", "text": "I was completely invisible on Google before. In a week my profile was live with photos and services. I got my first calls from Google Maps the next week!" },
+      { "name": "Thomas R.", "role": "Garage owner", "text": "Very professional, they handled everything from A to Z. The delivery report is super thorough — you can see exactly what was done. Highly recommend." },
+      { "name": "Nadia B.", "role": "Restaurant owner", "text": "I had no idea my Google profile could be optimized this much. Now I show up in the top 3 results when people search for a restaurant in my area." },
+      { "name": "Marc D.", "role": "Plumber", "text": "Fast, efficient, professional. My profile was delivered in 5 days. Very reasonable price for the work delivered." },
+      { "name": "Leila K.", "role": "Beautician", "text": "I had tried creating my profile myself but it was incomplete. They took it over, optimized it, and now I get customers telling me they found me on Google Maps." },
+      { "name": "David L.", "role": "Electrician", "text": "Investment paid back in 2 weeks. A customer contacted me directly via Google My Business. Recommend to all tradespeople." }
+    ]
+  },
+  "process": {
+    "title": "How it works, in 5 steps",
+    "subtitle": "Simple, fast, no effort on your side.",
+    "items": [
+      { "title": "You contact us", "desc": "Fill in the contact form. We reply within 24h." },
+      { "title": "You pay for the service", "desc": "Secure online payment of €379 via Stripe. Instant email confirmation." },
+      { "title": "You send your info", "desc": "Name, address, hours, photos, services via our simple questionnaire." },
+      { "title": "We create and optimize your profile", "desc": "Our team handles everything: creation, verification, SEO, photos, services." },
+      { "title": "You receive your delivery report", "desc": "Within 7 business days: full Google profile + detailed PDF report via email." }
+    ],
+    "badge": "Time required from you: 15 minutes. We handle the rest."
+  },
+  "pricing": {
+    "title": "A simple, transparent offer",
+    "subtitle": "No subscription, no surprises. One single payment.",
+    "popular": "⭐ Most popular pack",
+    "pack_name": "Google Visibility Pack",
+    "price_meta": "incl. VAT",
+    "one_time": "One-time service, no subscription",
+    "features": [
+      "Creation and verification of your Google My Business profile",
+      "100% completed profile",
+      "Categories optimized for local SEO",
+      "Photo upload and organization",
+      "Full services configuration",
+      "SEO-optimized description copywriting",
+      "Full PDF delivery report",
+      "Delivery within 7 business days",
+      "Email support included"
+    ],
+    "cta": "Get my Google profile — €379",
+    "badges": ["🔒 Secure payment", "⚡ Delivery in 7 days", "📄 Report included", "💬 Email support included"]
+  },
+  "guarantee": {
+    "tag": "Our promise",
+    "title": "Satisfaction or money-back guarantee",
+    "title_long_a": "Delivery within 7 business days guarantee",
+    "title_long_b": "or your money back",
+    "body": "We guarantee delivery of your Google My Business profile within 7 business days with your exact business information. Otherwise, we refund you in full.",
+    "body_long": "We guarantee delivery of your Google My Business profile, fully configured with the exact information of your business, within 7 business days maximum. If that deadline is missed or the information isn't accurate, we refund you in full, no questions asked.",
+    "chip_delay": "7 business days max",
+    "chip_conform": "100% accurate information",
+    "chip_refund": "Full refund"
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      { "q": "Is Google My Business really free?", "a": "Yes, the profile is 100% free. You pay for our expertise to create and optimize it properly." },
+      { "q": "I already have a Google profile, can you still help?", "a": "Absolutely. We take over your existing profile and make it 100% compliant with Google's criteria." },
+      { "q": "How long does the service take?", "a": "Delivered within 7 business days from receipt of your information." },
+      { "q": "What do I need to provide?", "a": "Just your basic information via our questionnaire: name, address, phone, hours, photos and services." },
+      { "q": "I don't have photos, is that a problem?", "a": "We guide you on what photos to take with your smartphone. Simple well-framed photos are enough to start." },
+      { "q": "Will my profile be visible right after delivery?", "a": "Yes, it's visible on Google Maps as soon as it's delivered. Visibility grows further with customer reviews." },
+      { "q": "What's in the delivery report?", "a": "A full PDF with screenshots of your finished profile and a summary of every optimization done." },
+      { "q": "Is the service guaranteed?", "a": "Yes. 7-business-day delivery guarantee or refund: if the deadline is missed or the delivered info isn't accurate, we refund you in full, no questions asked." },
+      { "q": "Can I edit my profile after delivery?", "a": "Yes, you have full access and can edit your profile any time." },
+      { "q": "Do you work all over France?", "a": "Yes, our service is 100% online. We work with businesses everywhere in France." },
+      { "q": "How can I contact you?", "a": "Only via the contact form on this page. We reply by email within 24h." }
+    ]
+  },
+  "contact": {
+    "title": "Contact us via the form",
+    "subtitle": "A question before ordering? We reply by email within 24h.",
+    "first_name": "First name *",
+    "last_name": "Last name *",
+    "company": "Company name *",
+    "sector": "Industry *",
+    "city": "City *",
+    "email": "Email address *",
+    "choose": "— Choose —",
+    "existing_listing": "Do you already have a Google profile?",
+    "yes": "Yes", "no": "No", "unsure": "I'm not sure",
+    "message": "Message or question (optional)",
+    "rgpd": "I agree to be contacted by email about my request *",
+    "submit": "Send my request — Reply within 24h",
+    "sending": "Sending...",
+    "privacy": "🔒 Your data is confidential and will never be shared or sold.",
+    "sent_title": "✅ Your request was sent!",
+    "sent_body": "We'll get back to you by email within 24h.",
+    "send_another": "Send another request",
+    "sectors": ["Hairdresser", "Restaurant", "Garage", "Plumber", "Electrician", "Beautician", "Bakery", "Other"],
+    "errors": {
+      "required": "Required",
+      "sector": "Choose an industry",
+      "email": "Invalid email",
+      "choice": "Please choose an option",
+      "rgpd": "You must agree to be contacted",
+      "generic": "Something went wrong. Try again."
+    }
+  },
+  "commander": {
+    "title": "Order your pack",
+    "subtitle": "Fill in this info in 1 minute. You'll be redirected to secure Stripe checkout.",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "company": "Company name",
+    "city": "City",
+    "activity": "Activity",
+    "activity_placeholder": "E.g. Bakery, Plumber...",
+    "submit": "Pay €379 by card →",
+    "redirecting": "Redirecting...",
+    "secure_line": "100% secure payment via Stripe · Satisfaction or money-back guarantee",
+    "recap": "Summary",
+    "pack": "Hotavis Pack",
+    "price_meta": "incl. VAT · one-time payment",
+    "feature_1": "Complete creation of your Google profile",
+    "feature_2": "Local SEO optimization (city keywords)",
+    "feature_3": "Categories, services, hours, attributes",
+    "feature_4": "Integration of your photos",
+    "feature_5": "Delivered within 7 business days",
+    "feature_6": "Satisfaction or money-back guarantee"
+  },
+  "onboarding": {
+    "validating_payment": "Payment is being validated",
+    "wait_a_moment": "Hang on a few seconds — this page will refresh automatically.",
+    "not_found_title": "Order not found",
+    "not_found_body": "This link is no longer valid.",
+    "hello": "Hi",
+    "briefing_for": "Briefing for",
+    "minutes": "10 minutes",
+    "steps": ["Business", "Activity", "Hours", "Services", "Photos", "Documents", "Validation"],
+    "prev": "← Previous",
+    "next": "Next",
+    "validate": "Submit my briefing",
+    "must_accept_terms": "You must accept the terms",
+    "upload_max": "Max 10 MB",
+    "upload_ok": "Photo uploaded",
+    "doc_ok": "Document securely sent",
+    "upload_fail": "Upload failed",
+    "send_error": "Error while sending",
+    "s1_title": "1. Your business",
+    "s1_name": "Official trade name *",
+    "s1_date": "Business creation date",
+    "s1_address": "Exact postal address *",
+    "s1_zip": "Postal code *",
+    "s1_city": "City *",
+    "s1_phone": "Business phone *",
+    "s1_website": "Website (optional)",
+    "s1_google_email": "Google account email (if any)",
+    "s1_no_google": "I don't have a Google account — create one for me",
+    "s2_title": "2. Your activity",
+    "s2_category": "Main business category *",
+    "s2_category_ph": "E.g. Bakery, Plumber, Restaurant...",
+    "s2_desc": "Description (20–750 characters) *",
+    "s2_desc_ph": "Describe your business, strengths, what sets you apart...",
+    "s2_presence": "Presence type *",
+    "s2_shop": "Shop", "s2_home": "At customers'", "s2_both": "Both",
+    "s2_radius": "Service radius (km)",
+    "s3_title": "3. Full opening hours",
+    "s3_closed": "Closed",
+    "s3_days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "s4_title": "4. Services & attributes",
+    "s4_services": "Services offered",
+    "s4_services_ph": "E.g. Delivery, Click & collect...",
+    "s4_add": "Add",
+    "s4_attributes": "Attributes",
+    "s4_attrs_list": ["Wheelchair accessible", "Free Wi-Fi", "Card payment", "Contactless payment", "Online booking", "Parking", "Terrace", "Pets allowed", "Air-conditioned", "Home delivery", "Takeaway"],
+    "s5_title": "5. Photos for your profile",
+    "s5_logo": "Logo",
+    "s5_cover": "Cover photo",
+    "s5_more": "Storefront & extra photos (up to 10)",
+    "s5_choose": "Choose",
+    "s6_title": "6. Official documents",
+    "s6_photos_etab": "Photos of your premises",
+    "s6_photos_etab_hint": "(storefront with signage, interior, branded vehicles)",
+    "s6_photos_etab_desc": "These photos prove to Google that your business physically exists.",
+    "s6_kbis_title": "Business registration (Kbis or equivalent) — required",
+    "s6_kbis_desc": "Upload your business registration certificate or any legal document of incorporation. PDF, JPG, PNG · Max 10 MB. 🔒 Encrypted private storage.",
+    "s6_invoice_title": "Utility bill at the business address (energy, phone, water...) — required",
+    "s6_invoice_desc": "A recent invoice (less than 6 months) at the business name and address. Serves as second proof to Google. PDF, JPG, PNG · Max 10 MB.",
+    "s6_upload": "Upload",
+    "s6_uploading": "Sending…",
+    "s6_remove": "Remove",
+    "s7_title": "7. Validation",
+    "s7_comments": "Free comments (optional)",
+    "s7_comments_ph": "Extra info, specific requests...",
+    "s7_terms": "I accept the terms and authorize Hotavis to create my Google Business Profile on my behalf."
+  },
+  "merci": {
+    "title": "Briefing received, thank you! 🎉",
+    "body": "Our team is starting work on your Google profile. You'll get an email as soon as it goes live (within 7 business days).",
+    "back": "Back to home",
+    "question": "A question? Just reply to the confirmation email."
+  },
+  "footer": {
+    "tagline": "Your Google presence, our priority. French agency specialized in Google Business Profile creation and optimization.",
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "reply_24h": "Email reply within 24h",
+    "hours": "Mon–Fri · 9am–6pm",
+    "rights": "All rights reserved.",
+    "agency": "French agency · Secure Stripe payment"
+  }
+}
