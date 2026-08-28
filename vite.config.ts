@@ -19,8 +19,9 @@
 //
 // Migration Cloudflare → Vercel (2026-06-24) :
 //   - preset "cloudflare-module" (workerd, incompatible Windows ARM64) → "vercel"
-//   - output.dir "dist" conservé pour compatibilité avec les scripts existants
-//   - plus de dépendance à wrangler/workerd pour le build/preview
+//   - 2026-08-29 : suppression de l'override output.dir "dist" — le preset "vercel"
+//     doit écrire dans .vercel/output/{config.json, functions/__server.func, static}
+//     (noms exigés par le Build Output API de Vercel ; sinon 404 sur toutes les routes)
 //
 // Référence : node_modules/@lovable.dev/vite-tanstack-config/dist/index.js (v2.3.2)
 
@@ -147,7 +148,9 @@ export default defineConfig(async (env) => {
       internalPlugins.push(
         nitro({
           preset: "vercel",
-          output: { dir: "dist", serverDir: "dist/server", publicDir: "dist/client" },
+          // ⚠️ Ne PAS surcharger output.* : le preset vercel écrit par défaut dans
+          // .vercel/output (config.json + functions/__server.func + static/),
+          // structure exigée par le Build Output API de Vercel.
         }),
       );
     } catch (err) {
