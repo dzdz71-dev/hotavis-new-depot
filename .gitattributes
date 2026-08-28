@@ -1,0 +1,31 @@
+# Normalisation des fins de ligne : LF dans le dépôt et au checkout,
+# quelle que soit la plateforme (cohérent avec Prettier / ESLint).
+* text=auto eol=lf
+
+# Scripts Windows : CRLF obligatoire
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Fichiers binaires (jamais altérés par git)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.avif binary
+*.svg text eol=lf
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.otf binary
+*.mp4 binary
+*.webm binary
+*.mp3 binary
+*.wav binary
+*.zip binary
+*.gz binary
+*.tar binary

@@ -9,8 +9,8 @@
 // Pour chaque clé (IP ou email), on garde une fenêtre glissante de 60s avec
 // un max de N requêtes. Si dépassé, on jette RateLimitError.
 
-const WINDOW_MS = 60_000;  // 60 secondes
-const DEFAULT_MAX = 5;     // 5 requêtes par minute par défaut
+const WINDOW_MS = 60_000; // 60 secondes
+const DEFAULT_MAX = 5; // 5 requêtes par minute par défaut
 
 type Bucket = { count: number; resetAt: number };
 const buckets = new Map<string, Bucket>();
@@ -19,7 +19,7 @@ const buckets = new Map<string, Bucket>();
 let lastCleanup = Date.now();
 function cleanup() {
   const now = Date.now();
-  if (now - lastCleanup < 5 * 60_000) return;  // 5 min
+  if (now - lastCleanup < 5 * 60_000) return; // 5 min
   lastCleanup = now;
   for (const [key, b] of buckets) {
     if (b.resetAt < now) buckets.delete(key);
@@ -40,7 +40,11 @@ export class RateLimitError extends Error {
  * @param max Nombre max de requêtes dans la fenêtre (défaut: 5)
  * @param windowMs Fenêtre en ms (défaut: 60s)
  */
-export function rateLimit(key: string, max: number = DEFAULT_MAX, windowMs: number = WINDOW_MS): void {
+export function rateLimit(
+  key: string,
+  max: number = DEFAULT_MAX,
+  windowMs: number = WINDOW_MS,
+): void {
   cleanup();
   const now = Date.now();
   const existing = buckets.get(key);

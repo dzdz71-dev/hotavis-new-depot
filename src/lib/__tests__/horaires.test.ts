@@ -4,24 +4,35 @@ import { z } from "zod";
 // On recrée le schéma ici pour tester la logique de validation sans dépendre
 // du module complet (qui importe @tanstack/react-start et ne peut pas tourner
 // dans vitest sans config supplémentaire).
-const horaireJourSchema = z.object({
-  ferme: z.boolean(),
-  ouverture: z.string().regex(/^\d{2}:\d{2}$/, "Format HH:MM requis").optional().nullable(),
-  fermeture: z.string().regex(/^\d{2}:\d{2}$/, "Format HH:MM requis").optional().nullable(),
-}).refine(
-  (d) => d.ferme || (d.ouverture && d.fermeture),
-  { message: "Si non fermé, ouverture et fermeture sont requises" }
-);
+const horaireJourSchema = z
+  .object({
+    ferme: z.boolean(),
+    ouverture: z
+      .string()
+      .regex(/^\d{2}:\d{2}$/, "Format HH:MM requis")
+      .optional()
+      .nullable(),
+    fermeture: z
+      .string()
+      .regex(/^\d{2}:\d{2}$/, "Format HH:MM requis")
+      .optional()
+      .nullable(),
+  })
+  .refine((d) => d.ferme || (d.ouverture && d.fermeture), {
+    message: "Si non fermé, ouverture et fermeture sont requises",
+  });
 
-const horairesSchema = z.object({
-  mon: horaireJourSchema,
-  tue: horaireJourSchema,
-  wed: horaireJourSchema,
-  thu: horaireJourSchema,
-  fri: horaireJourSchema,
-  sat: horaireJourSchema,
-  sun: horaireJourSchema,
-}).strict();
+const horairesSchema = z
+  .object({
+    mon: horaireJourSchema,
+    tue: horaireJourSchema,
+    wed: horaireJourSchema,
+    thu: horaireJourSchema,
+    fri: horaireJourSchema,
+    sat: horaireJourSchema,
+    sun: horaireJourSchema,
+  })
+  .strict();
 
 describe("horairesSchema", () => {
   const validHoraires = {

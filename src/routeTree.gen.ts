@@ -11,14 +11,22 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RecrutementRouteImport } from './routes/recrutement'
 import { Route as MerciRouteImport } from './routes/merci'
+import { Route as DevenirAgentRouteImport } from './routes/devenir-agent'
 import { Route as CommanderRouteImport } from './routes/commander'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AgentIndexRouteImport } from './routes/agent.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as OnboardingCommandeIdRouteImport } from './routes/onboarding.$commandeId'
 import { Route as OnboardingSuccessCommandeIdRouteImport } from './routes/onboarding-success.$commandeId'
+import { Route as AgentUpdatePasswordRouteImport } from './routes/agent.update-password'
+import { Route as AgentRulesRouteImport } from './routes/agent.rules'
+import { Route as AgentRevenueRouteImport } from './routes/agent.revenue'
+import { Route as AgentMarketRouteImport } from './routes/agent.market'
 import { Route as AgentLoginRouteImport } from './routes/agent.login'
+import { Route as AgentForgotPasswordRouteImport } from './routes/agent.forgot-password'
+import { Route as AgentCasesRouteImport } from './routes/agent.cases'
 import { Route as AgentIdRouteImport } from './routes/agent.$id'
+import { Route as AdminStatistiquesRouteImport } from './routes/admin.statistiques'
 import { Route as AdminParametresRouteImport } from './routes/admin.parametres'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminKanbanRouteImport } from './routes/admin.kanban'
@@ -38,6 +46,11 @@ const RecrutementRoute = RecrutementRouteImport.update({
 const MerciRoute = MerciRouteImport.update({
   id: '/merci',
   path: '/merci',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevenirAgentRoute = DevenirAgentRouteImport.update({
+  id: '/devenir-agent',
+  path: '/devenir-agent',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommanderRoute = CommanderRouteImport.update({
@@ -71,14 +84,49 @@ const OnboardingSuccessCommandeIdRoute =
     path: '/onboarding-success/$commandeId',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AgentUpdatePasswordRoute = AgentUpdatePasswordRouteImport.update({
+  id: '/agent/update-password',
+  path: '/agent/update-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentRulesRoute = AgentRulesRouteImport.update({
+  id: '/agent/rules',
+  path: '/agent/rules',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentRevenueRoute = AgentRevenueRouteImport.update({
+  id: '/agent/revenue',
+  path: '/agent/revenue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentMarketRoute = AgentMarketRouteImport.update({
+  id: '/agent/market',
+  path: '/agent/market',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AgentLoginRoute = AgentLoginRouteImport.update({
   id: '/agent/login',
   path: '/agent/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgentForgotPasswordRoute = AgentForgotPasswordRouteImport.update({
+  id: '/agent/forgot-password',
+  path: '/agent/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentCasesRoute = AgentCasesRouteImport.update({
+  id: '/agent/cases',
+  path: '/agent/cases',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AgentIdRoute = AgentIdRouteImport.update({
   id: '/agent/$id',
   path: '/agent/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminStatistiquesRoute = AdminStatistiquesRouteImport.update({
+  id: '/admin/statistiques',
+  path: '/admin/statistiques',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminParametresRoute = AdminParametresRouteImport.update({
@@ -135,6 +183,7 @@ const ApiPublicCronRemindersRoute = ApiPublicCronRemindersRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/commander': typeof CommanderRoute
+  '/devenir-agent': typeof DevenirAgentRoute
   '/merci': typeof MerciRoute
   '/recrutement': typeof RecrutementRoute
   '/accept-invitation/$token': typeof AcceptInvitationTokenRoute
@@ -145,8 +194,15 @@ export interface FileRoutesByFullPath {
   '/admin/kanban': typeof AdminKanbanRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/parametres': typeof AdminParametresRoute
+  '/admin/statistiques': typeof AdminStatistiquesRoute
   '/agent/$id': typeof AgentIdRoute
+  '/agent/cases': typeof AgentCasesRoute
+  '/agent/forgot-password': typeof AgentForgotPasswordRoute
   '/agent/login': typeof AgentLoginRoute
+  '/agent/market': typeof AgentMarketRoute
+  '/agent/revenue': typeof AgentRevenueRoute
+  '/agent/rules': typeof AgentRulesRoute
+  '/agent/update-password': typeof AgentUpdatePasswordRoute
   '/onboarding-success/$commandeId': typeof OnboardingSuccessCommandeIdRoute
   '/onboarding/$commandeId': typeof OnboardingCommandeIdRoute
   '/admin/': typeof AdminIndexRoute
@@ -157,6 +213,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/commander': typeof CommanderRoute
+  '/devenir-agent': typeof DevenirAgentRoute
   '/merci': typeof MerciRoute
   '/recrutement': typeof RecrutementRoute
   '/accept-invitation/$token': typeof AcceptInvitationTokenRoute
@@ -167,8 +224,15 @@ export interface FileRoutesByTo {
   '/admin/kanban': typeof AdminKanbanRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/parametres': typeof AdminParametresRoute
+  '/admin/statistiques': typeof AdminStatistiquesRoute
   '/agent/$id': typeof AgentIdRoute
+  '/agent/cases': typeof AgentCasesRoute
+  '/agent/forgot-password': typeof AgentForgotPasswordRoute
   '/agent/login': typeof AgentLoginRoute
+  '/agent/market': typeof AgentMarketRoute
+  '/agent/revenue': typeof AgentRevenueRoute
+  '/agent/rules': typeof AgentRulesRoute
+  '/agent/update-password': typeof AgentUpdatePasswordRoute
   '/onboarding-success/$commandeId': typeof OnboardingSuccessCommandeIdRoute
   '/onboarding/$commandeId': typeof OnboardingCommandeIdRoute
   '/admin': typeof AdminIndexRoute
@@ -180,6 +244,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/commander': typeof CommanderRoute
+  '/devenir-agent': typeof DevenirAgentRoute
   '/merci': typeof MerciRoute
   '/recrutement': typeof RecrutementRoute
   '/accept-invitation/$token': typeof AcceptInvitationTokenRoute
@@ -190,8 +255,15 @@ export interface FileRoutesById {
   '/admin/kanban': typeof AdminKanbanRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/parametres': typeof AdminParametresRoute
+  '/admin/statistiques': typeof AdminStatistiquesRoute
   '/agent/$id': typeof AgentIdRoute
+  '/agent/cases': typeof AgentCasesRoute
+  '/agent/forgot-password': typeof AgentForgotPasswordRoute
   '/agent/login': typeof AgentLoginRoute
+  '/agent/market': typeof AgentMarketRoute
+  '/agent/revenue': typeof AgentRevenueRoute
+  '/agent/rules': typeof AgentRulesRoute
+  '/agent/update-password': typeof AgentUpdatePasswordRoute
   '/onboarding-success/$commandeId': typeof OnboardingSuccessCommandeIdRoute
   '/onboarding/$commandeId': typeof OnboardingCommandeIdRoute
   '/admin/': typeof AdminIndexRoute
@@ -204,6 +276,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/commander'
+    | '/devenir-agent'
     | '/merci'
     | '/recrutement'
     | '/accept-invitation/$token'
@@ -214,8 +287,15 @@ export interface FileRouteTypes {
     | '/admin/kanban'
     | '/admin/login'
     | '/admin/parametres'
+    | '/admin/statistiques'
     | '/agent/$id'
+    | '/agent/cases'
+    | '/agent/forgot-password'
     | '/agent/login'
+    | '/agent/market'
+    | '/agent/revenue'
+    | '/agent/rules'
+    | '/agent/update-password'
     | '/onboarding-success/$commandeId'
     | '/onboarding/$commandeId'
     | '/admin/'
@@ -226,6 +306,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/commander'
+    | '/devenir-agent'
     | '/merci'
     | '/recrutement'
     | '/accept-invitation/$token'
@@ -236,8 +317,15 @@ export interface FileRouteTypes {
     | '/admin/kanban'
     | '/admin/login'
     | '/admin/parametres'
+    | '/admin/statistiques'
     | '/agent/$id'
+    | '/agent/cases'
+    | '/agent/forgot-password'
     | '/agent/login'
+    | '/agent/market'
+    | '/agent/revenue'
+    | '/agent/rules'
+    | '/agent/update-password'
     | '/onboarding-success/$commandeId'
     | '/onboarding/$commandeId'
     | '/admin'
@@ -248,6 +336,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/commander'
+    | '/devenir-agent'
     | '/merci'
     | '/recrutement'
     | '/accept-invitation/$token'
@@ -258,8 +347,15 @@ export interface FileRouteTypes {
     | '/admin/kanban'
     | '/admin/login'
     | '/admin/parametres'
+    | '/admin/statistiques'
     | '/agent/$id'
+    | '/agent/cases'
+    | '/agent/forgot-password'
     | '/agent/login'
+    | '/agent/market'
+    | '/agent/revenue'
+    | '/agent/rules'
+    | '/agent/update-password'
     | '/onboarding-success/$commandeId'
     | '/onboarding/$commandeId'
     | '/admin/'
@@ -271,6 +367,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CommanderRoute: typeof CommanderRoute
+  DevenirAgentRoute: typeof DevenirAgentRoute
   MerciRoute: typeof MerciRoute
   RecrutementRoute: typeof RecrutementRoute
   AcceptInvitationTokenRoute: typeof AcceptInvitationTokenRoute
@@ -281,8 +378,15 @@ export interface RootRouteChildren {
   AdminKanbanRoute: typeof AdminKanbanRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminParametresRoute: typeof AdminParametresRoute
+  AdminStatistiquesRoute: typeof AdminStatistiquesRoute
   AgentIdRoute: typeof AgentIdRoute
+  AgentCasesRoute: typeof AgentCasesRoute
+  AgentForgotPasswordRoute: typeof AgentForgotPasswordRoute
   AgentLoginRoute: typeof AgentLoginRoute
+  AgentMarketRoute: typeof AgentMarketRoute
+  AgentRevenueRoute: typeof AgentRevenueRoute
+  AgentRulesRoute: typeof AgentRulesRoute
+  AgentUpdatePasswordRoute: typeof AgentUpdatePasswordRoute
   OnboardingSuccessCommandeIdRoute: typeof OnboardingSuccessCommandeIdRoute
   OnboardingCommandeIdRoute: typeof OnboardingCommandeIdRoute
   AdminIndexRoute: typeof AdminIndexRoute
@@ -305,6 +409,13 @@ declare module '@tanstack/react-router' {
       path: '/merci'
       fullPath: '/merci'
       preLoaderRoute: typeof MerciRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/devenir-agent': {
+      id: '/devenir-agent'
+      path: '/devenir-agent'
+      fullPath: '/devenir-agent'
+      preLoaderRoute: typeof DevenirAgentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/commander': {
@@ -349,6 +460,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OnboardingSuccessCommandeIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agent/update-password': {
+      id: '/agent/update-password'
+      path: '/agent/update-password'
+      fullPath: '/agent/update-password'
+      preLoaderRoute: typeof AgentUpdatePasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/rules': {
+      id: '/agent/rules'
+      path: '/agent/rules'
+      fullPath: '/agent/rules'
+      preLoaderRoute: typeof AgentRulesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/revenue': {
+      id: '/agent/revenue'
+      path: '/agent/revenue'
+      fullPath: '/agent/revenue'
+      preLoaderRoute: typeof AgentRevenueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/market': {
+      id: '/agent/market'
+      path: '/agent/market'
+      fullPath: '/agent/market'
+      preLoaderRoute: typeof AgentMarketRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/agent/login': {
       id: '/agent/login'
       path: '/agent/login'
@@ -356,11 +495,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AgentLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agent/forgot-password': {
+      id: '/agent/forgot-password'
+      path: '/agent/forgot-password'
+      fullPath: '/agent/forgot-password'
+      preLoaderRoute: typeof AgentForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/cases': {
+      id: '/agent/cases'
+      path: '/agent/cases'
+      fullPath: '/agent/cases'
+      preLoaderRoute: typeof AgentCasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/agent/$id': {
       id: '/agent/$id'
       path: '/agent/$id'
       fullPath: '/agent/$id'
       preLoaderRoute: typeof AgentIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/statistiques': {
+      id: '/admin/statistiques'
+      path: '/admin/statistiques'
+      fullPath: '/admin/statistiques'
+      preLoaderRoute: typeof AdminStatistiquesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/parametres': {
@@ -439,6 +599,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CommanderRoute: CommanderRoute,
+  DevenirAgentRoute: DevenirAgentRoute,
   MerciRoute: MerciRoute,
   RecrutementRoute: RecrutementRoute,
   AcceptInvitationTokenRoute: AcceptInvitationTokenRoute,
@@ -449,8 +610,15 @@ const rootRouteChildren: RootRouteChildren = {
   AdminKanbanRoute: AdminKanbanRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminParametresRoute: AdminParametresRoute,
+  AdminStatistiquesRoute: AdminStatistiquesRoute,
   AgentIdRoute: AgentIdRoute,
+  AgentCasesRoute: AgentCasesRoute,
+  AgentForgotPasswordRoute: AgentForgotPasswordRoute,
   AgentLoginRoute: AgentLoginRoute,
+  AgentMarketRoute: AgentMarketRoute,
+  AgentRevenueRoute: AgentRevenueRoute,
+  AgentRulesRoute: AgentRulesRoute,
+  AgentUpdatePasswordRoute: AgentUpdatePasswordRoute,
   OnboardingSuccessCommandeIdRoute: OnboardingSuccessCommandeIdRoute,
   OnboardingCommandeIdRoute: OnboardingCommandeIdRoute,
   AdminIndexRoute: AdminIndexRoute,

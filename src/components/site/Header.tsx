@@ -5,7 +5,13 @@ import { Menu, X, Mail, Briefcase } from "lucide-react";
 import { HotavisLogo } from "./GoogleBrand";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
-export function Header() {
+export function Header({
+  isExpertPage = false,
+  isAgentLoginPage = false,
+}: {
+  isExpertPage?: boolean;
+  isAgentLoginPage?: boolean;
+}) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
@@ -17,6 +23,40 @@ export function Header() {
     { to: "/#temoignages", label: t("common.menu_testimonials") },
     { to: "/#contact", label: t("common.menu_contact") },
   ];
+
+  if (isExpertPage || isAgentLoginPage) {
+    return (
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="h-16 flex items-center justify-between gap-2">
+            <Link to="/" className="flex items-center gap-2">
+              <HotavisLogo />
+            </Link>
+
+            <div className="flex items-center gap-3">
+              <LanguageSwitcher />
+              {isExpertPage ? (
+                <Link
+                  to="/agent/login"
+                  className="inline-flex items-center justify-center rounded-full bg-google-green text-white px-5 py-2 text-sm font-semibold shadow-card hover:opacity-90 hover:-translate-y-0.5 hover:shadow-elevated transition"
+                >
+                  Se connecter
+                </Link>
+              ) : (
+                <Link
+                  to="/recrutement"
+                  className="inline-flex items-center gap-1.5 justify-center rounded-full bg-google-yellow text-foreground px-5 py-2 text-sm font-semibold shadow-card hover:opacity-90 hover:-translate-y-0.5 hover:shadow-elevated transition"
+                >
+                  <Briefcase className="h-4 w-4" />
+                  Recrutement Expert SEO
+                </Link>
+              )}
+            </div>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <>
@@ -53,13 +93,6 @@ export function Header() {
             </nav>
 
             <div className="flex items-center gap-2 sm:gap-3">
-              <Link
-                to="/recrutement"
-                className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-google-yellow text-foreground px-4 py-2 text-sm font-semibold shadow-card hover:-translate-y-0.5 hover:shadow-elevated transition"
-              >
-                <Briefcase className="h-4 w-4" />
-                Recrutement SEO expert
-              </Link>
               <LanguageSwitcher />
               <Link
                 to="/commander"
@@ -89,13 +122,6 @@ export function Header() {
                   {item.label}
                 </a>
               ))}
-              <Link
-                to="/recrutement"
-                onClick={() => setOpen(false)}
-                className="block mt-2 text-center rounded-full bg-google-yellow text-foreground py-3 text-sm font-semibold md:hidden"
-              >
-                Recrutement SEO expert
-              </Link>
               <Link
                 to="/commander"
                 onClick={() => setOpen(false)}

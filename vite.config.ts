@@ -45,7 +45,10 @@ function devServerFnErrorLogger(): Plugin {
     configureServer(server) {
       const onUnhandled = (reason: unknown) => {
         const err = reason instanceof Error ? reason : new Error(String(reason));
-        server.config.logger.error(`[server-fn] ${err.message}${err.stack ? "\n" + err.stack : ""}`, { timestamp: true });
+        server.config.logger.error(
+          `[server-fn] ${err.message}${err.stack ? "\n" + err.stack : ""}`,
+          { timestamp: true },
+        );
       };
       process.on("unhandledRejection", onUnhandled);
       server.httpServer?.once("close", () => {
@@ -67,9 +70,13 @@ function devSsrErrorLogger(): Plugin {
     configureServer(server) {
       const capture = (error: unknown) => {
         const err = error instanceof Error ? error : new Error(String(error));
-        server.config.logger.error(`[ssr] ${err.message}${err.stack ? "\n" + err.stack : ""}`, { timestamp: true });
+        server.config.logger.error(`[ssr] ${err.message}${err.stack ? "\n" + err.stack : ""}`, {
+          timestamp: true,
+        });
       };
-      const g = globalThis as { addEventListener?: (type: string, cb: (e: unknown) => void) => void };
+      const g = globalThis as {
+        addEventListener?: (type: string, cb: (e: unknown) => void) => void;
+      };
       if (typeof g.addEventListener === "function") {
         g.addEventListener("error", (e: unknown) => {
           const ev = e as ErrorEvent;

@@ -1,9 +1,9 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import Stripe from "stripe";
+import { Resend } from "resend";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { rateLimit } from "@/lib/rate-limit";
-import { getRequest } from "@tanstack/react-start/server";
+import { escapeHtml } from "@/lib/utils";
 
 const schema = z.object({
   prenom: z.string().trim().min(1).max(60),
@@ -17,64 +17,34 @@ const schema = z.object({
 
 const MONTANT = 37900; // 379€
 
-// Rate-limit key : combine IP + email pour limiter les créations de commande
-function buildRateLimitKey(): string {
-  try {
-    const req = getRequest();
-    if (!req) return "no-req";
-    const cfIp = (req as any).cf?.ipCountry as string | undefined;
-    const xff = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-    const ip = xff || cfIp || "unknown";
-    return `cmd:${ip}`;
-  } catch {
-    return "cmd:unknown";
-  }
-}
-
 // Step 1 of the funnel: just create the commande. NO Stripe yet.
 // The client is redirected to /onboarding/{id} to fill the briefing first.
 export const createCommande = createServerFn({ method: "POST" })
   .inputValidator((input) => schema.parse(input))
-  .handler(async ({ data }) => {
-    // Rate-limit : 5 commandes / minute / IP
-    rateLimit(buildRateLimitKey(), 5, 60_000);
-
-    const { data: commande, error } = await supabaseAdmin
-      .from("commandes")
-      .insert({
-        prenom: data.prenom,
-        nom: data.nom,
-        email: data.email,
-        telephone: data.telephone,
-        entreprise: data.entreprise,
-        ville: data.ville,
-        activite: data.activite,
-        montant_centimes: MONTANT,
-        statut: "en_attente",
-      })
-      .select()
-      .single();
-
-    if (error || !commande) {
-      console.error(error);
-      throw new Error("Erreur création commande");
-    }
-    return { commande_id: commande.id };
+  .handler(async ({ data, request }) => {
+    // Dynamic import to avoid client-side import issues with @tanstack/react-start/server
+    const { createCommandeHandler } = await import("@/lib/create-commande.handler.server");
+    return await createCommandeHandler(data, request);
   });
 
 // Step 3 of the funnel: after the briefing is saved, create a Stripe checkout
 // session for an existing commande and redirect the client to it.
 export const createCheckoutForCommande = createServerFn({ method: "POST" })
   .inputValidator((input) =>
-    z.object({
-      commande_id: z.string().uuid(),
-      origin: z.string().url(),
-    }).parse(input),
+    z
+      .object({
+        commande_id: z.string().uuid(),
+        origin: z.string().url(),
+      })
+      .parse(input),
   )
   .handler(async ({ data }) => {
     const stripeKey = process.env.STRIPE_SECRET_KEY;
     if (!stripeKey) throw new Error("STRIPE_SECRET_KEY non configurée");
-    const stripe = new Stripe(stripeKey, { apiVersion: "2024-12-18.acacia" as any });
+    const stripe = new Stripe(stripeKey, {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      apiVersion: "2024-12-18.acacia" as any,
+    });
 
     const { data: commande, error } = await supabaseAdmin
       .from("commandes")
@@ -134,10 +104,12 @@ export const getCommande = createServerFn({ method: "GET" })
 // webhook is delayed. Marks paid and bumps statut according to onboarding presence.
 export const confirmStripeSession = createServerFn({ method: "POST" })
   .inputValidator((input) =>
-    z.object({
-      commande_id: z.string().uuid(),
-      session_id: z.string().min(5).max(255),
-    }).parse(input),
+    z
+      .object({
+        commande_id: z.string().uuid(),
+        session_id: z.string().min(5).max(255),
+      })
+      .parse(input),
   )
   .handler(async ({ data }) => {
     const { data: commande, error: cErr } = await supabaseAdmin
@@ -164,7 +136,10 @@ export const confirmStripeSession = createServerFn({ method: "POST" })
 
     const stripeKey = process.env.STRIPE_SECRET_KEY;
     if (!stripeKey) throw new Error("STRIPE_SECRET_KEY non configurée");
-    const stripe = new Stripe(stripeKey, { apiVersion: "2024-12-18.acacia" as any });
+    const stripe = new Stripe(stripeKey, {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      apiVersion: "2024-12-18.acacia" as any,
+    });
 
     let session: Stripe.Checkout.Session;
     try {
@@ -176,7 +151,12 @@ export const confirmStripeSession = createServerFn({ method: "POST" })
 
     // Sécurité : la session Stripe doit référencer cette commande dans ses metadata
     if (session.metadata?.commande_id !== data.commande_id) {
-      console.error("Session Stripe metadata commande_id mismatch:", session.metadata?.commande_id, "vs", data.commande_id);
+      console.error(
+        "Session Stripe metadata commande_id mismatch:",
+        session.metadata?.commande_id,
+        "vs",
+        data.commande_id,
+      );
       throw new Error("Session Stripe invalide pour cette commande");
     }
 
@@ -189,7 +169,7 @@ export const confirmStripeSession = createServerFn({ method: "POST" })
         .maybeSingle();
       const newStatut = ob ? "onboarding_complété" : "payé";
 
-      await supabaseAdmin
+      const { data: fullCmd } = await supabaseAdmin
         .from("commandes")
         .update({
           statut: newStatut,
@@ -197,7 +177,74 @@ export const confirmStripeSession = createServerFn({ method: "POST" })
           paid_at: new Date().toISOString(),
         })
         .eq("id", data.commande_id)
-        .eq("statut", "en_attente");
+        .eq("statut", "en_attente")
+        .select("id, prenom, nom, email, entreprise, ville, activite, montant_centimes, paid_at")
+        .single();
+
+      // Envoi email de confirmation au client (fallback si webhook Stripe retardé/absent)
+      if (fullCmd) {
+        const resendKey = process.env.RESEND_API_KEY;
+        if (resendKey) {
+          try {
+            const resend = new Resend(resendKey);
+            const FROM = "Hotavis <noreply@hotavis.fr>";
+            const montantEuros = ((fullCmd.montant_centimes ?? MONTANT) / 100).toFixed(2);
+            const dateStr = new Date(fullCmd.paid_at || Date.now()).toLocaleDateString("fr-FR", {
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
+            });
+
+            const clientHtml = ob
+              ? `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px">
+                  <h2 style="color:#34A853">Merci ${escapeHtml(fullCmd.prenom)} ! 🎉</h2>
+                  <p>Votre paiement de <b>${montantEuros}€</b> est confirmé pour <b>${escapeHtml(fullCmd.entreprise)}</b>.</p>
+                  <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:8px;padding:16px;margin:20px 0">
+                    <h3 style="margin:0 0 12px 0;color:#4285F4;font-size:14px">Récapitulatif de commande</h3>
+                    <table style="width:100%;font-size:13px;color:#333">
+                      <tr><td style="padding:4px 0;color:#666">Client :</td><td style="padding:4px 0;font-weight:bold">${escapeHtml(fullCmd.prenom)} ${escapeHtml(fullCmd.nom)}</td></tr>
+                      <tr><td style="padding:4px 0;color:#666">Entreprise :</td><td style="padding:4px 0;font-weight:bold">${escapeHtml(fullCmd.entreprise)}</td></tr>
+                      <tr><td style="padding:4px 0;color:#666">Prestation :</td><td style="padding:4px 0">Création & optimisation fiche Google Business Profile</td></tr>
+                      <tr><td style="padding:4px 0;color:#666">Date :</td><td style="padding:4px 0">${dateStr}</td></tr>
+                      <tr><td style="padding:4px 0;color:#666">Montant :</td><td style="padding:4px 0;font-weight:bold;color:#34A853">${montantEuros}€</td></tr>
+                    </table>
+                  </div>
+                  <p>Votre briefing est <b>entre les mains de nos experts</b>. Vous recevrez votre fiche Google Business sous 7 jours ouvrés.</p>
+                  <p style="background:#FEF3C7;border-left:4px solid #F59E0B;padding:12px;font-size:13px;color:#78350F;border-radius:6px">
+                    <b>À noter :</b> dans certains cas, Google exige une vérification par courrier postal pour valider l'établissement, ce qui peut rallonger le délai d'environ 14 jours.
+                  </p>
+                  <p style="color:#666;font-size:13px;margin-top:32px">— L'équipe Hotavis</p>
+                </div>`
+              : `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px">
+                  <h2 style="color:#4285F4">Merci ${escapeHtml(fullCmd.prenom)} !</h2>
+                  <p>Votre paiement de <b>${montantEuros}€</b> a bien été reçu pour <b>${escapeHtml(fullCmd.entreprise)}</b>.</p>
+                  <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:8px;padding:16px;margin:20px 0">
+                    <h3 style="margin:0 0 12px 0;color:#4285F4;font-size:14px">Récapitulatif de commande</h3>
+                    <table style="width:100%;font-size:13px;color:#333">
+                      <tr><td style="padding:4px 0;color:#666">Client :</td><td style="padding:4px 0;font-weight:bold">${escapeHtml(fullCmd.prenom)} ${escapeHtml(fullCmd.nom)}</td></tr>
+                      <tr><td style="padding:4px 0;color:#666">Entreprise :</td><td style="padding:4px 0;font-weight:bold">${escapeHtml(fullCmd.entreprise)}</td></tr>
+                      <tr><td style="padding:4px 0;color:#666">Prestation :</td><td style="padding:4px 0">Création & optimisation fiche Google Business Profile</td></tr>
+                      <tr><td style="padding:4px 0;color:#666">Date :</td><td style="padding:4px 0">${dateStr}</td></tr>
+                      <tr><td style="padding:4px 0;color:#666">Montant :</td><td style="padding:4px 0;font-weight:bold;color:#34A853">${montantEuros}€</td></tr>
+                    </table>
+                  </div>
+                  <p>Dernière étape : remplissez le formulaire de briefing (10 min) pour qu'on puisse créer votre fiche Google.</p>
+                  <p style="color:#666;font-size:13px;margin-top:32px">— L'équipe Hotavis</p>
+                </div>`;
+
+            await resend.emails.send({
+              from: FROM,
+              to: [fullCmd.email],
+              subject: ob
+                ? "✅ Paiement confirmé — Votre dossier est entre nos mains !"
+                : "✅ Paiement confirmé — À vous de jouer !",
+              html: clientHtml,
+            });
+          } catch (e) {
+            console.error("Email send error (confirmStripeSession):", e);
+          }
+        }
+      }
       return { paid: true };
     }
     return { paid: false };

@@ -3,10 +3,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
-  CheckCircle2, X, ArrowRight, Shield, MapPin,
-  Image as ImageIcon, FileText, Settings, Search,
-  Lock, ChevronDown, ChevronLeft, ChevronRight, Mail, Clock,
-  AlertTriangle, Award, Zap, Users, Navigation, Globe,
+  CheckCircle2,
+  X,
+  ArrowRight,
+  Shield,
+  MapPin,
+  Image as ImageIcon,
+  FileText,
+  Settings,
+  Search,
+  Lock,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Mail,
+  Clock,
+  AlertTriangle,
+  Award,
+  Zap,
+  Users,
+  Navigation,
+  Globe,
 } from "lucide-react";
 import { Section, FadeIn } from "@/components/site/Section";
 import { Stars, GooglePin } from "@/components/site/GoogleBrand";
@@ -18,7 +35,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 
 /* ÉLÉMENTS FACILEMENT MODIFIABLES */
-const VIDEO_EMBED_URL = "https://www.youtube.com/embed/CwB7OanBYNQ";
+const VIDEO_EMBED_URL = "https://www.youtube.com/embed/KlfzyjEzmJg";
 const HERO_PHOTOS = {
   cover: "/images/gmb-cover.avif",
   thumb1: "/images/gmb-photo-1.avif",
@@ -30,7 +47,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Hotavis — Création & optimisation de fiche Google My Business — 379€" },
-      { name: "description", content: "Agence française spécialisée Google My Business. Nous créons et optimisons votre fiche pour que vos clients vous trouvent sur Google Maps. 379€ — Garantie livraison sous 7 jours ouvrés ou remboursé." },
+      {
+        name: "description",
+        content:
+          "Agence française spécialisée Google My Business. Nous créons et optimisons votre fiche pour que vos clients vous trouvent sur Google Maps. 379€ — Garantie livraison sous 7 jours ouvrés ou remboursé.",
+      },
     ],
   }),
   component: HomePage,
@@ -65,9 +86,18 @@ function HeroSection() {
   const { t } = useTranslation();
   return (
     <section className="relative overflow-hidden gradient-hero">
-      <div aria-hidden className="absolute top-20 -left-20 h-72 w-72 rounded-full bg-google-blue/20 blur-3xl" />
-      <div aria-hidden className="absolute -bottom-10 right-0 h-72 w-72 rounded-full bg-google-yellow/15 blur-3xl" />
-      <div aria-hidden className="absolute top-40 right-1/4 h-40 w-40 rounded-full bg-google-green/20 blur-3xl" />
+      <div
+        aria-hidden
+        className="absolute top-20 -left-20 h-72 w-72 rounded-full bg-google-blue/20 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="absolute -bottom-10 right-0 h-72 w-72 rounded-full bg-google-yellow/15 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="absolute top-40 right-1/4 h-40 w-40 rounded-full bg-google-green/20 blur-3xl"
+      />
 
       <div className="container mx-auto px-4 max-w-7xl py-20 md:py-28 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -108,10 +138,15 @@ function HeroSection() {
 
           <FadeIn delay={0.15}>
             <div className="relative">
-              <div aria-hidden className="absolute -inset-6 bg-gradient-to-tr from-google-blue/20 via-google-green/10 to-google-yellow/20 blur-2xl rounded-3xl" />
+              <div
+                aria-hidden
+                className="absolute -inset-6 bg-gradient-to-tr from-google-blue/20 via-google-green/10 to-google-yellow/20 blur-2xl rounded-3xl"
+              />
               <div className="relative">
                 <GMBProfileMockup />
-                <p className="mt-4 text-center text-sm text-muted-foreground italic">{t("hero.caption")}</p>
+                <p className="mt-4 text-center text-sm text-muted-foreground italic">
+                  {t("hero.caption")}
+                </p>
               </div>
             </div>
           </FadeIn>
@@ -151,7 +186,7 @@ function GMBProfileMockup() {
   return (
     <div className="relative w-full max-w-sm mx-auto">
       <div
-        className="relative overflow-hidden rounded-3xl bg-white border border-border shadow-elevated aspect-[9/16]"
+        className="relative overflow-hidden rounded-lg bg-white border border-border shadow-elevated aspect-[9/16]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         role="region"
@@ -171,7 +206,6 @@ function GMBProfileMockup() {
             loading="eager"
           />
         </AnimatePresence>
-
       </div>
 
       <div className="mt-4 flex justify-center gap-2">
@@ -203,14 +237,20 @@ function ReassuranceBar() {
       <div className="bg-foreground text-white">
         <div className="container mx-auto px-4 max-w-7xl py-4">
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs sm:text-sm font-medium">
-            {items.map((tx) => (<span key={tx} className="whitespace-nowrap">{tx}</span>))}
+            {items.map((tx) => (
+              <span key={tx} className="whitespace-nowrap">
+                {tx}
+              </span>
+            ))}
           </div>
         </div>
       </div>
       <div className="bg-amber-50 border-b border-amber-200">
         <div className="container mx-auto px-4 max-w-7xl py-3">
           <p className="text-center text-xs sm:text-sm text-amber-900 leading-relaxed">
-            <b>Délais de livraison :</b> sous 7 jours ouvrés. Attention : dans certains cas, Google exige une vérification par courrier postal pour valider l'établissement, ce qui peut rallonger le délai d'environ 14 jours.
+            <b>Délais de livraison :</b> sous 7 jours ouvrés. Attention : dans certains cas, Google
+            exige une vérification par courrier postal pour valider l'établissement, ce qui peut
+            rallonger le délai d'environ 14 jours.
           </p>
         </div>
       </div>
@@ -231,18 +271,23 @@ function VideoSection() {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <div className="mt-10 mx-auto max-w-3xl">
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-elevated bg-black">
-            <iframe
-              className="absolute inset-0 h-full w-full"
-              src={VIDEO_EMBED_URL}
-              title="Google My Business"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+        <div className="mt-10 flex flex-col items-center">
+          <div className="w-full max-w-[340px]">
+            <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden shadow-elevated bg-black">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src={VIDEO_EMBED_URL}
+                title="Google My Business — YouTube Short"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
-          <div className="mt-7 text-center">
-            <Link to="/commander" className="inline-flex items-center gap-2 rounded-full gradient-cta text-white px-7 py-3.5 font-semibold shadow-glow hover:-translate-y-0.5 transition">
+          <div className="mt-7 w-full max-w-[340px] text-center">
+            <Link
+              to="/commander"
+              className="inline-flex items-center gap-2 rounded-full gradient-cta text-white px-7 py-3.5 font-semibold shadow-glow hover:-translate-y-0.5 transition"
+            >
               {t("video.cta")} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -257,14 +302,20 @@ function VideoSection() {
  * ============================================================ */
 function ProblemSection() {
   const { t } = useTranslation();
-  const items = t("problem.items", { returnObjects: true }) as Array<{ icon: string; title: string; desc: string }>;
+  const items = t("problem.items", { returnObjects: true }) as Array<{
+    icon: string;
+    title: string;
+    desc: string;
+  }>;
   return (
     <Section>
       <FadeIn className="max-w-3xl mx-auto text-center">
         <div className="inline-flex items-center gap-2 rounded-full bg-google-red/10 text-google-red px-3 py-1 text-xs font-semibold">
           {t("problem.tag")}
         </div>
-        <h2 className="mt-4 text-3xl md:text-5xl font-extrabold text-balance">{t("problem.title")}</h2>
+        <h2 className="mt-4 text-3xl md:text-5xl font-extrabold text-balance">
+          {t("problem.title")}
+        </h2>
       </FadeIn>
       <div className="mt-12 grid md:grid-cols-3 gap-5">
         {items.map((p, i) => (
@@ -293,12 +344,17 @@ function RisksSection() {
         <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-google-red/10 text-google-red">
           <AlertTriangle className="h-6 w-6" />
         </div>
-        <h2 className="mt-4 text-3xl md:text-5xl font-extrabold text-balance">{t("risks.title")}</h2>
+        <h2 className="mt-4 text-3xl md:text-5xl font-extrabold text-balance">
+          {t("risks.title")}
+        </h2>
       </FadeIn>
       <FadeIn delay={0.1}>
         <ul className="mt-10 max-w-3xl mx-auto space-y-3">
           {risks.map((r, i) => (
-            <li key={i} className="flex items-start gap-3 rounded-xl bg-white border border-red-100 p-4 shadow-card">
+            <li
+              key={i}
+              className="flex items-start gap-3 rounded-xl bg-white border border-red-100 p-4 shadow-card"
+            >
               <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-google-red/10 text-google-red flex-shrink-0">
                 <X className="h-4 w-4" />
               </span>
@@ -328,7 +384,12 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [to]);
-  return <span>{v}{suffix}</span>;
+  return (
+    <span>
+      {v}
+      {suffix}
+    </span>
+  );
 }
 
 function StatsSection() {
@@ -351,9 +412,18 @@ function StatsSection() {
             <FadeIn key={i} delay={i * 0.08}>
               <div className="text-center">
                 <div className="text-5xl md:text-6xl font-extrabold tracking-tight">
-                  {s.float ? `${s.value}${s.suffix}` : <><Counter to={s.value as number} />{s.suffix}</>}
+                  {s.float ? (
+                    `${s.value}${s.suffix}`
+                  ) : (
+                    <>
+                      <Counter to={s.value as number} />
+                      {s.suffix}
+                    </>
+                  )}
                 </div>
-                <div className="mt-3 text-white/90 text-sm font-medium leading-relaxed">{s.label}</div>
+                <div className="mt-3 text-white/90 text-sm font-medium leading-relaxed">
+                  {s.label}
+                </div>
               </div>
             </FadeIn>
           ))}
@@ -373,7 +443,9 @@ function BeforeAfterSection() {
   return (
     <Section>
       <FadeIn className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-balance">{t("before_after.title")}</h2>
+        <h2 className="text-3xl md:text-5xl font-extrabold text-balance">
+          {t("before_after.title")}
+        </h2>
         <p className="mt-3 text-lg text-muted-foreground">{t("before_after.subtitle")}</p>
       </FadeIn>
       <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -386,7 +458,8 @@ function BeforeAfterSection() {
             <ul className="mt-5 space-y-2.5">
               {before.map((b) => (
                 <li key={b} className="flex items-start gap-2 text-sm">
-                  <X className="h-4 w-4 text-google-red flex-shrink-0 mt-0.5" /><span>{b}</span>
+                  <X className="h-4 w-4 text-google-red flex-shrink-0 mt-0.5" />
+                  <span>{b}</span>
                 </li>
               ))}
             </ul>
@@ -401,7 +474,8 @@ function BeforeAfterSection() {
             <ul className="mt-5 space-y-2.5">
               {after.map((a) => (
                 <li key={a} className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-google-green flex-shrink-0 mt-0.5" /><span>{a}</span>
+                  <CheckCircle2 className="h-4 w-4 text-google-green flex-shrink-0 mt-0.5" />
+                  <span>{a}</span>
                 </li>
               ))}
             </ul>
@@ -417,7 +491,11 @@ function BeforeAfterSection() {
  * ============================================================ */
 function ServicesSection() {
   const { t } = useTranslation();
-  const services = t("services.items", { returnObjects: true }) as Array<{ icon: string; title: string; desc: string }>;
+  const services = t("services.items", { returnObjects: true }) as Array<{
+    icon: string;
+    title: string;
+    desc: string;
+  }>;
   return (
     <Section id="services" alt>
       <FadeIn className="max-w-3xl mx-auto text-center">
@@ -444,7 +522,10 @@ function ServicesSection() {
  * ============================================================ */
 function ExpertiseSection() {
   const { t } = useTranslation();
-  const items = t("expertise.items", { returnObjects: true }) as Array<{ title: string; desc: string }>;
+  const items = t("expertise.items", { returnObjects: true }) as Array<{
+    title: string;
+    desc: string;
+  }>;
   const styles = [
     { Icon: Award, color: "text-google-blue bg-google-blue/10" },
     { Icon: MapPin, color: "text-google-red bg-google-red/10" },
@@ -463,7 +544,9 @@ function ExpertiseSection() {
           return (
             <FadeIn key={i} delay={i * 0.06}>
               <div className="h-full rounded-2xl bg-white border border-border p-6 shadow-card">
-                <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${s.color}`}>
+                <div
+                  className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${s.color}`}
+                >
                   <s.Icon className="h-6 w-6" />
                 </div>
                 <h3 className="mt-4 font-bold text-lg">{it.title}</h3>
@@ -489,30 +572,59 @@ function ExpertiseSection() {
  * ============================================================ */
 function TestimonialsCarousel() {
   const { t } = useTranslation();
-  const items = t("testimonials.items", { returnObjects: true }) as Array<{ name: string; role: string; text: string }>;
-  const colors = ["bg-google-blue", "bg-google-red", "bg-google-green", "bg-google-yellow", "bg-google-blue", "bg-google-red"];
+  const items = t("testimonials.items", { returnObjects: true }) as Array<{
+    name: string;
+    role: string;
+    text: string;
+  }>;
+  const colors = [
+    "bg-google-blue",
+    "bg-google-red",
+    "bg-google-green",
+    "bg-google-yellow",
+    "bg-google-blue",
+    "bg-google-red",
+  ];
   const [idx, setIdx] = useState(0);
   const next = () => setIdx((i) => (i + 1) % items.length);
   const prev = () => setIdx((i) => (i - 1 + items.length) % items.length);
-  useEffect(() => { const id = setInterval(next, 6000); return () => clearInterval(id); }, [items.length]);
+  useEffect(() => {
+    const id = setInterval(next, 6000);
+    return () => clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items.length]);
   const cur = items[idx];
 
   return (
     <Section id="temoignages" alt>
       <FadeIn className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-balance">{t("testimonials.title")}</h2>
+        <h2 className="text-3xl md:text-5xl font-extrabold text-balance">
+          {t("testimonials.title")}
+        </h2>
         <p className="mt-3 text-lg text-muted-foreground">{t("testimonials.subtitle")}</p>
       </FadeIn>
 
       <div className="mt-12 max-w-3xl mx-auto relative">
         <div className="relative min-h-[280px]">
           <AnimatePresence mode="wait">
-            <motion.div key={idx} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.35 }} className="rounded-2xl bg-white border border-border p-8 shadow-card">
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{ duration: 0.35 }}
+              className="rounded-2xl bg-white border border-border p-8 shadow-card"
+            >
               <Stars className="h-5 w-5" />
               <p className="mt-4 text-lg leading-relaxed">"{cur.text}"</p>
               <div className="mt-6 flex items-center gap-3">
-                <div className={`${colors[idx % colors.length]} text-white h-12 w-12 rounded-full inline-flex items-center justify-center font-bold`}>
-                  {cur.name.split(" ").map((n) => n[0]).join("")}
+                <div
+                  className={`${colors[idx % colors.length]} text-white h-12 w-12 rounded-full inline-flex items-center justify-center font-bold`}
+                >
+                  {cur.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
                 </div>
                 <div>
                   <div className="font-semibold">{cur.name}</div>
@@ -524,15 +636,28 @@ function TestimonialsCarousel() {
         </div>
 
         <div className="mt-6 flex items-center justify-center gap-4">
-          <button onClick={prev} aria-label="prev" className="h-10 w-10 rounded-full bg-white border border-border shadow-card inline-flex items-center justify-center hover:bg-accent transition">
+          <button
+            onClick={prev}
+            aria-label="prev"
+            className="h-10 w-10 rounded-full bg-white border border-border shadow-card inline-flex items-center justify-center hover:bg-accent transition"
+          >
             <ChevronLeft className="h-5 w-5" />
           </button>
           <div className="flex gap-1.5">
             {items.map((_, i) => (
-              <button key={i} onClick={() => setIdx(i)} aria-label={`${i + 1}`} className={`h-2 rounded-full transition-all ${i === idx ? "w-8 bg-google-blue" : "w-2 bg-muted-foreground/30"}`} />
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                aria-label={`${i + 1}`}
+                className={`h-2 rounded-full transition-all ${i === idx ? "w-8 bg-google-blue" : "w-2 bg-muted-foreground/30"}`}
+              />
             ))}
           </div>
-          <button onClick={next} aria-label="next" className="h-10 w-10 rounded-full bg-white border border-border shadow-card inline-flex items-center justify-center hover:bg-accent transition">
+          <button
+            onClick={next}
+            aria-label="next"
+            className="h-10 w-10 rounded-full bg-white border border-border shadow-card inline-flex items-center justify-center hover:bg-accent transition"
+          >
             <ChevronRight className="h-5 w-5" />
           </button>
         </div>
@@ -546,7 +671,10 @@ function TestimonialsCarousel() {
  * ============================================================ */
 function ProcessSection() {
   const { t } = useTranslation();
-  const items = t("process.items", { returnObjects: true }) as Array<{ title: string; desc: string }>;
+  const items = t("process.items", { returnObjects: true }) as Array<{
+    title: string;
+    desc: string;
+  }>;
   const styles = [
     { icon: Mail, color: "bg-google-blue" },
     { icon: Lock, color: "bg-google-green" },
@@ -566,7 +694,11 @@ function ProcessSection() {
           return (
             <FadeIn key={i} delay={i * 0.06}>
               <div className="relative h-full rounded-2xl bg-white border border-border p-6 shadow-card">
-                <div className={`${st.color} text-white inline-flex h-11 w-11 items-center justify-center rounded-2xl font-extrabold shadow-glow`}>{i + 1}</div>
+                <div
+                  className={`${st.color} text-white inline-flex h-11 w-11 items-center justify-center rounded-2xl font-extrabold shadow-glow`}
+                >
+                  {i + 1}
+                </div>
                 <st.icon className="mt-4 h-5 w-5 text-muted-foreground" />
                 <h3 className="mt-2 font-bold text-base">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
@@ -602,8 +734,12 @@ function PricingSection() {
       <div className="mt-12 max-w-2xl mx-auto">
         <FadeIn>
           <div className="relative rounded-3xl gradient-cta text-white p-8 md:p-10 shadow-elevated">
-            <div className="absolute -top-3 right-6 rounded-full bg-google-yellow text-foreground px-3 py-1 text-xs font-bold">{t("pricing.popular")}</div>
-            <div className="text-sm font-semibold opacity-90 uppercase tracking-wider">{t("pricing.pack_name")}</div>
+            <div className="absolute -top-3 right-6 rounded-full bg-google-yellow text-foreground px-3 py-1 text-xs font-bold">
+              {t("pricing.popular")}
+            </div>
+            <div className="text-sm font-semibold opacity-90 uppercase tracking-wider">
+              {t("pricing.pack_name")}
+            </div>
             <div className="mt-2 flex items-baseline gap-2">
               <span className="text-6xl font-extrabold">379€</span>
               <span className="text-sm opacity-80">{t("pricing.price_meta")}</span>
@@ -612,18 +748,26 @@ function PricingSection() {
             <ul className="mt-7 space-y-3">
               {features.map((f) => (
                 <li key={f} className="flex gap-3 text-sm">
-                  <CheckCircle2 className="h-5 w-5 flex-shrink-0" /><span>{f}</span>
+                  <CheckCircle2 className="h-5 w-5 flex-shrink-0" />
+                  <span>{f}</span>
                 </li>
               ))}
             </ul>
-            <Link to="/commander" className="mt-8 block text-center rounded-full bg-white text-google-blue px-6 py-3.5 font-bold hover:bg-white/90 transition">
+            <Link
+              to="/commander"
+              className="mt-8 block text-center rounded-full bg-white text-google-blue px-6 py-3.5 font-bold hover:bg-white/90 transition"
+            >
               {t("pricing.cta")}
             </Link>
             <div className="mt-5 flex flex-wrap justify-center gap-x-4 gap-y-1.5 text-xs opacity-95">
-              {badges.map((b) => <span key={b}>{b}</span>)}
+              {badges.map((b) => (
+                <span key={b}>{b}</span>
+              ))}
             </div>
             <div className="mt-5 rounded-xl bg-white/15 border border-white/20 p-3 text-xs leading-relaxed text-white">
-              <b>Délais de livraison :</b> sous 7 jours ouvrés. Attention : dans certains cas, Google exige une vérification par courrier postal pour valider l'établissement, ce qui peut rallonger le délai d'environ 14 jours.
+              <b>Délais de livraison :</b> sous 7 jours ouvrés. Attention : dans certains cas,
+              Google exige une vérification par courrier postal pour valider l'établissement, ce qui
+              peut rallonger le délai d'environ 14 jours.
             </div>
           </div>
         </FadeIn>
@@ -641,7 +785,10 @@ function GuaranteeSection() {
     <Section id="garantie">
       <FadeIn className="max-w-4xl mx-auto">
         <div className="relative rounded-3xl border-2 border-google-green/40 bg-gradient-to-br from-google-green/5 via-white to-google-blue/5 p-8 md:p-12 shadow-elevated overflow-hidden">
-          <div aria-hidden className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-google-green/20 blur-3xl" />
+          <div
+            aria-hidden
+            className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-google-green/20 blur-3xl"
+          />
           <div className="relative flex flex-col md:flex-row items-start gap-6">
             <div className="flex-shrink-0 inline-flex h-16 w-16 items-center justify-center rounded-2xl gradient-cta text-white shadow-glow">
               <Shield className="h-8 w-8" />
@@ -651,15 +798,24 @@ function GuaranteeSection() {
                 <CheckCircle2 className="h-3.5 w-3.5" /> {t("guarantee.tag")}
               </div>
               <h2 className="mt-3 text-2xl md:text-3xl font-extrabold text-balance">
-                {t("guarantee.title_long_a")} <span className="text-google-green">{t("guarantee.title_long_b")}</span>
+                {t("guarantee.title_long_a")}{" "}
+                <span className="text-google-green">{t("guarantee.title_long_b")}</span>
               </h2>
-              <p className="mt-4 text-base md:text-lg leading-relaxed text-foreground/90">{t("guarantee.body_long")}</p>
+              <p className="mt-4 text-base md:text-lg leading-relaxed text-foreground/90">
+                {t("guarantee.body_long")}
+              </p>
+              <p className="mt-3 text-sm text-gray-500 leading-relaxed">
+                Délais de livraison : sous 7 jours ouvrés. <strong>Attention :</strong> dans
+                certains cas, Google exige une vérification par courrier postal pour valider
+                l'établissement, ce qui peut rallonger le délai d'environ 14 jours.
+              </p>
               <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white border border-border px-3 py-1.5">
                   <Clock className="h-3.5 w-3.5 text-google-blue" /> {t("guarantee.chip_delay")}
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white border border-border px-3 py-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-google-green" /> {t("guarantee.chip_conform")}
+                  <CheckCircle2 className="h-3.5 w-3.5 text-google-green" />{" "}
+                  {t("guarantee.chip_conform")}
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white border border-border px-3 py-1.5">
                   <Shield className="h-3.5 w-3.5 text-google-red" /> {t("guarantee.chip_refund")}
@@ -689,12 +845,22 @@ function FAQSection() {
         {faqs.map((f, i) => (
           <FadeIn key={i} delay={i * 0.03}>
             <div className="rounded-2xl border border-border bg-white overflow-hidden">
-              <button onClick={() => setOpen(open === i ? null : i)} className="w-full p-5 flex items-center justify-between gap-4 text-left hover:bg-accent/40 transition" aria-expanded={open === i}>
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full p-5 flex items-center justify-between gap-4 text-left hover:bg-accent/40 transition"
+                aria-expanded={open === i}
+              >
                 <span className="font-semibold">{f.q}</span>
-                <ChevronDown className={`h-5 w-5 flex-shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  className={`h-5 w-5 flex-shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`}
+                />
               </button>
               {open === i && (
-                <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} className="px-5 pb-5 text-muted-foreground leading-relaxed text-sm">
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  className="px-5 pb-5 text-muted-foreground leading-relaxed text-sm"
+                >
                   {f.a}
                 </motion.div>
               )}
@@ -720,7 +886,9 @@ function ContactSection() {
     secteur: z.string().min(1, t("contact.errors.sector")),
     ville: z.string().trim().min(1, t("contact.errors.required")).max(80),
     email: z.string().trim().email(t("contact.errors.email")).max(255),
-    ficheExistante: z.enum(["oui", "non", "je_ne_sais_pas"], { message: t("contact.errors.choice") }),
+    ficheExistante: z.enum(["oui", "non", "je_ne_sais_pas"], {
+      message: t("contact.errors.choice"),
+    }),
     message: z.string().trim().max(2000).optional(),
     rgpd: z.literal(true, { message: t("contact.errors.rgpd") }),
   });
@@ -729,7 +897,10 @@ function ContactSection() {
   const sendFn = useServerFn(sendContactMessage);
   const { register, handleSubmit, reset, formState } = useForm<ContactValues>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { ficheExistante: undefined as any, message: "" },
+    defaultValues: {
+      ficheExistante: undefined as unknown as ContactValues["ficheExistante"],
+      message: "",
+    },
   });
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
@@ -743,8 +914,8 @@ function ContactSection() {
       toast.success(t("contact.sent_title"));
       setSent(true);
       reset();
-    } catch (e: any) {
-      toast.error(e?.message || t("contact.errors.generic"));
+    } catch (e: unknown) {
+      toast.error((e as Error)?.message || t("contact.errors.generic"));
     } finally {
       setLoading(false);
     }
@@ -763,32 +934,69 @@ function ContactSection() {
               <CheckCircle2 className="mx-auto h-12 w-12 text-google-green" />
               <h3 className="mt-4 text-2xl font-bold">{t("contact.sent_title")}</h3>
               <p className="mt-2 text-muted-foreground">{t("contact.sent_body")}</p>
-              <button onClick={() => setSent(false)} className="mt-5 text-sm font-semibold text-google-blue hover:underline">{t("contact.send_another")}</button>
+              <button
+                onClick={() => setSent(false)}
+                className="mt-5 text-sm font-semibold text-google-blue hover:underline"
+              >
+                {t("contact.send_another")}
+              </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="rounded-2xl bg-white border border-border p-6 md:p-8 shadow-card space-y-4">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="rounded-2xl bg-white border border-border p-6 md:p-8 shadow-card space-y-4"
+            >
               <div className="grid sm:grid-cols-2 gap-3">
-                <Field label={t("contact.first_name")} error={formState.errors.prenom?.message}><input {...register("prenom")} className={inputCls} /></Field>
-                <Field label={t("contact.last_name")} error={formState.errors.nom?.message}><input {...register("nom")} className={inputCls} /></Field>
+                <Field label={t("contact.first_name")} error={formState.errors.prenom?.message}>
+                  <input {...register("prenom")} className={inputCls} />
+                </Field>
+                <Field label={t("contact.last_name")} error={formState.errors.nom?.message}>
+                  <input {...register("nom")} className={inputCls} />
+                </Field>
               </div>
-              <Field label={t("contact.company")} error={formState.errors.entreprise?.message}><input {...register("entreprise")} className={inputCls} /></Field>
+              <Field label={t("contact.company")} error={formState.errors.entreprise?.message}>
+                <input {...register("entreprise")} className={inputCls} />
+              </Field>
               <div className="grid sm:grid-cols-2 gap-3">
                 <Field label={t("contact.sector")} error={formState.errors.secteur?.message}>
                   <select {...register("secteur")} className={inputCls} defaultValue="">
-                    <option value="" disabled>{t("contact.choose")}</option>
-                    {sectors.map((s) => <option key={s} value={s}>{s}</option>)}
+                    <option value="" disabled>
+                      {t("contact.choose")}
+                    </option>
+                    {sectors.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
                   </select>
                 </Field>
-                <Field label={t("contact.city")} error={formState.errors.ville?.message}><input {...register("ville")} className={inputCls} /></Field>
+                <Field label={t("contact.city")} error={formState.errors.ville?.message}>
+                  <input {...register("ville")} className={inputCls} />
+                </Field>
               </div>
               <Field label={t("contact.email")} error={formState.errors.email?.message}>
                 <input type="email" {...register("email")} className={inputCls} />
               </Field>
-              <Field label={t("contact.existing_listing")} error={formState.errors.ficheExistante?.message}>
+              <Field
+                label={t("contact.existing_listing")}
+                error={formState.errors.ficheExistante?.message}
+              >
                 <div className="mt-1 flex flex-wrap gap-3">
-                  {[{ v: "oui", l: t("contact.yes") }, { v: "non", l: t("contact.no") }, { v: "je_ne_sais_pas", l: t("contact.unsure") }].map((o) => (
-                    <label key={o.v} className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm cursor-pointer hover:border-google-blue transition">
-                      <input type="radio" value={o.v} {...register("ficheExistante")} className="accent-google-blue" />
+                  {[
+                    { v: "oui", l: t("contact.yes") },
+                    { v: "non", l: t("contact.no") },
+                    { v: "je_ne_sais_pas", l: t("contact.unsure") },
+                  ].map((o) => (
+                    <label
+                      key={o.v}
+                      className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm cursor-pointer hover:border-google-blue transition"
+                    >
+                      <input
+                        type="radio"
+                        value={o.v}
+                        {...register("ficheExistante")}
+                        className="accent-google-blue"
+                      />
                       {o.l}
                     </label>
                   ))}
@@ -801,11 +1009,21 @@ function ContactSection() {
                 <input type="checkbox" {...register("rgpd")} className="mt-1 accent-google-blue" />
                 <span>{t("contact.rgpd")}</span>
               </label>
-              {formState.errors.rgpd && <span className="text-xs text-google-red block">{formState.errors.rgpd.message as string}</span>}
-              <button type="submit" disabled={loading} className="w-full rounded-full gradient-cta text-white py-3.5 font-semibold shadow-glow hover:-translate-y-0.5 transition disabled:opacity-60">
+              {formState.errors.rgpd && (
+                <span className="text-xs text-google-red block">
+                  {formState.errors.rgpd.message as string}
+                </span>
+              )}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full rounded-full gradient-cta text-white py-3.5 font-semibold shadow-glow hover:-translate-y-0.5 transition disabled:opacity-60"
+              >
                 {loading ? t("contact.sending") : t("contact.submit")}
               </button>
-              <p className="text-xs text-muted-foreground text-center pt-1">{t("contact.privacy")}</p>
+              <p className="text-xs text-muted-foreground text-center pt-1">
+                {t("contact.privacy")}
+              </p>
             </form>
           )}
         </FadeIn>
@@ -814,9 +1032,18 @@ function ContactSection() {
   );
 }
 
-const inputCls = "w-full rounded-xl border border-border bg-white px-4 py-2.5 text-sm outline-none focus:border-google-blue focus:ring-2 focus:ring-google-blue/20 transition";
+const inputCls =
+  "w-full rounded-xl border border-border bg-white px-4 py-2.5 text-sm outline-none focus:border-google-blue focus:ring-2 focus:ring-google-blue/20 transition";
 
-function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+function Field({
+  label,
+  error,
+  children,
+}: {
+  label: string;
+  error?: string;
+  children: React.ReactNode;
+}) {
   return (
     <label className="block">
       <span className="text-sm font-medium">{label}</span>

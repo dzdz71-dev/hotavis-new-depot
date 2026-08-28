@@ -13,7 +13,9 @@ export function BusinessCardMockup({ variant = "optimized", animated = false }: 
   const content = (
     <div className="relative w-full max-w-md mx-auto rounded-2xl bg-white shadow-elevated overflow-hidden border border-border">
       {/* Cover */}
-      <div className={`h-32 ${isOpt ? "bg-gradient-to-br from-[#4285F4] via-[#34A853] to-[#FBBC05]" : "bg-muted"} relative`}>
+      <div
+        className={`h-32 ${isOpt ? "bg-gradient-to-br from-[#4285F4] via-[#34A853] to-[#FBBC05]" : "bg-muted"} relative`}
+      >
         {!isOpt && (
           <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm">
             (aucune photo)

@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
@@ -6,7 +6,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { getUserRoles } from "@/lib/client/roles";
 
 export const Route = createFileRoute("/agent/login")({
-  head: () => ({ meta: [{ title: "Espace Agent — Hotavis" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({
+    meta: [{ title: "Espace Agent — Hotavis" }, { name: "robots", content: "noindex" }],
+  }),
   component: AgentLogin,
 });
 
@@ -47,29 +49,57 @@ function AgentLogin() {
       }
 
       navigate({ to: "/agent" });
-    } catch (err: any) {
+    } catch (err: unknown) {
       setLoading(false);
-      toast.error(err?.message || "Erreur de connexion");
+      toast.error((err as Error)?.message || "Erreur de connexion");
     }
   }
 
   return (
     <div className="min-h-screen bg-surface-alt flex items-center justify-center px-4">
-      <form onSubmit={submit} className="w-full max-w-md bg-card border border-border rounded-2xl shadow-card p-8 space-y-5">
+      <form
+        onSubmit={submit}
+        className="w-full max-w-md bg-card border border-border rounded-2xl shadow-card p-8 space-y-5"
+      >
         <div>
-          <div className="inline-block bg-google-blue/15 text-google-blue text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full mb-2">Espace Agent</div>
+          <div className="inline-block bg-google-blue/15 text-google-blue text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full mb-2">
+            Espace Agent
+          </div>
           <h1 className="text-2xl font-extrabold">Connexion</h1>
           <p className="text-sm text-muted-foreground mt-1">Réservé aux membres de l'équipe.</p>
         </div>
         <div>
           <label className="text-sm font-semibold">Email</label>
-          <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2" />
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2"
+          />
         </div>
         <div>
           <label className="text-sm font-semibold">Mot de passe</label>
-          <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2" />
+          <input
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2"
+          />
+          <div className="mt-2 text-right">
+            <Link
+              to="/agent/forgot-password"
+              className="text-xs text-muted-foreground hover:text-foreground hover:underline"
+            >
+              Mot de passe oublié ?
+            </Link>
+          </div>
         </div>
-        <button disabled={loading} className="w-full rounded-full bg-google-blue text-white font-semibold py-2.5 disabled:opacity-50">
+        <button
+          disabled={loading}
+          className="w-full rounded-full bg-google-blue text-white font-semibold py-2.5 disabled:opacity-50"
+        >
           {loading ? <Loader2 className="h-4 w-4 animate-spin inline" /> : "Se connecter"}
         </button>
       </form>

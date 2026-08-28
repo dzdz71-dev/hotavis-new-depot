@@ -14,8 +14,20 @@ function MerciPage() {
   useEffect(() => {
     const end = Date.now() + 1500;
     (function frame() {
-      confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 }, colors: ["#4285F4", "#34A853", "#FBBC05", "#EA4335"] });
-      confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 }, colors: ["#4285F4", "#34A853", "#FBBC05", "#EA4335"] });
+      confetti({
+        particleCount: 4,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: ["#4285F4", "#34A853", "#FBBC05", "#EA4335"],
+      });
+      confetti({
+        particleCount: 4,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: ["#4285F4", "#34A853", "#FBBC05", "#EA4335"],
+      });
       if (Date.now() < end) requestAnimationFrame(frame);
     })();
   }, []);
@@ -29,7 +41,10 @@ function MerciPage() {
         <h1 className="mt-6 text-3xl md:text-4xl font-extrabold">{t("merci.title")}</h1>
         <p className="mt-4 text-muted-foreground text-lg">{t("merci.body")}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Link to="/" className="inline-flex items-center gap-2 rounded-full gradient-cta text-white px-6 py-3 font-semibold shadow-glow">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 rounded-full gradient-cta text-white px-6 py-3 font-semibold shadow-glow"
+          >
             <Home className="h-4 w-4" /> {t("merci.back")}
           </Link>
         </div>

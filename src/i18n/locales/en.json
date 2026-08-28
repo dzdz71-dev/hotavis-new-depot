@@ -52,9 +52,21 @@
     "tag": "You're losing customers without knowing it",
     "title": "Every day, customers search for your business on Google… and find your competitors instead.",
     "items": [
-      { "icon": "🔍", "title": "You can't be found", "desc": "When a customer types \"hair salon Paris 11\" or \"plumber Lyon\", they see your competitors. Not you." },
-      { "icon": "📉", "title": "You're losing revenue", "desc": "97% of consumers search for a business on Google before visiting. Without a profile, you miss those customers." },
-      { "icon": "⚠️", "title": "You don't exist", "desc": "Today, a business without a Google profile is seen as closed or untrustworthy." }
+      {
+        "icon": "🔍",
+        "title": "You can't be found",
+        "desc": "When a customer types \"hair salon Paris 11\" or \"plumber Lyon\", they see your competitors. Not you."
+      },
+      {
+        "icon": "📉",
+        "title": "You're losing revenue",
+        "desc": "97% of consumers search for a business on Google before visiting. Without a profile, you miss those customers."
+      },
+      {
+        "icon": "⚠️",
+        "title": "You don't exist",
+        "desc": "Today, a business without a Google profile is seen as closed or untrustworthy."
+      }
     ]
   },
   "risks": {
@@ -108,23 +120,63 @@
     "title": "What's included in our service",
     "subtitle": "A professional Google profile is the foundation of all local visibility.",
     "items": [
-      { "icon": "🔧", "title": "Profile creation & verification", "desc": "We create your official profile and get it verified by Google." },
-      { "icon": "🗂️", "title": "100% complete profile", "desc": "Name, address, phone, website, hours — all filled in accurately." },
-      { "icon": "🎯", "title": "Strategic categories", "desc": "Categories chosen to appear in the right local searches." },
-      { "icon": "📸", "title": "Photo upload", "desc": "Upload and organization of your photos for an attractive profile." },
-      { "icon": "⚙️", "title": "Services configuration", "desc": "Full list of your services with descriptions." },
-      { "icon": "✍️", "title": "SEO-optimized description", "desc": "Professional copywriting with local keywords." },
-      { "icon": "📄", "title": "PDF delivery report", "desc": "Full document with screenshots of the whole job." }
+      {
+        "icon": "🔧",
+        "title": "Profile creation & verification",
+        "desc": "We create your official profile and get it verified by Google."
+      },
+      {
+        "icon": "🗂️",
+        "title": "100% complete profile",
+        "desc": "Name, address, phone, website, hours — all filled in accurately."
+      },
+      {
+        "icon": "🎯",
+        "title": "Strategic categories",
+        "desc": "Categories chosen to appear in the right local searches."
+      },
+      {
+        "icon": "📸",
+        "title": "Photo upload",
+        "desc": "Upload and organization of your photos for an attractive profile."
+      },
+      {
+        "icon": "⚙️",
+        "title": "Services configuration",
+        "desc": "Full list of your services with descriptions."
+      },
+      {
+        "icon": "✍️",
+        "title": "SEO-optimized description",
+        "desc": "Professional copywriting with local keywords."
+      },
+      {
+        "icon": "📄",
+        "title": "PDF delivery report",
+        "desc": "Full document with screenshots of the whole job."
+      }
     ]
   },
   "expertise": {
     "title": "Why trust us?",
     "subtitle": "Our team specializes in local SEO and Google visibility for shops and SMBs. That's all we do.",
     "items": [
-      { "title": "Google My Business specialists", "desc": "We master every Google ranking factor to maximize local visibility." },
-      { "title": "Local SEO experts", "desc": "We know the techniques to rank your profile at the top of Google Maps." },
-      { "title": "Fast turnaround", "desc": "Your profile is created, optimized and delivered in 7 business days." },
-      { "title": "Personal support", "desc": "We gather your info, handle everything and keep you posted until delivery." }
+      {
+        "title": "Google My Business specialists",
+        "desc": "We master every Google ranking factor to maximize local visibility."
+      },
+      {
+        "title": "Local SEO experts",
+        "desc": "We know the techniques to rank your profile at the top of Google Maps."
+      },
+      {
+        "title": "Fast turnaround",
+        "desc": "Your profile is created, optimized and delivered in 7 business days."
+      },
+      {
+        "title": "Personal support",
+        "desc": "We gather your info, handle everything and keep you posted until delivery."
+      }
     ],
     "badge": "Service performed on Google My Business — Google's official platform"
   },
@@ -132,12 +184,36 @@
     "title": "What our clients say",
     "subtitle": "Professionals like you who took the leap.",
     "items": [
-      { "name": "Sophie M.", "role": "Independent hairdresser", "text": "I was completely invisible on Google before. In a week my profile was live with photos and services. I got my first calls from Google Maps the next week!" },
-      { "name": "Thomas R.", "role": "Garage owner", "text": "Very professional, they handled everything from A to Z. The delivery report is super thorough — you can see exactly what was done. Highly recommend." },
-      { "name": "Nadia B.", "role": "Restaurant owner", "text": "I had no idea my Google profile could be optimized this much. Now I show up in the top 3 results when people search for a restaurant in my area." },
-      { "name": "Marc D.", "role": "Plumber", "text": "Fast, efficient, professional. My profile was delivered in 5 days. Very reasonable price for the work delivered." },
-      { "name": "Leila K.", "role": "Beautician", "text": "I had tried creating my profile myself but it was incomplete. They took it over, optimized it, and now I get customers telling me they found me on Google Maps." },
-      { "name": "David L.", "role": "Electrician", "text": "Investment paid back in 2 weeks. A customer contacted me directly via Google My Business. Recommend to all tradespeople." }
+      {
+        "name": "Sophie M.",
+        "role": "Independent hairdresser",
+        "text": "I was completely invisible on Google before. In a week my profile was live with photos and services. I got my first calls from Google Maps the next week!"
+      },
+      {
+        "name": "Thomas R.",
+        "role": "Garage owner",
+        "text": "Very professional, they handled everything from A to Z. The delivery report is super thorough — you can see exactly what was done. Highly recommend."
+      },
+      {
+        "name": "Nadia B.",
+        "role": "Restaurant owner",
+        "text": "I had no idea my Google profile could be optimized this much. Now I show up in the top 3 results when people search for a restaurant in my area."
+      },
+      {
+        "name": "Marc D.",
+        "role": "Plumber",
+        "text": "Fast, efficient, professional. My profile was delivered in 5 days. Very reasonable price for the work delivered."
+      },
+      {
+        "name": "Leila K.",
+        "role": "Beautician",
+        "text": "I had tried creating my profile myself but it was incomplete. They took it over, optimized it, and now I get customers telling me they found me on Google Maps."
+      },
+      {
+        "name": "David L.",
+        "role": "Electrician",
+        "text": "Investment paid back in 2 weeks. A customer contacted me directly via Google My Business. Recommend to all tradespeople."
+      }
     ]
   },
   "process": {
@@ -145,10 +221,22 @@
     "subtitle": "Simple, fast, no effort on your side.",
     "items": [
       { "title": "You contact us", "desc": "Fill in the contact form. We reply within 24h." },
-      { "title": "You pay for the service", "desc": "Secure online payment of €379 via Stripe. Instant email confirmation." },
-      { "title": "You send your info", "desc": "Name, address, hours, photos, services via our simple questionnaire." },
-      { "title": "We create and optimize your profile", "desc": "Our team handles everything: creation, verification, SEO, photos, services." },
-      { "title": "You receive your delivery report", "desc": "Within 7 business days: full Google profile + detailed PDF report via email." }
+      {
+        "title": "You pay for the service",
+        "desc": "Secure online payment of €379 via Stripe. Instant email confirmation."
+      },
+      {
+        "title": "You send your info",
+        "desc": "Name, address, hours, photos, services via our simple questionnaire."
+      },
+      {
+        "title": "We create and optimize your profile",
+        "desc": "Our team handles everything: creation, verification, SEO, photos, services."
+      },
+      {
+        "title": "You receive your delivery report",
+        "desc": "Within 7 business days: full Google profile + detailed PDF report via email."
+      }
     ],
     "badge": "Time required from you: 15 minutes. We handle the rest."
   },
@@ -171,7 +259,12 @@
       "Email support included"
     ],
     "cta": "Get my Google profile — €379",
-    "badges": ["🔒 Secure payment", "⚡ Delivery in 7 days", "📄 Report included", "💬 Email support included"]
+    "badges": [
+      "🔒 Secure payment",
+      "⚡ Delivery in 7 days",
+      "📄 Report included",
+      "💬 Email support included"
+    ]
   },
   "guarantee": {
     "tag": "Our promise",
@@ -187,17 +280,50 @@
   "faq": {
     "title": "Frequently asked questions",
     "items": [
-      { "q": "Is Google My Business really free?", "a": "Yes, the profile is 100% free. You pay for our expertise to create and optimize it properly." },
-      { "q": "I already have a Google profile, can you still help?", "a": "Absolutely. We take over your existing profile and make it 100% compliant with Google's criteria." },
-      { "q": "How long does the service take?", "a": "Delivered within 7 business days from receipt of your information." },
-      { "q": "What do I need to provide?", "a": "Just your basic information via our questionnaire: name, address, phone, hours, photos and services." },
-      { "q": "I don't have photos, is that a problem?", "a": "We guide you on what photos to take with your smartphone. Simple well-framed photos are enough to start." },
-      { "q": "Will my profile be visible right after delivery?", "a": "Yes, it's visible on Google Maps as soon as it's delivered. Visibility grows further with customer reviews." },
-      { "q": "What's in the delivery report?", "a": "A full PDF with screenshots of your finished profile and a summary of every optimization done." },
-      { "q": "Is the service guaranteed?", "a": "Yes. 7-business-day delivery guarantee or refund: if the deadline is missed or the delivered info isn't accurate, we refund you in full, no questions asked." },
-      { "q": "Can I edit my profile after delivery?", "a": "Yes, you have full access and can edit your profile any time." },
-      { "q": "Do you work all over France?", "a": "Yes, our service is 100% online. We work with businesses everywhere in France." },
-      { "q": "How can I contact you?", "a": "Only via the contact form on this page. We reply by email within 24h." }
+      {
+        "q": "Is Google My Business really free?",
+        "a": "Yes, the profile is 100% free. You pay for our expertise to create and optimize it properly."
+      },
+      {
+        "q": "I already have a Google profile, can you still help?",
+        "a": "Absolutely. We take over your existing profile and make it 100% compliant with Google's criteria."
+      },
+      {
+        "q": "How long does the service take?",
+        "a": "Delivered within 7 business days from receipt of your information."
+      },
+      {
+        "q": "What do I need to provide?",
+        "a": "Just your basic information via our questionnaire: name, address, phone, hours, photos and services."
+      },
+      {
+        "q": "I don't have photos, is that a problem?",
+        "a": "We guide you on what photos to take with your smartphone. Simple well-framed photos are enough to start."
+      },
+      {
+        "q": "Will my profile be visible right after delivery?",
+        "a": "Yes, it's visible on Google Maps as soon as it's delivered. Visibility grows further with customer reviews."
+      },
+      {
+        "q": "What's in the delivery report?",
+        "a": "A full PDF with screenshots of your finished profile and a summary of every optimization done."
+      },
+      {
+        "q": "Is the service guaranteed?",
+        "a": "Yes. 7-business-day delivery guarantee or refund: if the deadline is missed or the delivered info isn't accurate, we refund you in full, no questions asked."
+      },
+      {
+        "q": "Can I edit my profile after delivery?",
+        "a": "Yes, you have full access and can edit your profile any time."
+      },
+      {
+        "q": "Do you work all over France?",
+        "a": "Yes, our service is 100% online. We work with businesses everywhere in France."
+      },
+      {
+        "q": "How can I contact you?",
+        "a": "Only via the contact form on this page. We reply by email within 24h."
+      }
     ]
   },
   "contact": {
@@ -211,7 +337,9 @@
     "email": "Email address *",
     "choose": "— Choose —",
     "existing_listing": "Do you already have a Google profile?",
-    "yes": "Yes", "no": "No", "unsure": "I'm not sure",
+    "yes": "Yes",
+    "no": "No",
+    "unsure": "I'm not sure",
     "message": "Message or question (optional)",
     "rgpd": "I agree to be contacted by email about my request *",
     "submit": "Send my request — Reply within 24h",
@@ -220,7 +348,16 @@
     "sent_title": "✅ Your request was sent!",
     "sent_body": "We'll get back to you by email within 24h.",
     "send_another": "Send another request",
-    "sectors": ["Hairdresser", "Restaurant", "Garage", "Plumber", "Electrician", "Beautician", "Bakery", "Other"],
+    "sectors": [
+      "Hairdresser",
+      "Restaurant",
+      "Garage",
+      "Plumber",
+      "Electrician",
+      "Beautician",
+      "Bakery",
+      "Other"
+    ],
     "errors": {
       "required": "Required",
       "sector": "Choose an industry",
@@ -262,6 +399,11 @@
     "hello": "Hi",
     "briefing_for": "Briefing for",
     "minutes": "10 minutes",
+    "title": "Briefing — Hotavis",
+    "subtitle": "Fill in your business information so we can create your optimized Google Business Profile.",
+    "secure_note": "Your data is secure and will only be used to create your Google Business Profile.",
+    "saved": "Briefing saved successfully!",
+    "save_fail": "Error while saving. Please try again.",
     "steps": ["Business", "Activity", "Hours", "Services", "Photos", "Documents", "Validation"],
     "prev": "← Previous",
     "next": "Next",
@@ -273,13 +415,68 @@
     "upload_fail": "Upload failed",
     "send_error": "Error while sending",
     "s1_title": "1. Your business",
+    "s1_subtitle": "Enter the main details of your business. They will be used to create a Google Business Profile that faithfully reflects your establishment.",
+    "s1_section1_title": "Business identity",
+    "s1_section1_subtitle": "Enter the main details of your business. They will be used to create a Google Business Profile that faithfully reflects your establishment.",
+    "s1_nom_commercial": "Trade name *",
+    "s1_nom_commercial_hint": "Enter the name your customers know, the one displayed on your sign.",
+    "s1_nom_commercial_ph": "E.g. Martin Bakery",
+    "s1_nom_legal": "Legal name (Optional)",
+    "s1_nom_legal_hint": "If your legal entity name differs from your trade name, enter it here.",
+    "s1_nom_legal_ph": "E.g. Martin & Sons Ltd",
+    "s1_categorie_principale": "Main category *",
+    "s1_categorie_principale_hint": "Select the main activity that best represents your business.",
+    "s1_categorie_principale_ph": "E.g. Bakery, Plumber, Restaurant...",
+    "s1_categories_secondaires": "Additional categories (Optional)",
+    "s1_categories_secondaires_hint": "Add one or more complementary activities to better describe your business.",
+    "s1_categories_secondaires_ph": "E.g. Pastry shop, Tea room, Catering",
+    "s1_categories_secondaires_add": "Add a category",
+    "s1_section2_title": "About your business",
+    "s1_section2_subtitle": "Describe your activity, your services or products, your specialties, your expertise, what makes you unique, and anything important to help us better understand your business.",
+    "s1_description": "Business description *",
+    "s1_description_hint": "Describe your business in your own words. You can also add any specific or important information about your activity here.",
+    "s1_description_ph": "Example: We are an artisan bakery located in Mâcon, specializing in breads, viennoiseries and pastries. We also make custom cakes for birthdays and events. Our products are baked fresh on site every day with carefully selected ingredients. We also deliver within a 15 km radius.",
+    "s1_description_min": "Minimum 100 characters",
+    "s1_description_max": "Maximum 750 characters",
     "s1_name": "Official trade name *",
     "s1_date": "Business creation date",
+    "s1_address_ph": "E.g. 24 rue de Vaugirard",
+    "s1_zip_ph": "E.g. 75015",
+    "s1_city_ph": "E.g. Paris",
+    "s1_phone_ph": "E.g. 01 23 45 67 89",
     "s1_address": "Exact postal address *",
     "s1_zip": "Postal code *",
     "s1_city": "City *",
     "s1_phone": "Business phone *",
     "s1_website": "Website (optional)",
+    "s1_website_ph": "https://www.your-website.com",
+    "s1_website_hint": "Link to your website if you have one.",
+    "s1_social_networks": "Social media (optional)",
+    "s1_social_networks_hint": "Add links to your professional social media pages.",
+    "s1_facebook": "Facebook",
+    "s1_facebook_ph": "https://www.facebook.com/your-page",
+    "s1_instagram": "Instagram",
+    "s1_instagram_ph": "https://www.instagram.com/your-account",
+    "s1_youtube": "YouTube",
+    "s1_youtube_ph": "https://www.youtube.com/@your-channel",
+    "s1_linkedin": "LinkedIn",
+    "s1_linkedin_ph": "https://www.linkedin.com/company/your-company",
+    "s1_tiktok": "TikTok",
+    "s1_tiktok_ph": "https://www.tiktok.com/@your-account",
+    "s1_social_other_label": "Other network",
+    "s1_social_other_label_ph": "Network name",
+    "s1_social_other_url_ph": "Profile URL",
+    "s1_social_other_add": "+ Add another network",
+    "s1_google_account": "Google account",
+    "s1_google_ai_compte": "I have a Google account",
+    "s1_google_pas_compte": "I don't have a Google account",
+    "s1_google_perdu_acces": "I lost access to my profile",
+    "s1_google_email_ph": "example@gmail.com",
+    "s1_google_email_hint_required": "Required to access your existing profile.",
+    "s1_google_email_hint_optional": "Optional if you don't have an account.",
+    "s1_google_email_hint_gmail_required": "Due to technical requirements imposed by Google, a @gmail.com address is required to transfer ownership of your profile to you. No Gmail account? Creating one takes only 2 minutes. Simply create one for your business (e.g. mybusiness@gmail.com) using the link below, then enter it here.",
+    "s1_google_email_hint_any_email": "A Gmail address is not required. You can use another email address (Hotmail, Outlook, Yahoo, business address, etc.) as long as it is associated with a Google account.",
+    "s1_google_create_gmail": "👉 Create a free Gmail account",
     "s1_google_email": "Google account email (if any)",
     "s1_no_google": "I don't have a Google account — create one for me",
     "s2_title": "2. Your activity",
@@ -287,23 +484,101 @@
     "s2_category_ph": "E.g. Bakery, Plumber, Restaurant...",
     "s2_desc": "Description (20–750 characters) *",
     "s2_desc_ph": "Describe your business, strengths, what sets you apart...",
+    "s2_subtitle": "Tell us how customers access your products or services and where you operate.",
     "s2_presence": "Presence type *",
-    "s2_shop": "Shop", "s2_home": "At customers'", "s2_both": "Both",
+    "s2_presence_hint": "Indicate how your customers can access your products or services.",
+    "s2_presence_boutique": "Shop / Business premises",
+    "s2_presence_domicile_clients": "At customers' homes",
+    "s2_presence_les_deux": "Both",
+    "s2_zones_title": "Service area(s)",
+    "s2_zones_subtitle": "List the cities, towns, postal codes or geographic areas where you offer your services.",
+    "s2_zones_placeholder": "E.g. Mâcon, Charnay-lès-Mâcon, 71000...",
+    "s2_zones_add": "Add an area",
+    "s2_zones_limit": "You can add up to 20 service areas.",
+    "s2_zones_count": "area(s) added",
+    "s2_shop": "Shop",
+    "s2_home": "At customers'",
+    "s2_both": "Both",
     "s2_radius": "Service radius (km)",
     "s3_title": "3. Full opening hours",
     "s3_closed": "Closed",
+    "s3_open": "Opens",
+    "s3_close": "Closes",
     "s3_days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     "s4_title": "4. Services & attributes",
     "s4_services": "Services offered",
     "s4_services_ph": "E.g. Delivery, Click & collect...",
     "s4_add": "Add",
     "s4_attributes": "Attributes",
-    "s4_attrs_list": ["Wheelchair accessible", "Free Wi-Fi", "Card payment", "Contactless payment", "Online booking", "Parking", "Terrace", "Pets allowed", "Air-conditioned", "Home delivery", "Takeaway"],
+    "s4_custom_attrs_title": "Other attribute or specialty",
+    "s4_custom_attrs_subtitle": "Is a feature specific to your business missing? Add it here.",
+    "s4_custom_attrs_placeholder": "Example: Private parking reserved for customers",
+    "s4_custom_attrs_add": "+ Add an attribute",
+    "s4_attrs_list": [
+      "Wheelchair accessible",
+      "Free Wi-Fi",
+      "Card payment",
+      "Contactless payment",
+      "Online booking",
+      "Parking",
+      "Terrace",
+      "Pets allowed",
+      "Air-conditioned",
+      "Home delivery",
+      "Takeaway"
+    ],
     "s5_title": "5. Photos for your profile",
     "s5_logo": "Logo",
     "s5_cover": "Cover photo",
     "s5_more": "Storefront & extra photos (up to 10)",
     "s5_choose": "Choose",
+    "s5_subtitle": "Add photos that present your business professionally and give your future customers an accurate picture of your establishment, your products and your activity.",
+    "s5_conseils_title": "Photo tips",
+    "s5_conseils_1": "Choose sharp photos",
+    "s5_conseils_2": "Make sure the lighting is good",
+    "s5_conseils_3": "Use recent photos",
+    "s5_conseils_4": "Show your business as it really is",
+    "s5_conseils_5": "Avoid excessive filters",
+    "s5_conseils_6": "Avoid heavily retouched photos",
+    "s5_conseils_7": "Avoid artificial or excessively AI-generated images",
+    "s5_conseils_8": "Choose photos that best represent your activity",
+    "s5_logo_subtitle": "Add your company's official logo so customers can easily identify you.",
+    "s5_cover_subtitle": "Choose a photo that best represents your business and makes a good first impression on your future customers.",
+    "s5_exterieur": "Exterior photos",
+    "s5_exterieur_subtitle": "Show your premises from different angles so your customers can easily recognize it when they arrive.",
+    "s5_exterieur_examples": "Examples: facade, entrance, signage, storefront, view from the street, premises from different angles.",
+    "s5_interieur": "Interior photos",
+    "s5_interieur_subtitle": "Show the atmosphere, layout and different spaces your customers can discover in your establishment.",
+    "s5_interieur_examples": "Examples: reception area, main room, customer area, decoration, different spaces of the establishment.",
+    "s5_equipe": "Team photos",
+    "s5_equipe_subtitle": "Introduce the people who work in your business to give your establishment a more human face.",
+    "s5_equipe_examples": "Examples: full team, team members at work, manager, employees, team in their professional environment.",
+    "s5_metier": "Products, services or work",
+    "s5_metier_subtitle": "Show concretely what you offer your customers: your products, your services or your completed work.",
+    "s5_metier_examples": "Examples: products, services, finished projects, completed work, creations, results achieved, before/after where relevant.",
+    "s5_recommande": "Recommended: at least 3 photos",
+    "s5_compteur": "/ 3 recommended",
+    "s5_non_obligatoire": "3 photos recommended, but not required.",
+    "s5_max_photos": "Maximum 10 photos.",
+    "s5_max_atteint": "Maximum of 10 photos reached.",
+    "s5_ajouter_photos": "Add photos",
+    "s5_limite_depassee": "photos could not be added (limit of 10 reached).",
+    "s5_videos_title": "Videos of your business",
+    "s5_videos_subtitle": "Add short videos showing your business, your products or your services in action. Videos allow your future customers to discover your establishment in a lively, authentic way.",
+    "s5_videos_examples": "Examples: virtual tour, product presentation, service demonstration, customer testimonials, atmosphere of the establishment.",
+    "s5_videos_recommande": "Recommended: at least 1 video",
+    "s5_videos_compteur": "/ 1 recommended",
+    "s5_videos_non_obligatoire": "1 video recommended, but not required.",
+    "s5_videos_max": "Maximum 5 videos.",
+    "s5_videos_max_atteint": "Maximum of 5 videos reached.",
+    "s5_videos_ajouter": "Add a video",
+    "s5_videos_limite_depassee": "videos could not be added (limit of 5 reached).",
+    "s5_videos_conseils_title": "Video tips",
+    "s5_videos_conseils_1": "Keep videos short (30 seconds to 2 minutes)",
+    "s5_videos_conseils_2": "Make sure the picture and sound are of good quality",
+    "s5_videos_conseils_3": "Film in landscape mode for better readability",
+    "s5_videos_conseils_4": "Present your business in an authentic and professional way",
+    "s5_videos_conseils_5": "Avoid overly promotional videos; favor useful content",
     "s6_title": "6. Official documents",
     "s6_photos_etab": "Photos of your premises",
     "s6_photos_etab_hint": "(storefront with signage, interior, branded vehicles)",
@@ -315,6 +590,21 @@
     "s6_upload": "Upload",
     "s6_uploading": "Sending…",
     "s6_remove": "Remove",
+    "s6_subtitle": "Check that your business is ready to be created and verified on Google.",
+    "s6_question": "Have you officially registered your business?",
+    "s6_question_hint": "Is your business administratively registered and do you have your registration details (for example your SIRET number)?",
+    "s6_choice_creee": "Yes, my business is officially registered",
+    "s6_choice_en_cours": "My business registration is in progress",
+    "s6_choice_non_creee": "I haven't registered my business yet",
+    "s6_warning_en_cours_title": "⚠️ Your business registration is still in progress",
+    "s6_warning_en_cours_text": "We recommend completing your business registration before creating and verifying your Google Business Profile.\n\nAn officially registered business generally has more elements to justify its activity and existence if Google requests additional information or proof during verification.\n\nWaiting until your administrative registration is complete can therefore make the verification process easier.",
+    "s6_warning_non_creee_title": "⚠️ Your business is not registered yet",
+    "s6_warning_non_creee_text": "We recommend registering your business before continuing with your order.\n\nThe creation and verification of a Google Business Profile depend on Google's eligibility criteria and the verification method available for your establishment.\n\nIf your business is not officially registered yet, you may not have the necessary elements to answer a possible verification request.\n\nWe therefore advise you to complete your business registration before continuing.",
+    "s6_info_google_title": "⚠️ Good to know — Google verification",
+    "s6_info_google_text": "After your profile is created, Google will automatically determine the verification method available for your business.\n\nDepending on your situation, Google may offer verification by SMS or phone, email, video, live video call or mail.\n\nAction on your part may be required. If Google asks for confirmation or additional elements, we will contact you so that you can complete the verification with Google.",
+    "s6_confirmation_label": "I have taken note of my current situation and wish to continue with my order.",
+    "s6_required": "Please select an option before continuing.",
+    "s6_confirm_required": "Please tick the confirmation box to continue.",
     "s7_title": "7. Validation",
     "s7_comments": "Free comments (optional)",
     "s7_comments_ph": "Extra info, specific requests...",
@@ -334,5 +624,23 @@
     "hours": "Mon–Fri · 9am–6pm",
     "rights": "All rights reserved.",
     "agency": "French agency · Secure Stripe payment"
+  },
+  "admin": {
+    "filter_received": "Received orders",
+    "stat_unprocessed": "Unprocessed cases",
+    "delete": "Delete",
+    "delete_title": "Delete this order?",
+    "delete_desc": "This will permanently delete the order and its associated data.",
+    "cancel": "Cancel",
+    "delete_confirm": "Delete permanently",
+    "deleted_success": "Order permanently deleted.",
+    "delete_error": "Failed to delete the order.",
+    "reset_stats": "Start from zero",
+    "reset_title": "Start from zero?",
+    "reset_desc": "Total and revenue counters will be recalculated from now on. No order will be deleted.",
+    "reset_confirm": "Reset",
+    "reset_success": "Counters reset.",
+    "reset_error": "Failed to reset the counters.",
+    "period_since": "since {{date}}"
   }
 }

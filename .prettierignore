@@ -6,3 +6,13 @@ pnpm-lock.yaml
 package-lock.json
 bun.lock
 routeTree.gen.ts
+
+# Fichiers temporaires / dumps à la racine (non référencés par le code source)
+/commander.html
+/commande-provider.ts
+/commande-split.ts
+/commander-source.tsx
+/client-entry.js
+/client.tsx
+/replace-step5
+/replace-step5.cjs

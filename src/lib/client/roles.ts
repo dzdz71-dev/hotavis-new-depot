@@ -7,16 +7,19 @@ import { supabase } from "@/integrations/supabase/client";
 export type AppRole = "admin" | "agent" | "user";
 
 export async function getUserRoles(): Promise<AppRole[]> {
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return [];
 
-  const { data, error } = await supabase
-    .from("user_roles")
-    .select("role")
-    .eq("user_id", user.id);
+  const { data, error } = await supabase.from("user_roles").select("role").eq("user_id", user.id);
 
-  if (error || !data) return [];
-  return data.map((r) => r.role as AppRole);
+  if (error) {
+    // Ne pas planter l'UI, mais tracer l'erreur pour le debug.
+    console.error("[getUserRoles] erreur lecture user_roles:", error.message);
+    return [];
+  }
+  return (data ?? []).map((r) => r.role as AppRole);
 }
 
 /** Vérifie que l'utilisateur connecté a au moins l'un des rôles requis. */

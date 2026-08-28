@@ -15,10 +15,10 @@
 //   - WebCrypto est disponible nativement (Node 18+ / Vercel serverless functions).
 //   - `process.env` est injecté par Nitro depuis .env (local) ou les
 //     environment variables Vercel (production).
-import { createMiddleware } from '@tanstack/react-start';
-import { getRequest } from '@tanstack/react-start/server';
-import { createClient } from '@supabase/supabase-js';
-import type { Database } from './types';
+import { createMiddleware } from "@tanstack/react-start";
+import { getRequest } from "@tanstack/react-start/server";
+import { createClient } from "@supabase/supabase-js";
+import type { Database } from "./types";
 
 type Claims = {
   sub: string;
@@ -31,17 +31,17 @@ type Claims = {
   [key: string]: unknown;
 };
 
-export const requireSupabaseAuth = createMiddleware({ type: 'function' }).server(
+export const requireSupabaseAuth = createMiddleware({ type: "function" }).server(
   async ({ next }) => {
     const SUPABASE_URL = process.env.SUPABASE_URL;
     const SUPABASE_PUBLISHABLE_KEY = process.env.SUPABASE_PUBLISHABLE_KEY;
 
     if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
       const missing = [
-        ...(!SUPABASE_URL ? ['SUPABASE_URL'] : []),
-        ...(!SUPABASE_PUBLISHABLE_KEY ? ['SUPABASE_PUBLISHABLE_KEY'] : []),
+        ...(!SUPABASE_URL ? ["SUPABASE_URL"] : []),
+        ...(!SUPABASE_PUBLISHABLE_KEY ? ["SUPABASE_PUBLISHABLE_KEY"] : []),
       ];
-      const message = `Missing Supabase environment variable(s): ${missing.join(', ')}. Set them in .env (local) or Vercel env vars (production).`;
+      const message = `Missing Supabase environment variable(s): ${missing.join(", ")}. Set them in .env (local) or Vercel env vars (production).`;
       console.error(`[Supabase] ${message}`);
       throw new Error(message);
     }
@@ -49,20 +49,20 @@ export const requireSupabaseAuth = createMiddleware({ type: 'function' }).server
     const request = getRequest();
 
     if (!request?.headers) {
-      throw new Error('Unauthorized: No request headers available');
+      throw new Error("Unauthorized: No request headers available");
     }
 
-    const authHeader = request.headers.get('authorization');
+    const authHeader = request.headers.get("authorization");
     if (!authHeader) {
-      throw new Error('Unauthorized: No authorization header provided');
+      throw new Error("Unauthorized: No authorization header provided");
     }
-    if (!authHeader.startsWith('Bearer ')) {
-      throw new Error('Unauthorized: Only Bearer tokens are supported');
+    if (!authHeader.startsWith("Bearer ")) {
+      throw new Error("Unauthorized: Only Bearer tokens are supported");
     }
 
-    const token = authHeader.slice('Bearer '.length).trim();
+    const token = authHeader.slice("Bearer ".length).trim();
     if (!token) {
-      throw new Error('Unauthorized: No token provided');
+      throw new Error("Unauthorized: No token provided");
     }
 
     const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
@@ -94,7 +94,7 @@ export const requireSupabaseAuth = createMiddleware({ type: 'function' }).server
     if (!claims) {
       const { data, error } = await supabase.auth.getUser(token);
       if (error || !data?.user?.id) {
-        throw new Error('Unauthorized: Invalid token');
+        throw new Error("Unauthorized: Invalid token");
       }
       claims = {
         sub: data.user.id,
@@ -104,7 +104,7 @@ export const requireSupabaseAuth = createMiddleware({ type: 'function' }).server
     }
 
     if (!claims.sub) {
-      throw new Error('Unauthorized: No user ID found in token');
+      throw new Error("Unauthorized: No user ID found in token");
     }
 
     return next({

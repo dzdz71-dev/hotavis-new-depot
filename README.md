@@ -4,22 +4,22 @@ Application full-stack SSR pour **Hotavis**, agence française spécialisée dan
 
 ## Stack technique
 
-| Couche | Technologie |
-|---|---|
-| Méta-framework | TanStack Start ^1.167 |
-| Routeur | TanStack Router ^1.168 (file-based) |
-| Build | Vite 7 + Nitro 3 (preset `cloudflare-module`) |
-| Runtime | Cloudflare Workers (`nodejs_compat`) |
-| UI | React 19 + Tailwind 4 + shadcn/ui + Radix UI |
-| Data fetching | TanStack Query ^5.83 |
-| Backend-as-a-Service | Supabase (Postgres + Auth + Storage + RLS) |
-| Paiement | Stripe Checkout |
-| Emails transactionnels | Resend |
-| i18n | i18next + react-i18next (FR/EN/ES) |
-| Forms/validation | react-hook-form + Zod ^4 |
-| Animations | framer-motion ^12 |
-| Scheduler | pg_cron + pg_net (côté Supabase) |
-| Langage | TypeScript 5.8 strict |
+| Couche                 | Technologie                                   |
+| ---------------------- | --------------------------------------------- |
+| Méta-framework         | TanStack Start ^1.167                         |
+| Routeur                | TanStack Router ^1.168 (file-based)           |
+| Build                  | Vite 7 + Nitro 3 (preset `cloudflare-module`) |
+| Runtime                | Cloudflare Workers (`nodejs_compat`)          |
+| UI                     | React 19 + Tailwind 4 + shadcn/ui + Radix UI  |
+| Data fetching          | TanStack Query ^5.83                          |
+| Backend-as-a-Service   | Supabase (Postgres + Auth + Storage + RLS)    |
+| Paiement               | Stripe Checkout                               |
+| Emails transactionnels | Resend                                        |
+| i18n                   | i18next + react-i18next (FR/EN/ES)            |
+| Forms/validation       | react-hook-form + Zod ^4                      |
+| Animations             | framer-motion ^12                             |
+| Scheduler              | pg_cron + pg_net (côté Supabase)              |
+| Langage                | TypeScript 5.8 strict                         |
 
 ## Prérequis
 
@@ -51,18 +51,18 @@ cp .env .dev.vars
 
 Voir `.env.example` pour la liste complète. Résumé :
 
-| Variable | Rôle | Obligatoire |
-|---|---|---|
-| `SUPABASE_URL` | URL du projet Supabase | ✅ |
-| `SUPABASE_PUBLISHABLE_KEY` | Clé publique (anon) Supabase | ✅ |
-| `SUPABASE_SERVICE_ROLE_KEY` | Clé service role (bypass RLS) — serveur only | ✅ |
-| `STRIPE_SECRET_KEY` | Clé secrète Stripe (`sk_test_` ou `sk_live_`) | ✅ |
-| `STRIPE_WEBHOOK_SECRET` | Secret du webhook Stripe (`whsec_`) | ✅ |
-| `RESEND_API_KEY` | Clé API Resend (`re_`) | ✅ |
-| `CRON_SECRET` | Secret pour sécuriser `/api/public/cron-reminders` | ✅ |
-| `PUBLIC_BASE_URL` | URL publique (pour emails d'invitation) | ✅ |
-| `VITE_SUPABASE_URL` | URL Supabase (injectée côté client) | ✅ |
-| `VITE_SUPABASE_PUBLISHABLE_KEY` | Clé anon (injectée côté client) | ✅ |
+| Variable                        | Rôle                                               | Obligatoire |
+| ------------------------------- | -------------------------------------------------- | ----------- |
+| `SUPABASE_URL`                  | URL du projet Supabase                             | ✅          |
+| `SUPABASE_PUBLISHABLE_KEY`      | Clé publique (anon) Supabase                       | ✅          |
+| `SUPABASE_SERVICE_ROLE_KEY`     | Clé service role (bypass RLS) — serveur only       | ✅          |
+| `STRIPE_SECRET_KEY`             | Clé secrète Stripe (`sk_test_` ou `sk_live_`)      | ✅          |
+| `STRIPE_WEBHOOK_SECRET`         | Secret du webhook Stripe (`whsec_`)                | ✅          |
+| `RESEND_API_KEY`                | Clé API Resend (`re_`)                             | ✅          |
+| `CRON_SECRET`                   | Secret pour sécuriser `/api/public/cron-reminders` | ✅          |
+| `PUBLIC_BASE_URL`               | URL publique (pour emails d'invitation)            | ✅          |
+| `VITE_SUPABASE_URL`             | URL Supabase (injectée côté client)                | ✅          |
+| `VITE_SUPABASE_PUBLISHABLE_KEY` | Clé anon (injectée côté client)                    | ✅          |
 
 ## Configuration Supabase
 
@@ -225,6 +225,7 @@ hotavis-boost/
 ## Parcours utilisateur
 
 ### Funnel client
+
 ```
 /                → page d'accueil + CTA "Commencer — 379€"
   ↓
@@ -238,6 +239,7 @@ hotavis-boost/
 ```
 
 ### Espace admin
+
 ```
 /admin/login     → saisie email/password + vérif rôle admin
   ↓
@@ -251,6 +253,7 @@ hotavis-boost/
 ```
 
 ### Espace agent
+
 ```
 /agent/login     → saisie email/password + vérif rôle agent/admin
   ↓
@@ -280,6 +283,7 @@ bun test
 ```
 
 Pour l'instant, aucun test automatisé. Avant la mise en production, ajouter au minimum :
+
 - Test d'intégration sur `claim_commande` (RPC SQL)
 - Test sur `saveOnboarding` (validation Zod)
 - Test sur `confirmStripeSession` (idempotence + retry)

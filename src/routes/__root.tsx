@@ -46,7 +46,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <p className="mt-2 text-sm text-muted-foreground">{error.message}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="rounded-full bg-google-blue px-5 py-2 text-sm font-semibold text-white"
           >
             Réessayer
@@ -66,10 +69,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Hotavis — Votre fiche Google Business optimisée en 5 jours" },
-      { name: "description", content: "Hotavis crée et optimise votre fiche Google Business Profile en 5 jours. SEO local, photos, services, avis — tout est géré pour vous. À partir de 379€." },
+      {
+        name: "description",
+        content:
+          "Hotavis crée et optimise votre fiche Google Business Profile en 5 jours. SEO local, photos, services, avis — tout est géré pour vous. À partir de 379€.",
+      },
       { name: "author", content: "Hotavis" },
       { property: "og:title", content: "Hotavis — Votre fiche Google professionnelle en 5 jours" },
-      { property: "og:description", content: "Création et optimisation complète de votre fiche Google Business Profile. À partir de 379€, garanti satisfait ou remboursé." },
+      {
+        property: "og:description",
+        content:
+          "Création et optimisation complète de votre fiche Google Business Profile. À partir de 379€, garanti satisfait ou remboursé.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -84,7 +95,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
-      <head><HeadContent /></head>
+      <head>
+        <HeadContent />
+      </head>
       <body>
         {children}
         <Scripts />
@@ -97,18 +110,21 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isAdmin = pathname.startsWith("/admin");
+  const isAgent = pathname.startsWith("/agent");
   const isOnboarding = pathname.startsWith("/onboarding") || pathname.startsWith("/merci");
-  const hideChrome = isAdmin || isOnboarding;
+  const isRecrutement = pathname === "/recrutement";
+  const isAgentLogin = pathname === "/agent/login";
+  const hideChrome = isAdmin || isAgent || isOnboarding;
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col">
-        {!hideChrome && <Header />}
+        {!hideChrome && <Header isExpertPage={isRecrutement} isAgentLoginPage={isAgentLogin} />}
         <main className="flex-1">
           <Outlet />
         </main>
-        {!hideChrome && <Footer />}
-        {!isAdmin && <FloatingCallButton />}
+        {!hideChrome && !isAgentLogin && <Footer />}
+        {!isAdmin && !isAgent && <FloatingCallButton />}
       </div>
       <Toaster richColors position="top-center" />
     </QueryClientProvider>

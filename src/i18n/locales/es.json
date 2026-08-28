@@ -52,9 +52,21 @@
     "tag": "Estás perdiendo clientes sin saberlo",
     "title": "Cada día, clientes buscan tu actividad en Google… y encuentran a tus competidores.",
     "items": [
-      { "icon": "🔍", "title": "No te encuentran", "desc": "Cuando un cliente escribe «peluquero París 11» o «fontanero Lyon», ve a tus competidores. No a ti." },
-      { "icon": "📉", "title": "Pierdes ingresos", "desc": "El 97% de los consumidores busca una empresa en Google antes de ir. Sin ficha, pierdes esos clientes." },
-      { "icon": "⚠️", "title": "No existes", "desc": "Hoy, una empresa sin ficha de Google se percibe como cerrada o poco fiable." }
+      {
+        "icon": "🔍",
+        "title": "No te encuentran",
+        "desc": "Cuando un cliente escribe «peluquero París 11» o «fontanero Lyon», ve a tus competidores. No a ti."
+      },
+      {
+        "icon": "📉",
+        "title": "Pierdes ingresos",
+        "desc": "El 97% de los consumidores busca una empresa en Google antes de ir. Sin ficha, pierdes esos clientes."
+      },
+      {
+        "icon": "⚠️",
+        "title": "No existes",
+        "desc": "Hoy, una empresa sin ficha de Google se percibe como cerrada o poco fiable."
+      }
     ]
   },
   "risks": {
@@ -108,23 +120,63 @@
     "title": "Lo que incluye nuestro servicio",
     "subtitle": "Una ficha de Google profesional es la base de toda visibilidad local.",
     "items": [
-      { "icon": "🔧", "title": "Creación y verificación de la ficha", "desc": "Creamos tu ficha oficial y la verificamos ante Google." },
-      { "icon": "🗂️", "title": "Perfil 100% completo", "desc": "Nombre, dirección, teléfono, web, horarios: todo rellenado con precisión." },
-      { "icon": "🎯", "title": "Categorías estratégicas", "desc": "Categorías elegidas para aparecer en las búsquedas locales adecuadas." },
-      { "icon": "📸", "title": "Subida de fotos", "desc": "Subida y organización de tus fotos para una ficha atractiva." },
-      { "icon": "⚙️", "title": "Configuración de servicios", "desc": "Lista completa de tus servicios con descripciones." },
-      { "icon": "✍️", "title": "Descripción optimizada para SEO", "desc": "Redacción profesional con palabras clave locales." },
-      { "icon": "📄", "title": "Informe de entrega en PDF", "desc": "Documento completo con capturas de toda la prestación." }
+      {
+        "icon": "🔧",
+        "title": "Creación y verificación de la ficha",
+        "desc": "Creamos tu ficha oficial y la verificamos ante Google."
+      },
+      {
+        "icon": "🗂️",
+        "title": "Perfil 100% completo",
+        "desc": "Nombre, dirección, teléfono, web, horarios: todo rellenado con precisión."
+      },
+      {
+        "icon": "🎯",
+        "title": "Categorías estratégicas",
+        "desc": "Categorías elegidas para aparecer en las búsquedas locales adecuadas."
+      },
+      {
+        "icon": "📸",
+        "title": "Subida de fotos",
+        "desc": "Subida y organización de tus fotos para una ficha atractiva."
+      },
+      {
+        "icon": "⚙️",
+        "title": "Configuración de servicios",
+        "desc": "Lista completa de tus servicios con descripciones."
+      },
+      {
+        "icon": "✍️",
+        "title": "Descripción optimizada para SEO",
+        "desc": "Redacción profesional con palabras clave locales."
+      },
+      {
+        "icon": "📄",
+        "title": "Informe de entrega en PDF",
+        "desc": "Documento completo con capturas de toda la prestación."
+      }
     ]
   },
   "expertise": {
     "title": "¿Por qué confiar en nosotros?",
     "subtitle": "Nuestro equipo se especializa en SEO local y visibilidad en Google para comercios y pymes. Solo hacemos eso.",
     "items": [
-      { "title": "Especialistas en Google My Business", "desc": "Dominamos todos los criterios de Google para maximizar la visibilidad local." },
-      { "title": "Expertos en SEO local", "desc": "Conocemos las técnicas que sitúan tu ficha en lo alto de Google Maps." },
-      { "title": "Rapidez de ejecución", "desc": "Tu ficha se crea, optimiza y entrega en 7 días laborables." },
-      { "title": "Acompañamiento personalizado", "desc": "Recopilamos tus datos, nos encargamos de todo y te informamos hasta la entrega." }
+      {
+        "title": "Especialistas en Google My Business",
+        "desc": "Dominamos todos los criterios de Google para maximizar la visibilidad local."
+      },
+      {
+        "title": "Expertos en SEO local",
+        "desc": "Conocemos las técnicas que sitúan tu ficha en lo alto de Google Maps."
+      },
+      {
+        "title": "Rapidez de ejecución",
+        "desc": "Tu ficha se crea, optimiza y entrega en 7 días laborables."
+      },
+      {
+        "title": "Acompañamiento personalizado",
+        "desc": "Recopilamos tus datos, nos encargamos de todo y te informamos hasta la entrega."
+      }
     ],
     "badge": "Servicio realizado en Google My Business — Plataforma oficial de Google"
   },
@@ -132,23 +184,62 @@
     "title": "Lo que dicen nuestros clientes",
     "subtitle": "Profesionales como tú que dieron el paso.",
     "items": [
-      { "name": "Sophie M.", "role": "Peluquera autónoma", "text": "Antes era totalmente invisible en Google. En una semana mi ficha estaba publicada, completa, con fotos y servicios. ¡La semana siguiente ya recibí mis primeras llamadas desde Google Maps!" },
-      { "name": "Thomas R.", "role": "Dueño de taller", "text": "Muy profesionales, lo gestionan todo de la A a la Z. El informe de entrega es muy completo, ves exactamente lo que han hecho. Lo recomiendo." },
-      { "name": "Nadia B.", "role": "Restauradora", "text": "No sabía que mi ficha de Google podía optimizarse tanto. Ahora aparezco entre los 3 primeros resultados cuando buscan restaurante en mi barrio." },
-      { "name": "Marc D.", "role": "Fontanero", "text": "Rápido, eficaz, profesional. Mi ficha estuvo lista en 5 días. El precio es muy razonable por el trabajo entregado." },
-      { "name": "Leila K.", "role": "Esteticista", "text": "Había intentado crear mi ficha sola pero quedaba incompleta. Ellos la retomaron, la optimizaron y ahora recibo clientes que me dicen haberme encontrado en Google Maps." },
-      { "name": "David L.", "role": "Electricista", "text": "Inversión amortizada en 2 semanas. Un cliente me contactó directamente desde Google My Business. Lo recomiendo a todos los autónomos." }
+      {
+        "name": "Sophie M.",
+        "role": "Peluquera autónoma",
+        "text": "Antes era totalmente invisible en Google. En una semana mi ficha estaba publicada, completa, con fotos y servicios. ¡La semana siguiente ya recibí mis primeras llamadas desde Google Maps!"
+      },
+      {
+        "name": "Thomas R.",
+        "role": "Dueño de taller",
+        "text": "Muy profesionales, lo gestionan todo de la A a la Z. El informe de entrega es muy completo, ves exactamente lo que han hecho. Lo recomiendo."
+      },
+      {
+        "name": "Nadia B.",
+        "role": "Restauradora",
+        "text": "No sabía que mi ficha de Google podía optimizarse tanto. Ahora aparezco entre los 3 primeros resultados cuando buscan restaurante en mi barrio."
+      },
+      {
+        "name": "Marc D.",
+        "role": "Fontanero",
+        "text": "Rápido, eficaz, profesional. Mi ficha estuvo lista en 5 días. El precio es muy razonable por el trabajo entregado."
+      },
+      {
+        "name": "Leila K.",
+        "role": "Esteticista",
+        "text": "Había intentado crear mi ficha sola pero quedaba incompleta. Ellos la retomaron, la optimizaron y ahora recibo clientes que me dicen haberme encontrado en Google Maps."
+      },
+      {
+        "name": "David L.",
+        "role": "Electricista",
+        "text": "Inversión amortizada en 2 semanas. Un cliente me contactó directamente desde Google My Business. Lo recomiendo a todos los autónomos."
+      }
     ]
   },
   "process": {
     "title": "Cómo funciona, en 5 pasos",
     "subtitle": "Simple, rápido y sin esfuerzo por tu parte.",
     "items": [
-      { "title": "Nos contactas", "desc": "Rellena el formulario de contacto. Te respondemos en 24 h." },
-      { "title": "Pagas el servicio", "desc": "Pago seguro en línea de 379 € vía Stripe. Confirmación inmediata por email." },
-      { "title": "Nos envías tu información", "desc": "Nombre, dirección, horarios, fotos, servicios mediante nuestro cuestionario." },
-      { "title": "Creamos y optimizamos tu ficha", "desc": "Nuestro equipo se encarga de todo: creación, verificación, SEO, fotos, servicios." },
-      { "title": "Recibes tu informe de entrega", "desc": "En 7 días laborables: ficha completa + informe PDF detallado por email." }
+      {
+        "title": "Nos contactas",
+        "desc": "Rellena el formulario de contacto. Te respondemos en 24 h."
+      },
+      {
+        "title": "Pagas el servicio",
+        "desc": "Pago seguro en línea de 379 € vía Stripe. Confirmación inmediata por email."
+      },
+      {
+        "title": "Nos envías tu información",
+        "desc": "Nombre, dirección, horarios, fotos, servicios mediante nuestro cuestionario."
+      },
+      {
+        "title": "Creamos y optimizamos tu ficha",
+        "desc": "Nuestro equipo se encarga de todo: creación, verificación, SEO, fotos, servicios."
+      },
+      {
+        "title": "Recibes tu informe de entrega",
+        "desc": "En 7 días laborables: ficha completa + informe PDF detallado por email."
+      }
     ],
     "badge": "Tiempo requerido por tu parte: 15 minutos. Nosotros nos encargamos del resto."
   },
@@ -171,7 +262,12 @@
       "Soporte por email incluido"
     ],
     "cta": "Quiero mi ficha de Google — 379 €",
-    "badges": ["🔒 Pago seguro", "⚡ Entrega en 7 días", "📄 Informe incluido", "💬 Soporte por email incluido"]
+    "badges": [
+      "🔒 Pago seguro",
+      "⚡ Entrega en 7 días",
+      "📄 Informe incluido",
+      "💬 Soporte por email incluido"
+    ]
   },
   "guarantee": {
     "tag": "Nuestra promesa",
@@ -187,17 +283,50 @@
   "faq": {
     "title": "Preguntas frecuentes",
     "items": [
-      { "q": "¿Google My Business es realmente gratis?", "a": "Sí, la ficha es 100% gratuita. Pagas nuestra experiencia para crearla y optimizarla correctamente." },
-      { "q": "Ya tengo una ficha de Google, ¿podéis intervenir igualmente?", "a": "Por supuesto. Tomamos tu ficha existente y la hacemos 100% conforme a los criterios de Google." },
-      { "q": "¿Cuánto dura el servicio?", "a": "Entrega en 7 días laborables desde la recepción de tus datos." },
-      { "q": "¿Qué debo aportar?", "a": "Solo tus datos básicos mediante nuestro cuestionario: nombre, dirección, teléfono, horarios, fotos y servicios." },
-      { "q": "No tengo fotos, ¿es un problema?", "a": "Te aconsejamos qué fotos hacer con tu móvil. Fotos sencillas bien encuadradas bastan para empezar." },
-      { "q": "¿Mi ficha será visible justo después de la entrega?", "a": "Sí, es visible en Google Maps en cuanto se entrega. La visibilidad crece con las reseñas." },
-      { "q": "¿Qué contiene el informe de entrega?", "a": "Un PDF completo con capturas de tu ficha y resumen de todas las optimizaciones." },
-      { "q": "¿El servicio está garantizado?", "a": "Sí. Garantía de entrega en 7 días laborables o reembolso: si no se cumple el plazo o los datos no son correctos, te reembolsamos íntegramente." },
-      { "q": "¿Puedo editar mi ficha tras la entrega?", "a": "Sí, tienes acceso total y puedes modificarla cuando quieras." },
-      { "q": "¿Trabajáis en toda Francia?", "a": "Sí, nuestro servicio es 100% online. Trabajamos con comercios de toda Francia." },
-      { "q": "¿Cómo puedo contactaros?", "a": "Únicamente mediante el formulario de contacto de esta página. Respondemos por email en 24 h." }
+      {
+        "q": "¿Google My Business es realmente gratis?",
+        "a": "Sí, la ficha es 100% gratuita. Pagas nuestra experiencia para crearla y optimizarla correctamente."
+      },
+      {
+        "q": "Ya tengo una ficha de Google, ¿podéis intervenir igualmente?",
+        "a": "Por supuesto. Tomamos tu ficha existente y la hacemos 100% conforme a los criterios de Google."
+      },
+      {
+        "q": "¿Cuánto dura el servicio?",
+        "a": "Entrega en 7 días laborables desde la recepción de tus datos."
+      },
+      {
+        "q": "¿Qué debo aportar?",
+        "a": "Solo tus datos básicos mediante nuestro cuestionario: nombre, dirección, teléfono, horarios, fotos y servicios."
+      },
+      {
+        "q": "No tengo fotos, ¿es un problema?",
+        "a": "Te aconsejamos qué fotos hacer con tu móvil. Fotos sencillas bien encuadradas bastan para empezar."
+      },
+      {
+        "q": "¿Mi ficha será visible justo después de la entrega?",
+        "a": "Sí, es visible en Google Maps en cuanto se entrega. La visibilidad crece con las reseñas."
+      },
+      {
+        "q": "¿Qué contiene el informe de entrega?",
+        "a": "Un PDF completo con capturas de tu ficha y resumen de todas las optimizaciones."
+      },
+      {
+        "q": "¿El servicio está garantizado?",
+        "a": "Sí. Garantía de entrega en 7 días laborables o reembolso: si no se cumple el plazo o los datos no son correctos, te reembolsamos íntegramente."
+      },
+      {
+        "q": "¿Puedo editar mi ficha tras la entrega?",
+        "a": "Sí, tienes acceso total y puedes modificarla cuando quieras."
+      },
+      {
+        "q": "¿Trabajáis en toda Francia?",
+        "a": "Sí, nuestro servicio es 100% online. Trabajamos con comercios de toda Francia."
+      },
+      {
+        "q": "¿Cómo puedo contactaros?",
+        "a": "Únicamente mediante el formulario de contacto de esta página. Respondemos por email en 24 h."
+      }
     ]
   },
   "contact": {
@@ -211,7 +340,9 @@
     "email": "Email *",
     "choose": "— Elegir —",
     "existing_listing": "¿Ya tienes una ficha de Google?",
-    "yes": "Sí", "no": "No", "unsure": "No lo sé",
+    "yes": "Sí",
+    "no": "No",
+    "unsure": "No lo sé",
     "message": "Mensaje o pregunta (opcional)",
     "rgpd": "Acepto ser contactado por email sobre mi solicitud *",
     "submit": "Enviar mi solicitud — Respuesta en 24 h",
@@ -220,7 +351,16 @@
     "sent_title": "✅ ¡Tu solicitud se ha enviado!",
     "sent_body": "Te contactamos por email en 24 h.",
     "send_another": "Enviar otra solicitud",
-    "sectors": ["Peluquero", "Restaurante", "Taller", "Fontanero", "Electricista", "Esteticista", "Panadería", "Otro"],
+    "sectors": [
+      "Peluquero",
+      "Restaurante",
+      "Taller",
+      "Fontanero",
+      "Electricista",
+      "Esteticista",
+      "Panadería",
+      "Otro"
+    ],
     "errors": {
       "required": "Obligatorio",
       "sector": "Elige un sector",
@@ -262,6 +402,11 @@
     "hello": "Hola",
     "briefing_for": "Briefing para",
     "minutes": "10 minutos",
+    "title": "Briefing — Hotavis",
+    "subtitle": "Rellena la información de tu empresa para que podamos crear tu ficha de Google optimizada.",
+    "secure_note": "Tus datos están seguros y solo se utilizarán para crear tu ficha de Google.",
+    "saved": "¡Briefing guardado con éxito!",
+    "save_fail": "Error al guardar. Inténtalo de nuevo.",
     "steps": ["Empresa", "Actividad", "Horarios", "Servicios", "Fotos", "Documentos", "Validación"],
     "prev": "← Anterior",
     "next": "Siguiente",
@@ -273,13 +418,68 @@
     "upload_fail": "Error al subir",
     "send_error": "Error al enviar",
     "s1_title": "1. Tu empresa",
+    "s1_subtitle": "Indica los datos principales de tu empresa. Servirán para crear una ficha de Google Business fiel a tu establecimiento.",
+    "s1_section1_title": "Identidad de la empresa",
+    "s1_section1_subtitle": "Indica los datos principales de tu empresa. Servirán para crear una ficha de Google Business fiel a tu establecimiento.",
+    "s1_nom_commercial": "Nombre comercial *",
+    "s1_nom_commercial_hint": "Indica el nombre que conocen tus clientes y que aparece en tu rótulo.",
+    "s1_nom_commercial_ph": "Ej.: Panadería Martín",
+    "s1_nom_legal": "Nombre legal (Opcional)",
+    "s1_nom_legal_hint": "Si tu razón social es distinta de tu nombre comercial, indícala aquí.",
+    "s1_nom_legal_ph": "Ej.: S.L. Martín e Hijos",
+    "s1_categorie_principale": "Categoría principal *",
+    "s1_categorie_principale_hint": "Selecciona la actividad principal que mejor represente tu empresa.",
+    "s1_categorie_principale_ph": "Ej.: Panadería, Fontanero, Restaurante...",
+    "s1_categories_secondaires": "Categorías secundarias (Opcional)",
+    "s1_categories_secondaires_hint": "Añade una o varias actividades complementarias para describir mejor tu empresa.",
+    "s1_categories_secondaires_ph": "Ej.: Pastelería, Salón de té, Catering",
+    "s1_categories_secondaires_add": "Añadir una categoría",
+    "s1_section2_title": "Presentación de tu empresa",
+    "s1_section2_subtitle": "Presenta tu actividad, tus servicios o productos, tus especialidades, tu experiencia, tus particularidades y cualquier elemento importante que ayude a comprender mejor tu empresa.",
+    "s1_description": "Descripción de tu empresa *",
+    "s1_description_hint": "Describe tu empresa con tus propias palabras. También puedes añadir aquí cualquier información específica o importante sobre tu actividad.",
+    "s1_description_ph": "Ejemplo: Somos una panadería artesanal situada en Mâcon, especializada en la elaboración de panes, bollería y pasteles. También hacemos tartas personalizadas para cumpleaños y eventos. Nuestros productos se elaboran cada día en el propio taller con ingredientes seleccionados. Además, ofrecemos entrega en un radio de 15 km.",
+    "s1_description_min": "Mínimo 100 caracteres",
+    "s1_description_max": "Máximo 750 caracteres",
     "s1_name": "Nombre comercial oficial *",
     "s1_date": "Fecha de creación de la empresa",
+    "s1_address_ph": "Ej.: Calle de Vaugirard, 24",
+    "s1_zip_ph": "Ej.: 75015",
+    "s1_city_ph": "Ej.: París",
+    "s1_phone_ph": "Ej.: 01 23 45 67 89",
     "s1_address": "Dirección postal exacta *",
     "s1_zip": "Código postal *",
     "s1_city": "Ciudad *",
     "s1_phone": "Teléfono profesional *",
     "s1_website": "Sitio web (opcional)",
+    "s1_website_ph": "https://www.tu-sitio.com",
+    "s1_website_hint": "Enlace a tu sitio web si tienes uno.",
+    "s1_social_networks": "Redes sociales (opcional)",
+    "s1_social_networks_hint": "Añade los enlaces a tus páginas profesionales en redes sociales.",
+    "s1_facebook": "Facebook",
+    "s1_facebook_ph": "https://www.facebook.com/tu-pagina",
+    "s1_instagram": "Instagram",
+    "s1_instagram_ph": "https://www.instagram.com/tu-cuenta",
+    "s1_youtube": "YouTube",
+    "s1_youtube_ph": "https://www.youtube.com/@tu-canal",
+    "s1_linkedin": "LinkedIn",
+    "s1_linkedin_ph": "https://www.linkedin.com/company/tu-empresa",
+    "s1_tiktok": "TikTok",
+    "s1_tiktok_ph": "https://www.tiktok.com/@tu-cuenta",
+    "s1_social_other_label": "Otra red",
+    "s1_social_other_label_ph": "Nombre de la red",
+    "s1_social_other_url_ph": "URL del perfil",
+    "s1_social_other_add": "+ Añadir otra red",
+    "s1_google_account": "Cuenta de Google",
+    "s1_google_ai_compte": "Tengo cuenta de Google",
+    "s1_google_pas_compte": "No tengo cuenta de Google",
+    "s1_google_perdu_acces": "Perdí el acceso a mi ficha",
+    "s1_google_email_ph": "ejemplo@gmail.com",
+    "s1_google_email_hint_required": "Necesario para acceder a tu ficha existente.",
+    "s1_google_email_hint_optional": "Opcional si no tienes cuenta.",
+    "s1_google_email_hint_gmail_required": "Por requisitos técnicos impuestos por Google, se necesita una dirección @gmail.com para transferirte la propiedad de tu ficha. ¿No tienes cuenta de Gmail? Crearla tarda solo 2 minutos. Crea una simplemente para tu empresa (p. ej.: miempresa@gmail.com) mediante el enlace de abajo e introdúcela aquí.",
+    "s1_google_email_hint_any_email": "No es obligatoria una dirección de Gmail. Puedes usar otra dirección de email (Hotmail, Outlook, Yahoo, dirección profesional, etc.) siempre que esté asociada a una cuenta de Google.",
+    "s1_google_create_gmail": "👉 Crear una cuenta de Gmail gratis",
     "s1_google_email": "Email de la cuenta Google (si la tienes)",
     "s1_no_google": "No tengo cuenta de Google — crea una para mí",
     "s2_title": "2. Tu actividad",
@@ -287,23 +487,101 @@
     "s2_category_ph": "Ej.: Panadería, Fontanero, Restaurante...",
     "s2_desc": "Descripción (20–750 caracteres) *",
     "s2_desc_ph": "Describe tu actividad, tus puntos fuertes, lo que te diferencia...",
+    "s2_subtitle": "Define cómo tus clientes acceden a tus servicios y dónde ejerces tu actividad.",
     "s2_presence": "Tipo de presencia *",
-    "s2_shop": "Local", "s2_home": "En casa del cliente", "s2_both": "Ambos",
+    "s2_presence_hint": "Indica cómo tus clientes pueden acceder a tus productos o servicios.",
+    "s2_presence_boutique": "Tienda / Establecimiento",
+    "s2_presence_domicile_clients": "En el domicilio de los clientes",
+    "s2_presence_les_deux": "Ambos",
+    "s2_zones_title": "Zona(s) de servicio",
+    "s2_zones_subtitle": "Indica las ciudades, municipios, códigos postales o zonas geográficas en las que ofreces tus servicios.",
+    "s2_zones_placeholder": "Ej.: Mâcon, Charnay-lès-Mâcon, 71000...",
+    "s2_zones_add": "Añadir una zona",
+    "s2_zones_limit": "Puedes añadir hasta 20 zonas de servicio.",
+    "s2_zones_count": "zona(s) añadida(s)",
+    "s2_shop": "Local",
+    "s2_home": "En casa del cliente",
+    "s2_both": "Ambos",
     "s2_radius": "Radio de intervención (km)",
     "s3_title": "3. Horarios de apertura completos",
     "s3_closed": "Cerrado",
+    "s3_open": "Apertura",
+    "s3_close": "Cierre",
     "s3_days": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
     "s4_title": "4. Servicios y atributos",
     "s4_services": "Servicios ofrecidos",
     "s4_services_ph": "Ej.: Entrega, Click & collect...",
     "s4_add": "Añadir",
     "s4_attributes": "Atributos",
-    "s4_attrs_list": ["Accesible PMR", "Wifi gratis", "Pago con tarjeta", "Pago sin contacto", "Reserva online", "Aparcamiento", "Terraza", "Animales permitidos", "Climatizado", "Entrega a domicilio", "Para llevar"],
+    "s4_custom_attrs_title": "Otro atributo o particularidad",
+    "s4_custom_attrs_subtitle": "¿Falta alguna característica específica de tu empresa? Añádela aquí.",
+    "s4_custom_attrs_placeholder": "Ejemplo: Aparcamiento privado reservado a clientes",
+    "s4_custom_attrs_add": "+ Añadir un atributo",
+    "s4_attrs_list": [
+      "Accesible PMR",
+      "Wifi gratis",
+      "Pago con tarjeta",
+      "Pago sin contacto",
+      "Reserva online",
+      "Aparcamiento",
+      "Terraza",
+      "Animales permitidos",
+      "Climatizado",
+      "Entrega a domicilio",
+      "Para llevar"
+    ],
     "s5_title": "5. Fotos para tu ficha",
     "s5_logo": "Logo",
     "s5_cover": "Foto de portada",
     "s5_more": "Fotos de fachada y adicionales (hasta 10)",
     "s5_choose": "Elegir",
+    "s5_subtitle": "Añade las fotos que presenten tu empresa de forma profesional y den a tus futuros clientes una imagen fiel de tu establecimiento, tus productos y tu actividad.",
+    "s5_conseils_title": "Consejos para tus fotos",
+    "s5_conseils_1": "Prioriza fotos nítidas",
+    "s5_conseils_2": "Cuida que la iluminación sea buena",
+    "s5_conseils_3": "Utiliza fotos recientes",
+    "s5_conseils_4": "Muestra tu empresa tal como es en realidad",
+    "s5_conseils_5": "Evita los filtros excesivos",
+    "s5_conseils_6": "Evita las fotos muy retocadas",
+    "s5_conseils_7": "Evita imágenes artificiales o generadas en exceso por IA",
+    "s5_conseils_8": "Elige fotos representativas de tu actividad",
+    "s5_logo_subtitle": "Añade el logotipo oficial de tu empresa para que tus clientes te identifiquen fácilmente.",
+    "s5_cover_subtitle": "Elige una foto que represente lo mejor posible tu empresa y cause una buena primera impresión a tus futuros clientes.",
+    "s5_exterieur": "Fotos del exterior",
+    "s5_exterieur_subtitle": "Muestra tu establecimiento desde distintos ángulos para que tus clientes lo reconozcan fácilmente al llegar.",
+    "s5_exterieur_examples": "Ejemplos: fachada, entrada, rótulo, escaparate, vista desde la calle, establecimiento desde distintos ángulos.",
+    "s5_interieur": "Fotos del interior",
+    "s5_interieur_subtitle": "Muestra el ambiente, la distribución y los distintos espacios que tus clientes pueden descubrir en tu establecimiento.",
+    "s5_interieur_examples": "Ejemplos: zona de recepción, sala principal, área de clientes, decoración, distintos espacios del establecimiento.",
+    "s5_equipe": "Fotos del equipo",
+    "s5_equipe_subtitle": "Presenta a las personas que trabajan en tu empresa para darle un rostro más humano a tu establecimiento.",
+    "s5_equipe_examples": "Ejemplos: equipo completo, miembros del equipo trabajando, responsable, empleados, equipo en su entorno profesional.",
+    "s5_metier": "Productos, servicios o trabajos",
+    "s5_metier_subtitle": "Muestra de forma concreta lo que ofreces a tus clientes: tus productos, tus servicios o tus trabajos realizados.",
+    "s5_metier_examples": "Ejemplos: productos, servicios, trabajos terminados, obras realizadas, creaciones, resultados obtenidos, antes/después cuando sea relevante.",
+    "s5_recommande": "Recomendado: al menos 3 fotos",
+    "s5_compteur": "/ 3 recomendadas",
+    "s5_non_obligatoire": "Se recomiendan 3 fotos, pero no son obligatorias.",
+    "s5_max_photos": "Máximo 10 fotos.",
+    "s5_max_atteint": "Máximo de 10 fotos alcanzado.",
+    "s5_ajouter_photos": "Añadir fotos",
+    "s5_limite_depassee": "fotos no pudieron añadirse (límite de 10 alcanzado).",
+    "s5_videos_title": "Vídeos de tu empresa",
+    "s5_videos_subtitle": "Añade vídeos cortos que muestren tu empresa, tus productos o tus servicios en acción. Los vídeos permiten a tus futuros clientes descubrir tu establecimiento de forma viva y auténtica.",
+    "s5_videos_examples": "Ejemplos: visita virtual, presentación de productos, demostración de un servicio, testimonios de clientes, ambiente del establecimiento.",
+    "s5_videos_recommande": "Recomendado: al menos 1 vídeo",
+    "s5_videos_compteur": "/ 1 recomendado",
+    "s5_videos_non_obligatoire": "Se recomienda 1 vídeo, pero no es obligatorio.",
+    "s5_videos_max": "Máximo 5 vídeos.",
+    "s5_videos_max_atteint": "Máximo de 5 vídeos alcanzado.",
+    "s5_videos_ajouter": "Añadir un vídeo",
+    "s5_videos_limite_depassee": "vídeos no pudieron añadirse (límite de 5 alcanzado).",
+    "s5_videos_conseils_title": "Consejos para tus vídeos",
+    "s5_videos_conseils_1": "Prioriza vídeos cortos (de 30 segundos a 2 minutos)",
+    "s5_videos_conseils_2": "Asegúrate de que la imagen y el sonido tengan buena calidad",
+    "s5_videos_conseils_3": "Graba en modo horizontal para una mejor legibilidad",
+    "s5_videos_conseils_4": "Presenta tu empresa de forma auténtica y profesional",
+    "s5_videos_conseils_5": "Evita los vídeos demasiado promocionales; prioriza el contenido útil",
     "s6_title": "6. Documentos oficiales",
     "s6_photos_etab": "Fotos de tu establecimiento",
     "s6_photos_etab_hint": "(fachada con rótulo, interior, vehículos rotulados)",
@@ -315,6 +593,21 @@
     "s6_upload": "Subir",
     "s6_uploading": "Enviando…",
     "s6_remove": "Quitar",
+    "s6_subtitle": "Comprueba que tu empresa está lista para ser creada y verificada en Google.",
+    "s6_question": "¿Has constituido oficialmente tu empresa?",
+    "s6_question_hint": "¿Tu empresa está registrada administrativamente y dispones de tus datos de inscripción (por ejemplo, tu SIRET)?",
+    "s6_choice_creee": "Sí, mi empresa está constituida oficialmente",
+    "s6_choice_en_cours": "Mi empresa está en proceso de constitución",
+    "s6_choice_non_creee": "Todavía no he constituido mi empresa",
+    "s6_warning_en_cours_title": "⚠️ Tu empresa aún está en proceso de creación",
+    "s6_warning_en_cours_text": "Te recomendamos finalizar la constitución de tu empresa antes de crear y verificar tu ficha de Google.\n\nUna empresa constituida oficialmente suele disponer de más elementos para justificar su actividad y su existencia si Google solicita información o pruebas adicionales durante la verificación.\n\nEsperar a completar tu constitución administrativa puede facilitar el proceso de verificación.",
+    "s6_warning_non_creee_title": "⚠️ Tu empresa aún no está constituida",
+    "s6_warning_non_creee_text": "Te recomendamos constituir tu empresa antes de continuar con tu pedido.\n\nLa creación y la verificación de una ficha de Google dependen de los criterios de elegibilidad de Google y del método de verificación disponible para tu establecimiento.\n\nSi tu empresa todavía no está constituida oficialmente, es posible que no dispongas de los elementos necesarios para responder a una eventual solicitud de verificación.\n\nPor ello, te aconsejamos finalizar la constitución de tu empresa antes de continuar.",
+    "s6_info_google_title": "⚠️ Importante — Verificación de Google",
+    "s6_info_google_text": "Tras la creación de tu ficha, Google determinará automáticamente el método de verificación disponible para tu empresa.\n\nSegún tu situación, Google puede proponer una verificación por SMS o teléfono, email, vídeo, videollamada en directo o correo postal.\n\nEs posible que se necesite tu intervención. Si Google pide confirmación o elementos adicionales, nos pondremos en contacto contigo para que realices la verificación con Google.",
+    "s6_confirmation_label": "He tomado nota de mi situación actual y deseo continuar con mi pedido.",
+    "s6_required": "Selecciona una opción antes de continuar.",
+    "s6_confirm_required": "Marca la casilla de confirmación para continuar.",
     "s7_title": "7. Validación",
     "s7_comments": "Comentarios libres (opcional)",
     "s7_comments_ph": "Información adicional, solicitudes específicas...",
@@ -334,5 +627,23 @@
     "hours": "Lun–Vie · 9h–18h",
     "rights": "Todos los derechos reservados.",
     "agency": "Agencia francesa · Pago seguro con Stripe"
+  },
+  "admin": {
+    "filter_received": "Pedidos recibidos",
+    "stat_unprocessed": "Expedientes sin tratar",
+    "delete": "Eliminar",
+    "delete_title": "¿Eliminar este pedido?",
+    "delete_desc": "Esta acción eliminará definitivamente el pedido y sus datos asociados.",
+    "cancel": "Cancelar",
+    "delete_confirm": "Eliminar definitivamente",
+    "deleted_success": "Pedido eliminado definitivamente.",
+    "delete_error": "Error al eliminar el pedido.",
+    "reset_stats": "Empezar de cero",
+    "reset_title": "¿Empezar de cero?",
+    "reset_desc": "Los contadores Total e ingresos totales se recalcularán desde ahora. No se eliminará ningún pedido.",
+    "reset_confirm": "Reiniciar",
+    "reset_success": "Contadores reiniciados.",
+    "reset_error": "Error al reiniciar los contadores.",
+    "period_since": "desde el {{date}}"
   }
 }

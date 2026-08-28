@@ -1,5 +1,10 @@
 import "./lib/error-capture";
 
+// Set TSS_SERVER_FN_BASE for server functions to work in dev
+// This is normally set by the Vite plugin but only in the define config (client-side)
+// The server-side code reads it from process.env at runtime
+process.env.TSS_SERVER_FN_BASE = "/_serverFn/";
+
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 
@@ -12,7 +17,7 @@ let serverEntryPromise: Promise<ServerEntry> | undefined;
 async function getServerEntry(): Promise<ServerEntry> {
   if (!serverEntryPromise) {
     serverEntryPromise = import("@tanstack/react-start/server-entry").then(
-      (m) => ((m as { default?: ServerEntry }).default ?? (m as unknown as ServerEntry)),
+      (m) => (m as { default?: ServerEntry }).default ?? (m as unknown as ServerEntry),
     );
   }
   return serverEntryPromise;

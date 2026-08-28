@@ -11,8 +11,8 @@ describe("escapeHtml", () => {
   });
 
   it("échappe une chaîne complexe", () => {
-    expect(escapeHtml("O'Brien & <Co> \"test\"")).toBe(
-      "O&#39;Brien &amp; &lt;Co&gt; &quot;test&quot;"
+    expect(escapeHtml('O\'Brien & <Co> "test"')).toBe(
+      "O&#39;Brien &amp; &lt;Co&gt; &quot;test&quot;",
     );
   });
 

@@ -10,7 +10,10 @@ interface Props {
 
 export function Section({ children, className = "", id, alt = false }: Props) {
   return (
-    <section id={id} className={`py-16 md:py-24 ${alt ? "bg-surface-alt" : "bg-background"} ${className}`}>
+    <section
+      id={id}
+      className={`py-16 md:py-24 ${alt ? "bg-surface-alt" : "bg-background"} ${className}`}
+    >
       <div className="container mx-auto px-4 max-w-7xl">{children}</div>
     </section>
   );

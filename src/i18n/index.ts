@@ -33,9 +33,15 @@ if (typeof window !== "undefined") {
       queueMicrotask(() => i18n.changeLanguage(target));
     }
     i18n.on("languageChanged", (lng) => {
-      try { window.localStorage.setItem("hotavis_lang", lng); } catch {}
+      try {
+        window.localStorage.setItem("hotavis_lang", lng);
+      } catch {
+        /* localStorage indisponible (mode privé) */
+      }
     });
-  } catch {}
+  } catch {
+    /* i18n init échoué — fallback FR par défaut */
+  }
 }
 
 export default i18n;

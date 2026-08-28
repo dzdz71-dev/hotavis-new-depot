@@ -14,7 +14,8 @@ export function cn(...inputs: ClassValue[]) {
  *   escapeHtml("O'Brien & <Co>") // → "O&#39;Brien &amp; &lt;Co&gt;"
  */
 export function escapeHtml(s: string): string {
-  return (s ?? "").replace(/[&<>"']/g, (c) => (
-    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!
-  ));
+  return (s ?? "").replace(
+    /[&<>"']/g,
+    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!,
+  );
 }

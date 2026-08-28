@@ -27,7 +27,6 @@ export const Route = createFileRoute("/api/public/cron-reminders")({
           return new Response("Unauthorized", { status: 401 });
         }
 
-
         // Cherche commandes payées il y a 1h+, statut=payé (pas d'onboarding),
         // et pas encore de relance envoyée
         const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
@@ -45,7 +44,14 @@ export const Route = createFileRoute("/api/public/cron-reminders")({
 
         const resendKey = process.env.RESEND_API_KEY;
         if (!resendKey) {
-          return new Response(JSON.stringify({ found: commandes?.length || 0, sent: 0, warning: "RESEND_API_KEY missing" }), { status: 200 });
+          return new Response(
+            JSON.stringify({
+              found: commandes?.length || 0,
+              sent: 0,
+              warning: "RESEND_API_KEY missing",
+            }),
+            { status: 200 },
+          );
         }
         const resend = new Resend(resendKey);
         const host = request.headers.get("host");
@@ -56,7 +62,7 @@ export const Route = createFileRoute("/api/public/cron-reminders")({
           const link = `${proto}://${host}/onboarding/${c.id}`;
           try {
             await resend.emails.send({
-              from: "Hotavis <onboarding@resend.dev>",
+              from: "Hotavis <noreply@hotavis.fr>",
               to: [c.email],
               subject: "⏰ Vos informations sont en attente — Finalisez votre briefing",
               html: `
@@ -91,4 +97,3 @@ export const Route = createFileRoute("/api/public/cron-reminders")({
     },
   },
 });
-

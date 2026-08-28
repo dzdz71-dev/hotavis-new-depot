@@ -5,7 +5,9 @@ import { CheckCircle2, Sparkles, Rocket, Eye, Mail } from "lucide-react";
 import { confirmStripeSession } from "@/lib/commande.functions";
 
 export const Route = createFileRoute("/onboarding-success/$commandeId")({
-  head: () => ({ meta: [{ title: "Dossier reçu — Hotavis" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({
+    meta: [{ title: "Dossier reçu — Hotavis" }, { name: "robots", content: "noindex" }],
+  }),
   component: SuccessPage,
 });
 
@@ -32,7 +34,8 @@ function SuccessPage() {
               Félicitations, votre dossier est entre nos mains ! 🎉
             </h1>
             <p className="mt-3 text-muted-foreground">
-              Un expert Hotavis va prendre en charge votre fiche Google et la livrer sous 7 jours ouvrés.
+              Un expert Hotavis va prendre en charge votre fiche Google et la livrer sous 7 jours
+              ouvrés.
             </p>
           </div>
 
@@ -71,32 +74,53 @@ function SuccessPage() {
               <Mail className="h-5 w-5 text-google-blue shrink-0 mt-0.5" />
               <div className="text-sm">
                 <div className="font-semibold">Un email de confirmation vous a été envoyé</div>
-                <div className="text-muted-foreground">Avec le récap de votre briefing. Pensez à vérifier vos spams si vous ne le recevez pas.</div>
+                <div className="text-muted-foreground">
+                  Avec le récap de votre briefing. Pensez à vérifier vos spams si vous ne le recevez
+                  pas.
+                </div>
               </div>
             </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/" className="rounded-full bg-google-blue text-white font-semibold px-6 py-3 text-center hover:opacity-90 transition">
+            <div className="mt-8 flex justify-center">
+              <Link
+                to="/"
+                className="rounded-full bg-google-blue text-white font-semibold px-6 py-3 text-center hover:opacity-90 transition"
+              >
                 Retour à l'accueil
               </Link>
-              <a href={`mailto:contact@hotavis.fr?subject=Suivi%20dossier%20${commandeId.slice(0,8)}`} className="rounded-full border border-border font-semibold px-6 py-3 text-center hover:bg-accent transition">
-                Une question ?
-              </a>
             </div>
           </div>
         </div>
 
-        <p className="text-center text-xs text-muted-foreground mt-6">Dossier n° {commandeId.slice(0, 8).toUpperCase()}</p>
+        <p className="text-center text-xs text-muted-foreground mt-6">
+          Dossier n° {commandeId.slice(0, 8).toUpperCase()}
+        </p>
       </div>
     </div>
   );
 }
 
-function TimelineStep({ num, title, desc, icon, color, active }: { num: number; title: string; desc: string; icon: React.ReactNode; color: string; active?: boolean }) {
+function TimelineStep({
+  num,
+  title,
+  desc,
+  icon,
+  color,
+  active,
+}: {
+  num: number;
+  title: string;
+  desc: string;
+  icon: React.ReactNode;
+  color: string;
+  active?: boolean;
+}) {
   return (
     <li className="flex gap-4">
       <div className="flex flex-col items-center">
-        <div className={`h-10 w-10 rounded-full flex items-center justify-center font-bold ${color} ${active ? "ring-4 ring-google-blue/20" : ""}`}>
+        <div
+          className={`h-10 w-10 rounded-full flex items-center justify-center font-bold ${color} ${active ? "ring-4 ring-google-blue/20" : ""}`}
+        >
           {icon}
         </div>
         {num < 3 && <div className="flex-1 w-px bg-border mt-2" />}
@@ -104,7 +128,11 @@ function TimelineStep({ num, title, desc, icon, color, active }: { num: number; 
       <div className="pb-4">
         <div className="font-bold flex items-center gap-2">
           <span className="text-xs text-muted-foreground">Étape {num}</span>
-          {active && <span className="text-[10px] uppercase tracking-wider bg-google-blue text-white px-2 py-0.5 rounded-full font-bold">En cours</span>}
+          {active && (
+            <span className="text-[10px] uppercase tracking-wider bg-google-blue text-white px-2 py-0.5 rounded-full font-bold">
+              En cours
+            </span>
+          )}
         </div>
         <div className="font-semibold mt-0.5">{title}</div>
         <div className="text-sm text-muted-foreground mt-1">{desc}</div>

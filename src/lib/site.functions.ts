@@ -18,14 +18,14 @@ const contactSchema = z.object({
 });
 
 const ADMIN_EMAIL = "dz.societe.ecommerce@gmail.com";
-const FROM = "Hotavis <onboarding@resend.dev>";
+const FROM = "Hotavis <noreply@hotavis.fr>";
 
 function buildRateLimitKey(): string {
   try {
     const req = getRequest();
     if (!req) return "no-req";
     const xff = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-    const cfIp = (req as any).cf?.ipCountry as string | undefined;
+    const cfIp = (req as Request & { cf?: { ipCountry?: string } }).cf?.ipCountry;
     const ip = xff || cfIp || "unknown";
     return `contact:${ip}`;
   } catch {
