@@ -82,6 +82,26 @@ function vSiret(v: string) {
   return SIRET_RX.test(c) ? "" : "Le SIRET doit contenir exactement 14 chiffres.";
 }
 
+// Lit la durée d'un fichier vidéo via ses métadonnées (fonctionne sur Android
+// et iOS). Rejette si la durée est illisible (fichier corrompu/non supporté).
+function getVideoDuration(file: File): Promise<number> {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const v = document.createElement("video");
+    v.preload = "metadata";
+    v.onloadedmetadata = () => {
+      URL.revokeObjectURL(url);
+      if (Number.isFinite(v.duration) && v.duration > 0) resolve(v.duration);
+      else reject(new Error("duration_unknown"));
+    };
+    v.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error("duration_unknown"));
+    };
+    v.src = url;
+  });
+}
+
 function OnboardingPage() {
   const { commandeId } = Route.useParams();
   const { t } = useTranslation();
@@ -171,6 +191,7 @@ function OnboardingPage() {
   const [facture, setFacture] = useState<{ path: string; nom: string; type: string } | null>(null);
   const [uploading, setUploading] = useState(false);
   const [uploadingVideo, setUploadingVideo] = useState(false);
+  const [videoProgress, setVideoProgress] = useState<number | null>(null);
   const [uploadingDoc, setUploadingDoc] = useState(false);
   const [uploadingFacture, setUploadingFacture] = useState(false);
 
@@ -263,8 +284,27 @@ function OnboardingPage() {
 
   async function handleVideo(file: File, setter: (url: string) => void) {
     setUploadingVideo(true);
+    setVideoProgress(0);
     try {
-      // 1) Demande d'URL d'upload signée (petit appel serveur, sans le fichier —
+      // 1) Refus immédiat si la vidéo dépasse 75 Mo (limite Google Business Profile)
+      if (file.size > 75 * 1024 * 1024) {
+        toast.error(t("onboarding.video_too_large"));
+        return;
+      }
+      // 2) Refus immédiat si la durée dépasse 30 secondes (lecture des
+      //    métadonnées, compatible Android et iOS)
+      let duration: number;
+      try {
+        duration = await getVideoDuration(file);
+      } catch {
+        toast.error(t("onboarding.video_duration_unknown"));
+        return;
+      }
+      if (duration > 30) {
+        toast.error(t("onboarding.video_too_long"));
+        return;
+      }
+      // 3) Demande d'URL d'upload signée (petit appel serveur, sans le fichier —
       //    passe largement sous la limite de payload des Vercel Functions)
       const { signedUrl, publicUrl } = await createVideoUrl({
         data: {
@@ -274,20 +314,32 @@ function OnboardingPage() {
           size: file.size,
         },
       });
-      // 2) Upload DIRECT téléphone → Supabase Storage : le fichier ne transite
-      //    plus par Vercel, la limite de 4,5 Mo ne s'applique plus
-      const res = await fetch(signedUrl, {
-        method: "PUT",
-        headers: { "content-type": file.type || "video/mp4" },
-        body: file,
+      // 4) Upload DIRECT téléphone → Supabase Storage, avec progression (XHR au
+      //    lieu de fetch pour suivre l'avancement). Le fichier ne transite jamais
+      //    par Vercel : la limite de payload de 4,5 Mo ne s'applique plus.
+      await new Promise<void>((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open("PUT", signedUrl);
+        xhr.setRequestHeader("content-type", file.type || "video/mp4");
+        xhr.upload.onprogress = (e) => {
+          if (e.lengthComputable)
+            setVideoProgress(Math.min(99, Math.round((e.loaded / e.total) * 100)));
+        };
+        xhr.onload = () =>
+          xhr.status >= 200 && xhr.status < 300
+            ? resolve()
+            : reject(new Error(t("onboarding.upload_fail")));
+        xhr.onerror = () => reject(new Error(t("onboarding.upload_fail")));
+        xhr.send(file);
       });
-      if (!res.ok) throw new Error(t("onboarding.upload_fail"));
+      setVideoProgress(100);
       setter(publicUrl);
       toast.success(t("onboarding.upload_ok"));
     } catch (e: unknown) {
       toast.error(friendlyError(e) || t("onboarding.upload_fail"));
     } finally {
       setUploadingVideo(false);
+      setVideoProgress(null);
     }
   }
 
@@ -1512,6 +1564,7 @@ function OnboardingPage() {
                   videos={videosUrls}
                   setVideos={setVideosUrls}
                   uploading={uploadingVideo}
+                  progress={videoProgress}
                   handleVideo={handleVideo}
                   t={t}
                 />
@@ -1973,6 +2026,7 @@ function VideoCategoryCard({
   videos,
   setVideos,
   uploading,
+  progress,
   handleVideo,
   t,
 }: {
@@ -1982,6 +2036,7 @@ function VideoCategoryCard({
   videos: string[];
   setVideos: React.Dispatch<React.SetStateAction<string[]>>;
   uploading: boolean;
+  progress: number | null;
   handleVideo: (file: File, setter: (url: string) => void) => Promise<void>;
   t: (key: string) => string;
 }) {
@@ -2020,7 +2075,21 @@ function VideoCategoryCard({
         {!isAtLimit && (
           <label className="flex flex-col items-center justify-center aspect-video rounded-lg border-2 border-dashed border-border hover:border-google-blue cursor-pointer transition">
             {uploading ? (
-              <Loader2 className="h-6 w-6 animate-spin" />
+              progress !== null ? (
+                <div className="flex flex-col items-center gap-1.5 w-full px-3">
+                  <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
+                    <div
+                      className="h-full bg-google-blue transition-all duration-150"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                  <span className="text-xs font-semibold text-muted-foreground">
+                    {progress}%
+                  </span>
+                </div>
+              ) : (
+                <Loader2 className="h-6 w-6 animate-spin" />
+              )
             ) : (
               <>
                 <Upload className="h-6 w-6 text-muted-foreground" />

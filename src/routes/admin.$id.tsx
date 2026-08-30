@@ -907,14 +907,23 @@ function AdminCommande() {
                   </span>
                   <div className="mt-2 grid grid-cols-2 md:grid-cols-4 gap-2">
                     {(onboarding.videos_urls as string[]).map((u, i) => (
-                      <a key={i} href={u} target="_blank" rel="noreferrer">
+                      <div key={i} className="space-y-1.5">
                         <video
                           src={u}
-                          className="aspect-video object-cover rounded-lg border"
+                          className="aspect-video w-full object-cover rounded-lg border"
                           controls
                           muted
                         />
-                      </a>
+                        {/* Téléchargement du fichier ORIGINAL : le paramètre ?download
+                            force Content-Disposition: attachment côté Supabase Storage,
+                            sans recompression */}
+                        <a
+                          href={`${u}${u.includes("?") ? "&" : "?"}download`}
+                          className="block text-center text-xs font-semibold rounded-lg border border-border px-2 py-1.5 hover:bg-accent transition"
+                        >
+                          Télécharger
+                        </a>
+                      </div>
                     ))}
                   </div>
                 </div>

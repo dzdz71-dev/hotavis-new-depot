@@ -619,6 +619,9 @@
     "save_fail": "Erreur lors de l'enregistrement. Réessayez.",
     "upload_ok": "Image téléversée avec succès.",
     "upload_fail": "Erreur lors du téléversement.",
+    "video_too_large": "Vidéo trop volumineuse (75 Mo maximum).",
+    "video_too_long": "Vidéo trop longue (30 secondes maximum).",
+    "video_duration_unknown": "Impossible de lire la durée de cette vidéo. Utilisez un fichier MP4, MOV ou WMV.",
     "upload_max": "Fichier trop volumineux (max 10 Mo).",
     "doc_ok": "Document téléversé avec succès."
   },
