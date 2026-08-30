@@ -25,7 +25,7 @@ import { getCommande, createCheckoutForCommande } from "@/lib/commande.functions
 import {
   saveOnboarding,
   uploadOnboardingPhoto,
-  uploadOnboardingVideo,
+  createVideoUploadUrl,
   uploadOnboardingDocument,
 } from "@/lib/onboarding.functions";
 
@@ -89,7 +89,7 @@ function OnboardingPage() {
   const startCheckout = useServerFn(createCheckoutForCommande);
   const save = useServerFn(saveOnboarding);
   const upload = useServerFn(uploadOnboardingPhoto);
-  const uploadVideo = useServerFn(uploadOnboardingVideo);
+  const createVideoUrl = useServerFn(createVideoUploadUrl);
   const uploadDoc = useServerFn(uploadOnboardingDocument);
 
   const {
@@ -264,16 +264,25 @@ function OnboardingPage() {
   async function handleVideo(file: File, setter: (url: string) => void) {
     setUploadingVideo(true);
     try {
-      const b64 = await fileToB64(file);
-      const { url } = await uploadVideo({
+      // 1) Demande d'URL d'upload signée (petit appel serveur, sans le fichier —
+      //    passe largement sous la limite de payload des Vercel Functions)
+      const { signedUrl, publicUrl } = await createVideoUrl({
         data: {
           commande_id: commandeId,
           filename: file.name,
-          content_base64: b64,
           content_type: file.type || "video/mp4",
+          size: file.size,
         },
       });
-      setter(url);
+      // 2) Upload DIRECT téléphone → Supabase Storage : le fichier ne transite
+      //    plus par Vercel, la limite de 4,5 Mo ne s'applique plus
+      const res = await fetch(signedUrl, {
+        method: "PUT",
+        headers: { "content-type": file.type || "video/mp4" },
+        body: file,
+      });
+      if (!res.ok) throw new Error(t("onboarding.upload_fail"));
+      setter(publicUrl);
       toast.success(t("onboarding.upload_ok"));
     } catch (e: unknown) {
       toast.error(friendlyError(e) || t("onboarding.upload_fail"));

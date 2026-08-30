@@ -208,22 +208,28 @@ export const uploadOnboardingPhoto = createServerFn({ method: "POST" })
     return { url: pub.publicUrl };
   });
 
-// Upload vidéo pour l'onboarding (bucket photos-gmb réutilisé pour les vidéos)
-export const uploadOnboardingVideo = createServerFn({ method: "POST" })
+// Upload vidéo pour l'onboarding (bucket photos-gmb réutilisé pour les vidéos).
+// Les Vercel Functions limitent le corps de requête à 4,5 Mo → tout fichier vidéo
+// envoyé en base64 via une server function déclenchait un 413 "Request Entity Too
+// Large". Désormais : le serveur délivre une URL d'upload SIGNÉE (petit appel sans
+// fichier), le navigateur/téléphone envoie le fichier DIRECTEMENT vers Supabase
+// Storage (sans transiter par Vercel), puis l'URL publique (déterministe) est
+// enregistrée dans la base via le formulaire existant.
+export const createVideoUploadUrl = createServerFn({ method: "POST" })
   .inputValidator((input) =>
     z
       .object({
         commande_id: z.string().uuid(),
         filename: z.string().min(1).max(200),
-        content_base64: z.string().min(10),
         content_type: z.string().min(3).max(100),
+        size: z.number().int().positive(),
       })
       .parse(input),
   )
   .handler(async ({ data }) => {
-    const buffer = Uint8Array.from(atob(data.content_base64), (c) => c.charCodeAt(0));
+    // Mêmes règles qu'auparavant (validation serveur avant délivrance de l'URL)
     // Vérification taille max 75 Mo
-    if (buffer.length > 75 * 1024 * 1024) throw new Error("Vidéo trop volumineuse (max 75 Mo)");
+    if (data.size > 75 * 1024 * 1024) throw new Error("Vidéo trop volumineuse (max 75 Mo)");
     // Vérification type MIME autorisé
     const allowedTypes = ["video/mp4", "video/quicktime", "video/x-ms-wmv"];
     if (!allowedTypes.includes(data.content_type)) {
@@ -231,12 +237,12 @@ export const uploadOnboardingVideo = createServerFn({ method: "POST" })
     }
     const safe = data.filename.replace(/[^a-zA-Z0-9._-]/g, "_");
     const path = `${data.commande_id}/videos/${Date.now()}_${safe}`;
-    const { error } = await supabaseAdmin.storage
+    const { data: signed, error } = await supabaseAdmin.storage
       .from("photos-gmb")
-      .upload(path, buffer, { contentType: data.content_type, upsert: false });
+      .createSignedUploadUrl(path);
     if (error) throw new Error(error.message);
     const { data: pub } = supabaseAdmin.storage.from("photos-gmb").getPublicUrl(path);
-    return { url: pub.publicUrl };
+    return { signedUrl: signed.signedUrl, publicUrl: pub.publicUrl };
   });
 
 // Private bucket: Kbis, factures, etc. Returns a storage path (not a public URL).
