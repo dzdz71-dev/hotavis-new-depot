@@ -489,24 +489,24 @@ function OnboardingPage() {
       <div className="max-w-3xl w-full">
         <div className="bg-card border border-border rounded-3xl shadow-card overflow-hidden">
           <div className="bg-gradient-to-br from-google-blue/10 via-google-green/5 to-google-yellow/5 p-6 sm:p-8">
-            <div className="flex items-center justify-between mb-4">
-              <div>
+            <div className="flex items-center justify-between gap-3 mb-4">
+              <div className="min-w-0">
                 <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
                   {t("onboarding.title")}
                 </h1>
                 <p className="text-muted-foreground mt-1">{t("onboarding.subtitle")}</p>
               </div>
-              <div className="text-right text-sm text-muted-foreground">
+              <div className="flex-shrink-0 text-right text-sm text-muted-foreground">
                 <div className="font-bold text-foreground">{commande?.entreprise}</div>
                 <div>{commande?.ville}</div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 overflow-x-auto pb-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-2">
               {stepLabels.map((label, i) => (
                 <div key={i} className="flex items-center gap-1.5 whitespace-nowrap">
                   <div
-                    className={`h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
+                    className={`h-7 w-7 rounded-full flex items-center justify-center text-xs sm:h-8 sm:w-8 sm:text-sm font-bold transition-colors ${
                       i + 1 < step
                         ? "bg-google-green text-white"
                         : i + 1 === step
@@ -518,7 +518,7 @@ function OnboardingPage() {
                   </div>
                   {i < stepLabels.length - 1 && (
                     <div
-                      className={`h-px w-16 flex-shrink-0 ${i + 1 < step ? "bg-google-green" : "bg-border"}`}
+                      className={`hidden h-px w-16 flex-shrink-0 sm:block ${i + 1 < step ? "bg-google-green" : "bg-border"}`}
                     />
                   )}
                 </div>
@@ -620,7 +620,7 @@ function OnboardingPage() {
                           </span>
                         ))}
                       </div>
-                      <div className="flex gap-2">
+                      <div className="flex flex-col gap-2 sm:flex-row">
                         <input
                           type="text"
                           placeholder={t("onboarding.s1_categories_secondaires_ph")}
@@ -739,7 +739,7 @@ function OnboardingPage() {
                       placeholder={t("onboarding.s1_address_ph")}
                     />
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <Input
                         label={t("onboarding.s1_zip")}
                         value={f.code_postal}
@@ -858,7 +858,7 @@ function OnboardingPage() {
                             </span>
                           ))}
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex flex-col gap-2 sm:flex-row">
                           <input
                             type="text"
                             placeholder={t("onboarding.s1_social_other_label_ph")}
@@ -944,7 +944,7 @@ function OnboardingPage() {
                       <label className="block text-sm font-semibold mb-1.5">
                         {t("onboarding.s1_google_account")}
                       </label>
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
                         {(["ai_compte", "pas_compte", "perdu_acces"] as GoogleAccountStatus[]).map(
                           (val) => (
                             <label
@@ -1027,7 +1027,7 @@ function OnboardingPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
                     {(["boutique", "domicile_clients", "les_deux"] as const).map((val) => (
                       <label
                         key={val}
@@ -1092,7 +1092,7 @@ function OnboardingPage() {
                       ))}
                     </div>
 
-                    <div className="flex gap-2">
+                    <div className="flex flex-col gap-2 sm:flex-row">
                       <input
                         type="text"
                         value={zoneInput}
@@ -1144,7 +1144,7 @@ function OnboardingPage() {
             {step === 3 && (
               <div className="space-y-4">
                 <h2 className="text-xl font-bold mb-2">{t("onboarding.s3_title")}</h2>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {JOUR_KEYS.map((j, i) => (
                     <div key={j} className="rounded-xl border border-border p-3">
                       <div className="text-sm font-semibold capitalize mb-2">{days[i]}</div>
@@ -1163,7 +1163,7 @@ function OnboardingPage() {
                         <span>Fermé</span>
                       </label>
                       {!horaires[j].ferme && (
-                        <div className="grid grid-cols-2 gap-2 mt-2">
+                        <div className="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2">
                           <Input
                             label={t("onboarding.s3_open")}
                             value={horaires[j].ouverture || "09:00"}
@@ -1197,7 +1197,7 @@ function OnboardingPage() {
                   <label className="block text-sm font-semibold mb-1.5">
                     {t("onboarding.s4_services")}
                   </label>
-                  <div className="flex gap-2">
+                  <div className="flex flex-col gap-2 sm:flex-row">
                     <input
                       value={serviceInput}
                       onChange={(e) => setServiceInput(e.target.value)}
@@ -1247,7 +1247,7 @@ function OnboardingPage() {
                   <label className="block text-sm font-semibold mb-1.5">
                     {t("onboarding.s4_attributes")}
                   </label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                     {attrsList.map((a) => (
                       <label
                         key={a}
@@ -1298,7 +1298,7 @@ function OnboardingPage() {
                     ))}
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex flex-col gap-2 sm:flex-row">
                     <input
                       type="text"
                       value={customAttrInput}
@@ -1653,12 +1653,12 @@ function OnboardingPage() {
               </div>
             )}
 
-            <div className="flex justify-between mt-8 pt-6 border-t border-border">
+            <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between mt-8 pt-6 border-t border-border">
               <button
                 type="button"
                 disabled={step === 1}
                 onClick={() => setStep((s) => s - 1)}
-                className="rounded-full border border-border px-5 py-2.5 font-semibold disabled:opacity-40"
+                className="w-full sm:w-auto rounded-full border border-border px-5 py-2.5 font-semibold disabled:opacity-40"
               >
                 {t("onboarding.prev")}
               </button>
@@ -1666,7 +1666,7 @@ function OnboardingPage() {
                 <button
                   type="button"
                   onClick={tryNext}
-                  className="rounded-full bg-google-blue text-white px-6 py-2.5 font-semibold flex items-center gap-1"
+                  className="w-full sm:w-auto rounded-full bg-google-blue text-white px-6 py-2.5 font-semibold flex items-center justify-center gap-1"
                 >
                   {t("onboarding.next")} <ChevronRight className="h-4 w-4" />
                 </button>
@@ -1675,7 +1675,7 @@ function OnboardingPage() {
                   type="button"
                   onClick={submit}
                   disabled={saving || !f.cgv_acceptees}
-                  className="rounded-full gradient-cta text-white px-6 py-2.5 font-bold shadow-glow disabled:opacity-50 flex items-center gap-2"
+                  className="w-full sm:w-auto rounded-full gradient-cta text-white px-6 py-2.5 font-bold shadow-glow disabled:opacity-50 flex items-center justify-center gap-2"
                 >
                   {saving ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -1739,7 +1739,7 @@ function Input({
 }) {
   const hasError = !!error;
   return (
-    <label className="block">
+    <label className="block min-w-0">
       <span className="text-sm font-semibold">{label}</span>
       {description && <p className="mt-1 text-xs text-muted-foreground">{description}</p>}
       <input
