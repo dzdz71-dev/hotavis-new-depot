@@ -2070,6 +2070,16 @@ function VideoCategoryCard({
         {isAtLimit ? t("onboarding.s5_videos_max_atteint") : t("onboarding.s5_videos_max")}
       </p>
 
+      <div className="rounded-xl border border-google-blue/20 bg-google-blue/5 p-4 mt-3">
+        <div className="text-xs font-bold uppercase tracking-wider text-google-blue">
+          {t("onboarding.video_criteria_title")}
+        </div>
+        <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+          <li>• {t("onboarding.video_criteria_duration")}</li>
+          <li>• {t("onboarding.video_criteria_size")}</li>
+          <li>• {t("onboarding.video_criteria_resolution")}</li>
+        </ul>
+      </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-3">
         {videos.map((u, i) => (
           <div key={i} className="relative aspect-video rounded-lg overflow-hidden bg-muted">

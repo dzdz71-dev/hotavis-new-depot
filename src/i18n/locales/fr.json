@@ -623,6 +623,10 @@
     "video_too_long": "Vidéo trop longue (30 secondes maximum).",
     "video_duration_unknown": "Impossible de lire la durée de cette vidéo. Utilisez un fichier MP4, MOV ou WMV.",
     "video_plan_limit": "Cette vidéo dépasse la limite de stockage actuelle (50 Mo). Veuillez choisir une vidéo plus légère.",
+    "video_criteria_title": "Critères Google",
+    "video_criteria_duration": "Durée maximale : 30 secondes",
+    "video_criteria_size": "Taille maximale : 75 Mo",
+    "video_criteria_resolution": "Résolution minimale : 720p",
     "upload_max": "Fichier trop volumineux (max 10 Mo).",
     "doc_ok": "Document téléversé avec succès."
   },
