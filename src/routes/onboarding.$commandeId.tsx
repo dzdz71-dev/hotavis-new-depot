@@ -24,7 +24,7 @@ import {
 import { getCommande, createCheckoutForCommande } from "@/lib/commande.functions";
 import {
   saveOnboarding,
-  uploadOnboardingPhoto,
+  createPhotoUploadUrl,
   createVideoUploadUrl,
   uploadOnboardingDocument,
 } from "@/lib/onboarding.functions";
@@ -108,7 +108,7 @@ function OnboardingPage() {
   const fetchCommande = useServerFn(getCommande);
   const startCheckout = useServerFn(createCheckoutForCommande);
   const save = useServerFn(saveOnboarding);
-  const upload = useServerFn(uploadOnboardingPhoto);
+  const upload = useServerFn(createPhotoUploadUrl);
   const createVideoUrl = useServerFn(createVideoUploadUrl);
   const uploadDoc = useServerFn(uploadOnboardingDocument);
 
@@ -264,16 +264,25 @@ function OnboardingPage() {
   async function handleFile(file: File, setter: (url: string) => void) {
     setUploading(true);
     try {
-      const b64 = await fileToB64(file);
-      const { url } = await upload({
+      // 1) Petit appel serveur : renvoie une URL de PUT signee (le fichier ne passe
+      //    pas par Vercel : la limite de payload de 4,5 Mo ne concerne plus les photos)
+      const { signedUrl, publicUrl } = await upload({
         data: {
           commande_id: commandeId,
           filename: file.name,
-          content_base64: b64,
           content_type: file.type || "image/jpeg",
+          size: file.size,
         },
       });
-      setter(url);
+      // 2) Envoi DIRECT du téléphone vers Supabase Storage (ne transite jamais par Vercel)
+      const res = await fetch(signedUrl, {
+        method: "PUT",
+        headers: { "Content-Type": file.type || "image/jpeg" },
+        body: file,
+      });
+      if (!res.ok) throw new Error(t("onboarding.upload_fail"));
+      // 3) URL publique enregistrée par le formulaire existant
+      setter(publicUrl);
       toast.success(t("onboarding.upload_ok"));
     } catch (e: unknown) {
       toast.error(friendlyError(e) || t("onboarding.upload_fail"));
