@@ -416,6 +416,7 @@
     "video_too_large": "Video too large (75 MB maximum).",
     "video_too_long": "Video too long (30 seconds maximum).",
     "video_duration_unknown": "Unable to read this video's duration. Please use an MP4, MOV or WMV file.",
+    "video_plan_limit": "This video exceeds the current storage limit (50 MB). Please choose a smaller video.",
     "send_error": "Error while sending",
     "s1_title": "1. Your business",
     "s1_subtitle": "Enter the main details of your business. They will be used to create a Google Business Profile that faithfully reflects your establishment.",

@@ -419,6 +419,7 @@
     "video_too_large": "Vídeo demasiado grande (75 MB máximo).",
     "video_too_long": "Vídeo demasiado largo (30 segundos máximo).",
     "video_duration_unknown": "No se pudo leer la duración de este vídeo. Use un archivo MP4, MOV o WMV.",
+    "video_plan_limit": "Este vídeo supera el límite de almacenamiento actual (50 MB). Elige un vídeo más ligero.",
     "send_error": "Error al enviar",
     "s1_title": "1. Tu empresa",
     "s1_subtitle": "Indica los datos principales de tu empresa. Servirán para crear una ficha de Google Business fiel a tu establecimiento.",

@@ -325,10 +325,21 @@ function OnboardingPage() {
           if (e.lengthComputable)
             setVideoProgress(Math.min(99, Math.round((e.loaded / e.total) * 100)));
         };
-        xhr.onload = () =>
-          xhr.status >= 200 && xhr.status < 300
-            ? resolve()
-            : reject(new Error(t("onboarding.upload_fail")));
+        xhr.onload = () => {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            resolve();
+            return;
+          }
+          // Supabase renvoie 400 "EntityTooLarge" quand le fichier dépasse la
+          // limite effective du plan Storage (50 Mo sur le plan gratuit), même
+          // si le bucket autorise 75 Mo : message clair plutôt qu'erreur générique.
+          const body = xhr.responseText || "";
+          if (/EntityTooLarge|exceeded the maximum allowed size/i.test(body)) {
+            reject(new Error(t("onboarding.video_plan_limit")));
+          } else {
+            reject(new Error(t("onboarding.upload_fail")));
+          }
+        };
         xhr.onerror = () => reject(new Error(t("onboarding.upload_fail")));
         xhr.send(file);
       });
