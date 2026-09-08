@@ -313,10 +313,10 @@ function collectStoragePath(commandeId: string, ref: string | null | undefined):
 }
 
 /** Liste récursivement tous les fichiers sous `${commandeId}/` dans photos-gmb. */
-async function listPhotoBucketPaths(commandeId: string): Promise<string[]> {
+async function listBucketPaths(bucket: string, commandeId: string): Promise<string[]> {
   const paths: string[] = [];
   async function walk(prefix: string): Promise<void> {
-    const { data } = await supabaseAdmin.storage.from("photos-gmb").list(prefix, {
+    const { data } = await supabaseAdmin.storage.from(bucket).list(prefix, {
       limit: 1000,
       offset: 0,
       sortBy: { column: "name", order: "asc" },
@@ -379,7 +379,7 @@ export const deleteCommandeAdmin = createServerFn({ method: "POST" })
 
     // 2. Dossier complet photos/vidéos/logos de la commande (photos-gmb)
     try {
-      const photoPaths = await listPhotoBucketPaths(data.id);
+      const photoPaths = await listBucketPaths("photos-gmb", data.id);
       if (photoPaths.length > 0) {
         const { error } = await supabaseAdmin.storage.from("photos-gmb").remove(photoPaths);
         if (error) {
@@ -389,6 +389,21 @@ export const deleteCommandeAdmin = createServerFn({ method: "POST" })
       }
     } catch (e) {
       console.error("[deleteCommandeAdmin] photos-gmb exception:", e);
+      storageErrors += 1;
+    }
+
+    // 2b. Rapports de livraison + captures (reports-gmb)
+    try {
+      const reportPaths = await listBucketPaths("reports-gmb", data.id);
+      if (0 < reportPaths.length) {
+        const { error } = await supabaseAdmin.storage.from("reports-gmb").remove(reportPaths);
+        if (error) {
+          console.error("[deleteCommandeAdmin] reports-gmb:", error.message);
+          storageErrors += 1;
+        }
+      }
+    } catch (e) {
+      console.error("[deleteCommandeAdmin] reports-gmb exception:", e);
       storageErrors += 1;
     }
 

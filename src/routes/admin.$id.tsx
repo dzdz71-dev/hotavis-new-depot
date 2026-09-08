@@ -26,6 +26,7 @@ import {
 } from "@/lib/admin.functions";
 import { unblockCommande } from "@/lib/admin-agency.functions";
 import { generateFacturePDF } from "@/lib/facture-pdf";
+import { LivraisonSection } from "@/components/admin/LivraisonSection";
 import { NotificationsBell } from "@/components/admin/NotificationsBell";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -384,6 +385,9 @@ function AdminCommande() {
             </button>
           )}
         </div>
+
+                {/* Livraison de la commande */}
+        <LivraisonSection commandeId={commande.id} />
 
         {/* Facturation */}
         <div className="bg-card border border-border rounded-2xl p-6 shadow-card">

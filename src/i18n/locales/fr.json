@@ -251,13 +251,14 @@
     "price": "379€",
     "period": "paiement unique",
     "features": [
-      "Création et vérification de votre fiche Google",
+      "Création et configuration complète de votre fiche Google",
       "Profil 100% complété (nom, adresse, téléphone, site web, horaires)",
       "Catégories principales et secondaires optimisées",
       "Mise en ligne de vos photos (logo, couverture, établissement)",
       "Configuration de vos services avec descriptions",
       "Description SEO optimisée (mots-clés locaux)",
-      "Rapport de livraison PDF complet avec captures d'écran",
+      "Rapport de livraison détaillé envoyé par email en fin de prestation",
+      "Accompagnement dans la procédure de vérification demandée par Google",
       "Support email inclus pendant 30 jours"
     ],
     "cta": "Commander — 379€",
