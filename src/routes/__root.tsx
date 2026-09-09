@@ -97,6 +97,19 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="fr">
       <head>
         <HeadContent />
+        {/* Google Analytics 4 (gtag.js) - tag global, identifiant G-BV9B359H3Z.
+            Insere dans le document racine (SSR) : charge sur toutes les pages.
+            Les navigations SPA sont suivies par la mesure amelioree GA4
+            (changements d'historique), aucun code supplementaire requis. */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BV9B359H3Z" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BV9B359H3Z');`,
+          }}
+        />
       </head>
       <body>
         {children}
