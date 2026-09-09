@@ -107,7 +107,7 @@
       "Category poorly set"
     ],
     "after": [
-      "Profile visible and verified on Google Maps",
+      "Profile created and visible on Google Maps",
       "Professional photos online",
       "Phone, address, website configured",
       "Profile ready to receive customer reviews",
@@ -122,8 +122,8 @@
     "items": [
       {
         "icon": "🔧",
-        "title": "Profile creation & verification",
-        "desc": "We create your official profile and get it verified by Google."
+        "title": "Profile creation & optimization",
+        "desc": "We create your official profile, configure and optimize it, then guide you through the verification process requested by Google."
       },
       {
         "icon": "🗂️",
@@ -231,7 +231,7 @@
       },
       {
         "title": "We create and optimize your profile",
-        "desc": "Our team handles everything: creation, verification, SEO, photos, services."
+        "desc": "Our team handles everything: creation, SEO, photos, services, and guidance through the Google verification process."
       },
       {
         "title": "You receive your delivery report",
@@ -599,7 +599,7 @@
     "s6_upload": "Upload",
     "s6_uploading": "Sending…",
     "s6_remove": "Remove",
-    "s6_subtitle": "Check that your business is ready to be created and verified on Google.",
+    "s6_subtitle": "Check that your business is ready for the creation of your Google profile.",
     "s6_question": "Have you officially registered your business?",
     "s6_question_hint": "Is your business administratively registered and do you have your registration details (for example your SIRET number)?",
     "s6_choice_creee": "Yes, my business is officially registered",

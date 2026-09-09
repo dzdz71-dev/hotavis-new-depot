@@ -107,7 +107,7 @@
       "Catégorie mal définie"
     ],
     "after": [
-      "Fiche visible et vérifiée sur Google Maps",
+      "Fiche créée et visible sur Google Maps",
       "Photos professionnelles en ligne",
       "Téléphone, adresse, site web configurés",
       "Fiche prête à recevoir des avis clients",
@@ -122,8 +122,8 @@
     "items": [
       {
         "icon": "🔧",
-        "title": "Création & vérification de la fiche",
-        "desc": "Nous créons votre fiche officielle et la faisons vérifier auprès de Google."
+        "title": "Création & optimisation de la fiche",
+        "desc": "Nous créons votre fiche officielle, la configurons et l'optimisons, puis nous vous accompagnons dans la procédure de vérification demandée par Google."
       },
       {
         "icon": "🗂️",
@@ -234,7 +234,7 @@
       },
       {
         "title": "Nous créons et optimisons votre fiche",
-        "desc": "Notre équipe s'occupe de tout : création, vérification, optimisation SEO, photos, services."
+        "desc": "Notre équipe s'occupe de tout : création, optimisation SEO, photos, services, et accompagnement à la vérification Google."
       },
       {
         "title": "Vous recevez votre rapport de livraison",
@@ -593,7 +593,7 @@
     "s5_videos_conseils_4": "Présentez votre entreprise de manière authentique et professionnelle",
     "s5_videos_conseils_5": "Évitez les vidéos trop promotionnelles, privilégiez le contenu utile",
     "s6_title": "6. Situation de votre entreprise",
-    "s6_subtitle": "Vérifiez que votre entreprise est prête à être créée et validée sur Google.",
+    "s6_subtitle": "Vérifiez que votre entreprise est prête pour la création de votre fiche Google.",
     "s6_question": "Avez-vous officiellement créé votre entreprise ?",
     "s6_question_hint": "Votre entreprise est-elle enregistrée administrativement et disposez-vous de vos informations d'immatriculation (par exemple votre SIRET) ?",
     "s6_choice_creee": "Oui, mon entreprise est officiellement créée",

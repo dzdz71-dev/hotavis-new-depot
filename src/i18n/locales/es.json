@@ -107,7 +107,7 @@
       "Categoría mal definida"
     ],
     "after": [
-      "Ficha visible y verificada en Google Maps",
+      "Ficha creada y visible en Google Maps",
       "Fotos profesionales publicadas",
       "Teléfono, dirección, web configurados",
       "Ficha lista para recibir reseñas",
@@ -122,8 +122,8 @@
     "items": [
       {
         "icon": "🔧",
-        "title": "Creación y verificación de la ficha",
-        "desc": "Creamos tu ficha oficial y la verificamos ante Google."
+        "title": "Creación y optimización de la ficha",
+        "desc": "Creamos tu ficha oficial, la configuramos y la optimizamos, y te acompañamos en el proceso de verificación solicitado por Google."
       },
       {
         "icon": "🗂️",
@@ -234,7 +234,7 @@
       },
       {
         "title": "Creamos y optimizamos tu ficha",
-        "desc": "Nuestro equipo se encarga de todo: creación, verificación, SEO, fotos, servicios."
+        "desc": "Nuestro equipo se encarga de todo: creación, SEO, fotos, servicios y acompañamiento en la verificación de Google."
       },
       {
         "title": "Recibes tu informe de entrega",
@@ -602,7 +602,7 @@
     "s6_upload": "Subir",
     "s6_uploading": "Enviando…",
     "s6_remove": "Quitar",
-    "s6_subtitle": "Comprueba que tu empresa está lista para ser creada y verificada en Google.",
+    "s6_subtitle": "Comprueba que tu empresa está lista para la creación de tu ficha de Google.",
     "s6_question": "¿Has constituido oficialmente tu empresa?",
     "s6_question_hint": "¿Tu empresa está registrada administrativamente y dispones de tus datos de inscripción (por ejemplo, tu SIRET)?",
     "s6_choice_creee": "Sí, mi empresa está constituida oficialmente",
