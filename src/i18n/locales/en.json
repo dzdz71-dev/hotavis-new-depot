@@ -107,7 +107,7 @@
       "Category poorly set"
     ],
     "after": [
-      "Profile created and visible on Google Maps",
+      "Profile created, optimized and ready for Google verification",
       "Professional photos online",
       "Phone, address, website configured",
       "Profile ready to receive customer reviews",
@@ -122,8 +122,8 @@
     "items": [
       {
         "icon": "🔧",
-        "title": "Profile creation & optimization",
-        "desc": "We create your official profile, configure and optimize it, then guide you through the verification process requested by Google."
+        "title": "Profile creation & verification support",
+        "desc": "We create and set up your Google profile and guide you through the verification process requested by Google."
       },
       {
         "icon": "🗂️",
@@ -231,7 +231,7 @@
       },
       {
         "title": "We create and optimize your profile",
-        "desc": "Our team handles everything: creation, SEO, photos, services, and guidance through the Google verification process."
+        "desc": "Our team handles everything: creation, setup, SEO, photos, services and guidance through the Google verification process."
       },
       {
         "title": "You receive your delivery report",

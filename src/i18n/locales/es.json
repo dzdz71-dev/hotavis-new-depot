@@ -107,7 +107,7 @@
       "Categoría mal definida"
     ],
     "after": [
-      "Ficha creada y visible en Google Maps",
+      "Ficha creada, optimizada y lista para la verificación de Google",
       "Fotos profesionales publicadas",
       "Teléfono, dirección, web configurados",
       "Ficha lista para recibir reseñas",
@@ -122,8 +122,8 @@
     "items": [
       {
         "icon": "🔧",
-        "title": "Creación y optimización de la ficha",
-        "desc": "Creamos tu ficha oficial, la configuramos y la optimizamos, y te acompañamos en el proceso de verificación solicitado por Google."
+        "title": "Creación y acompañamiento en la verificación",
+        "desc": "Creamos y configuramos tu ficha de Google y te acompañamos en el proceso de verificación solicitado por Google."
       },
       {
         "icon": "🗂️",
@@ -234,7 +234,7 @@
       },
       {
         "title": "Creamos y optimizamos tu ficha",
-        "desc": "Nuestro equipo se encarga de todo: creación, SEO, fotos, servicios y acompañamiento en la verificación de Google."
+        "desc": "Nuestro equipo se encarga de todo: creación, configuración, SEO, fotos, servicios y acompañamiento en la verificación de Google."
       },
       {
         "title": "Recibes tu informe de entrega",

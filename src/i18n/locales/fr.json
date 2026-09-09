@@ -107,7 +107,7 @@
       "Catégorie mal définie"
     ],
     "after": [
-      "Fiche créée et visible sur Google Maps",
+      "Fiche créée, optimisée et prête pour la vérification Google",
       "Photos professionnelles en ligne",
       "Téléphone, adresse, site web configurés",
       "Fiche prête à recevoir des avis clients",
@@ -122,8 +122,8 @@
     "items": [
       {
         "icon": "🔧",
-        "title": "Création & optimisation de la fiche",
-        "desc": "Nous créons votre fiche officielle, la configurons et l'optimisons, puis nous vous accompagnons dans la procédure de vérification demandée par Google."
+        "title": "Création & accompagnement à la vérification",
+        "desc": "Nous créons et configurons votre fiche Google et vous accompagnons dans la procédure de vérification demandée par Google."
       },
       {
         "icon": "🗂️",
@@ -234,7 +234,7 @@
       },
       {
         "title": "Nous créons et optimisons votre fiche",
-        "desc": "Notre équipe s'occupe de tout : création, optimisation SEO, photos, services, et accompagnement à la vérification Google."
+        "desc": "Notre équipe s'occupe de tout : création, configuration, optimisation SEO, photos, services et accompagnement à la vérification Google."
       },
       {
         "title": "Vous recevez votre rapport de livraison",
