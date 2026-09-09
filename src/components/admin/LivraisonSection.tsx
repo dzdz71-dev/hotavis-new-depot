@@ -17,14 +17,25 @@ import {
   createRapportCaptureUploadUrl,
   getLivraison,
   livrerCommande,
-  renvoyerRapport,
+  renvoyerDocuments,
   saveLivraison,
 } from "@/lib/livraison.functions";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 // =====================================================================
 // SECTION "LIVRAISON DE LA COMMANDE" (admin, page detail commande)
 // Tableau prestations/statuts/observations + captures facultatives,
-// puis livraison : PDF genere cote serveur, stocke, envoye au client.
+// puis cloture complete : rapport PDF + facture PDF generes cote
+// serveur, stockes, et envoyes au client dans UN seul email.
 // =====================================================================
 
 type LivraisonStatut = "effectue" | "partiel" | "non_effectue" | "en_attente";
@@ -88,15 +99,16 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
   const fetchLivraison = useServerFn(getLivraison);
   const saveFn = useServerFn(saveLivraison);
   const livrerFn = useServerFn(livrerCommande);
-  const renvoyerFn = useServerFn(renvoyerRapport);
+  const renvoyerFn = useServerFn(renvoyerDocuments);
   const captureUrlFn = useServerFn(createRapportCaptureUploadUrl);
 
   const [rows, setRows] = useState<Record<string, RowState>>(defaultRows);
   const [captures, setCaptures] = useState<CaptureItem[]>([]);
   const [savingDraft, setSavingDraft] = useState(false);
   const [delivering, setDelivering] = useState(false);
-  const [resending, setResending] = useState(false);
+  const [resending, setResending] = useState<"all" | "rapport" | "facture" | null>(null);
   const [uploadingCapture, setUploadingCapture] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   const { data, isLoading } = useQuery({
     queryKey: ["admin-livraison", commandeId],
@@ -167,13 +179,21 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
     }
   }
 
-  async function onDeliver() {
-    if (
-      !window.confirm(
-        "Livrer la commande et envoyer le rapport PDF au client ?\n\nCette action marque la commande comme « Livrée » et envoie le rapport par email.",
-      )
-    )
+  function onDeliverClick() {
+    // Pré-vérifications : conditions requises pour la clôture complète.
+    if (!data?.email || !data.email.trim()) {
+      toast.error("Adresse email du client manquante — livraison impossible.");
       return;
+    }
+    if (!(0 < (data.montant_centimes ?? 0))) {
+      toast.error("Montant de la commande invalide — facture impossible à générer.");
+      return;
+    }
+    setConfirmOpen(true);
+  }
+
+  async function onConfirmDeliver() {
+    setConfirmOpen(false);
     setDelivering(true);
     try {
       const res = await livrerFn({
@@ -184,10 +204,10 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
         },
       });
       if (res.email_sent) {
-        toast.success("Commande livrée et rapport envoyé au client !");
+        toast.success("Commande livrée — rapport et facture envoyés au client !");
       } else {
         toast.warning(
-          `Rapport généré et commande livrée, mais l'email n'a pas pu être envoyé : ${res.email_error}. Utilisez « Renvoyer le rapport ».`,
+          `Rapport et facture générés, commande livrée, mais l'email n'a pas pu être envoyé : ${res.email_error}. Utilisez « Renvoyer rapport + facture ».`,
           { duration: 10000 },
         );
       }
@@ -199,13 +219,18 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
     }
   }
 
-  async function onResend() {
-    if (!window.confirm("Renvoyer le rapport PDF déjà généré au client ?")) return;
-    setResending(true);
+  async function onResend(only: "all" | "rapport" | "facture") {
+    setResending(only);
     try {
-      const res = await renvoyerFn({ data: { commande_id: commandeId } });
+      const res = await renvoyerFn({ data: { commande_id: commandeId, only } });
+      const label =
+        only === "facture"
+          ? "Facture renvoyée au client !"
+          : only === "rapport"
+            ? "Rapport renvoyé au client !"
+            : "Rapport et facture renvoyés au client !";
       if (res.email_sent) {
-        toast.success("Rapport renvoyé au client !");
+        toast.success(label);
       } else {
         toast.error(`L'email n'a pas pu être envoyé : ${res.email_error}`);
       }
@@ -213,7 +238,7 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
     } catch (e: unknown) {
       toast.error((e as Error)?.message || "Erreur lors du renvoi");
     } finally {
-      setResending(false);
+      setResending(null);
     }
   }
 
@@ -257,8 +282,8 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
         <h2 className="font-bold text-lg">Livraison de la commande</h2>
       </div>
       <p className="text-sm text-muted-foreground mb-5">
-        Renseignez l'état réel de chaque prestation, puis livrez : le rapport PDF est généré,
-        associé à la commande et envoyé au client par email.
+        Renseignez l'état réel de chaque prestation, puis livrez : le rapport PDF et la facture
+        sont générés, associés à la commande et envoyés au client dans un seul email.
       </p>
 
       {livre && (
@@ -280,7 +305,13 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
               </p>
             ) : (
               <p className="text-amber-700 font-medium">
-                Rapport généré mais email non envoyé — utilisez « Renvoyer le rapport ».
+                Rapport généré mais email non envoyé — utilisez « Renvoyer rapport + facture ».
+              </p>
+            )}
+            {data?.facture_emise_at && (
+              <p>
+                <span className="font-semibold">Facture émise le :</span>{" "}
+                {new Date(data.facture_emise_at).toLocaleString("fr-FR")}
               </p>
             )}
           </div>
@@ -305,16 +336,62 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
             )}
             <button
               type="button"
-              onClick={onResend}
-              disabled={resending}
+              onClick={() => onResend("rapport")}
+              disabled={resending !== null}
               className="inline-flex items-center justify-center gap-1.5 rounded-full bg-google-blue text-white px-4 py-2 text-sm font-semibold disabled:opacity-60"
             >
-              {resending ? (
+              {resending === "rapport" ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
               ) : (
                 <Send className="h-4 w-4" />
               )}
               Renvoyer le rapport
+            </button>
+            {data?.factureViewUrl && (
+              <a
+                href={data.factureViewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-semibold hover:bg-accent"
+              >
+                <Eye className="h-4 w-4" /> Voir la facture
+              </a>
+            )}
+            {data?.factureDownloadUrl && (
+              <a
+                href={data.factureDownloadUrl}
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-semibold hover:bg-accent"
+              >
+                <Download className="h-4 w-4" /> Télécharger la facture
+              </a>
+            )}
+            {data?.facture_url && (
+              <button
+                type="button"
+                onClick={() => onResend("facture")}
+                disabled={resending !== null}
+                className="inline-flex items-center justify-center gap-1.5 rounded-full bg-google-blue text-white px-4 py-2 text-sm font-semibold disabled:opacity-60"
+              >
+                {resending === "facture" ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Send className="h-4 w-4" />
+                )}
+                Renvoyer la facture
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={() => onResend("all")}
+              disabled={resending !== null}
+              className="inline-flex items-center justify-center gap-1.5 rounded-full gradient-cta text-white px-4 py-2 text-sm font-semibold disabled:opacity-60"
+            >
+              {resending === "all" ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Send className="h-4 w-4" />
+              )}
+              Renvoyer rapport + facture
             </button>
           </div>
         </div>
@@ -443,7 +520,7 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
           </button>
           <button
             type="button"
-            onClick={onDeliver}
+            onClick={onDeliverClick}
             disabled={delivering || savingDraft}
             className="inline-flex items-center justify-center gap-2 rounded-full gradient-cta text-white px-6 py-2.5 font-bold shadow-glow disabled:opacity-60"
           >
@@ -456,6 +533,27 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
           </button>
         </div>
       )}
+
+      {/* Confirmation de cloture complete */}
+      <AlertDialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Livrer cette commande ?</AlertDialogTitle>
+            <AlertDialogDescription>Cette action va :</AlertDialogDescription>
+          </AlertDialogHeader>
+          <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
+            <li>générer le rapport de livraison ;</li>
+            <li>générer la facture PDF si nécessaire ;</li>
+            <li>envoyer le rapport et la facture au client par email ;</li>
+            <li>passer la facture au statut « Émise » ;</li>
+            <li>passer la commande au statut « Livrée ».</li>
+          </ul>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Annuler</AlertDialogCancel>
+            <AlertDialogAction onClick={onConfirmDeliver}>Confirmer la livraison</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

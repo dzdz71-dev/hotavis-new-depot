@@ -223,7 +223,9 @@ export type Database = {
           delivered_at: string | null;
           email: string;
           entreprise: string;
+          facture_emise_at: string | null;
           facture_status: string;
+          facture_url: string | null;
           id: string;
           livraison_details: Json | null;
           montant_centimes: number;
@@ -252,7 +254,9 @@ export type Database = {
           delivered_at?: string | null;
           email: string;
           entreprise: string;
+          facture_emise_at?: string | null;
           facture_status?: string;
+          facture_url?: string | null;
           id?: string;
           livraison_details?: Json | null;
           montant_centimes?: number;
@@ -281,7 +285,9 @@ export type Database = {
           delivered_at?: string | null;
           email?: string;
           entreprise?: string;
+          facture_emise_at?: string | null;
           facture_status?: string;
+          facture_url?: string | null;
           id?: string;
           livraison_details?: Json | null;
           montant_centimes?: number;

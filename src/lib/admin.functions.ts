@@ -108,7 +108,32 @@ export const getCommandeAdmin = createServerFn({ method: "GET" })
         .createSignedUrl(onboardingRow.facture_url, 60 * 60);
       factureSignedUrl = signed?.signedUrl || null;
     }
-    return { commande, onboarding, justificatifSignedUrl, factureSignedUrl };
+
+    // Facture GENEREE a la livraison (bucket prive reports-gmb) —
+    // distincte de la facture_url du client (onboarding, documents-gmb).
+    let factureGenViewUrl: string | null = null;
+    let factureGenDownloadUrl: string | null = null;
+    if (commande.facture_url) {
+      const { data: v } = await supabaseAdmin.storage
+        .from("reports-gmb")
+        .createSignedUrl(commande.facture_url, 60 * 60);
+      factureGenViewUrl = v?.signedUrl || null;
+      const { data: d } = await supabaseAdmin.storage
+        .from("reports-gmb")
+        .createSignedUrl(commande.facture_url, 60 * 60, {
+          download: `facture-FAC-${commande.id.slice(0, 8).toUpperCase()}.pdf`,
+        });
+      factureGenDownloadUrl = d?.signedUrl || null;
+    }
+
+    return {
+      commande,
+      onboarding,
+      justificatifSignedUrl,
+      factureSignedUrl,
+      factureGenViewUrl,
+      factureGenDownloadUrl,
+    };
   });
 
 export const getCommandeNotes = createServerFn({ method: "GET" })

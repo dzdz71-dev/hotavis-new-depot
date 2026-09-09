@@ -26,6 +26,7 @@ import {
 } from "@/lib/admin.functions";
 import { unblockCommande } from "@/lib/admin-agency.functions";
 import { generateFacturePDF } from "@/lib/facture-pdf";
+import { renvoyerDocuments } from "@/lib/livraison.functions";
 import { LivraisonSection } from "@/components/admin/LivraisonSection";
 import { NotificationsBell } from "@/components/admin/NotificationsBell";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -71,6 +72,7 @@ function AdminCommande() {
   const updateFn = useServerFn(updateCommandeStatut);
   const updateFactureFn = useServerFn(updateFactureStatus);
   const unblock = useServerFn(unblockCommande);
+  const renvoyerDocsFn = useServerFn(renvoyerDocuments);
   const [statut, setStatut] = useState<(typeof STATUTS)[number]>("payé");
   const [notes, setNotes] = useState("");
   const [saving, setSaving] = useState(false);
@@ -78,6 +80,7 @@ function AdminCommande() {
   const [factureStatus, setFactureStatus] = useState<string>("non_emise");
   const [savingFacture, setSavingFacture] = useState(false);
   const [generatingPDF, setGeneratingPDF] = useState(false);
+  const [resendingFacture, setResendingFacture] = useState(false);
   const [chatInput, setChatInput] = useState("");
   const [sendingNote, setSendingNote] = useState(false);
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
@@ -194,6 +197,23 @@ function AdminCommande() {
     }
   }
 
+  async function resendFacture() {
+    setResendingFacture(true);
+    try {
+      const res = await renvoyerDocsFn({ data: { commande_id: id, only: "facture" } });
+      if (res.email_sent) {
+        toast.success("Facture renvoyée au client !");
+      } else {
+        toast.error(`L'email n'a pas pu être envoyé : ${res.email_error}`);
+      }
+      qc.invalidateQueries({ queryKey: ["admin-commande", id] });
+    } catch (e: unknown) {
+      toast.error((e as Error)?.message || "Erreur lors du renvoi");
+    } finally {
+      setResendingFacture(false);
+    }
+  }
+
   async function save(markDelivered = false) {
     setSaving(true);
     try {
@@ -230,7 +250,14 @@ function AdminCommande() {
     );
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { commande, onboarding, justificatifSignedUrl, factureSignedUrl } = data! as any;
+  const {
+    commande,
+    onboarding,
+    justificatifSignedUrl,
+    factureSignedUrl,
+    factureGenViewUrl,
+    factureGenDownloadUrl,
+  } = data! as any;
 
   // Countdown 7 jours ouvrés à partir du paiement
   const deadlineInfo = (() => {
@@ -456,6 +483,57 @@ function AdminCommande() {
               Montant : {(commande.montant_centimes / 100).toFixed(2)} €
             </span>
           </div>
+
+          {commande.facture_url && (
+            <div className="mt-4 rounded-xl border border-google-green/40 bg-google-green/5 p-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-google-green/15 text-google-green px-3 py-1 text-xs font-semibold">
+                  🧾 Facture — {factureStatus === "payee" ? "Payée" : "Émise"}
+                </span>
+                {commande.facture_emise_at && (
+                  <span className="text-xs text-muted-foreground">
+                    Émise le {new Date(commande.facture_emise_at).toLocaleString("fr-FR")}
+                  </span>
+                )}
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {factureGenViewUrl && (
+                  <a
+                    href={factureGenViewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-semibold hover:bg-accent"
+                  >
+                    Voir la facture
+                  </a>
+                )}
+                {factureGenDownloadUrl && (
+                  <a
+                    href={factureGenDownloadUrl}
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-semibold hover:bg-accent"
+                  >
+                    <Download className="h-4 w-4" /> Télécharger la facture
+                  </a>
+                )}
+                <button
+                  type="button"
+                  onClick={resendFacture}
+                  disabled={resendingFacture}
+                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-google-blue text-white px-4 py-2 text-sm font-semibold disabled:opacity-60"
+                >
+                  {resendingFacture ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Send className="h-4 w-4" />
+                  )}
+                  Renvoyer la facture
+                </button>
+              </div>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Cette facture a été générée à la livraison et envoyée au client avec le rapport.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Messagerie Agent */}
