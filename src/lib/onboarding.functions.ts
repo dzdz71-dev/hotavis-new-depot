@@ -92,7 +92,7 @@ const schema = z.object({
   photos_interieures: z.array(z.string().url()).max(20).optional().default([]),
   photos_equipe: z.array(z.string().url()).max(20).optional().default([]),
   videos_urls: z.array(z.string().url()).max(10).optional().default([]),
-  commentaires: z.string().max(2000).optional(),
+  commentaires: z.string().max(2000).optional().or(z.literal("")).nullable(),
   cgv_acceptees: z.literal(true),
   entreprise_statut_creation: z.enum(["creee", "en_cours", "non_creee"]),
   validation_google_comprise: z.literal(true),
