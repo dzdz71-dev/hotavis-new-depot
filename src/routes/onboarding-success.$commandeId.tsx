@@ -19,7 +19,37 @@ function SuccessPage() {
     if (typeof window === "undefined") return;
     const sid = new URLSearchParams(window.location.search).get("session_id");
     if (!sid) return;
-    confirm({ data: { commande_id: commandeId, session_id: sid } }).catch(() => {});
+    confirm({ data: { commande_id: commandeId, session_id: sid } })
+      .then((res) => {
+        // Evenement GA4 "purchase" envoye UNIQUEMENT si le serveur a confirme
+        // un paiement Stripe reellement reussi (webhook ou verification
+        // session.payment_status === "paid") — jamais sur simple arrivee ici.
+        if (!res?.paid) return;
+        // Garde anti-double : un paiement = un seul evenement, meme si la
+        // page est rechargee. Cle par commande (transaction_id).
+        try {
+          const guardKey = `ga4_purchase_${commandeId}`;
+          if (window.localStorage.getItem(guardKey)) return;
+          window.localStorage.setItem(guardKey, "1");
+        } catch {
+          // localStorage indisponible : on tente quand meme l'envoi
+        }
+        const montantCentimes = res.montant_centimes ?? 0;
+        window.gtag?.("event", "purchase", {
+          transaction_id: res.transaction_id ?? commandeId,
+          value: montantCentimes / 100,
+          currency: "EUR",
+          items: [
+            {
+              item_id: "pack-visibilite-google",
+              item_name: "Pack Visibilité Google",
+              price: montantCentimes / 100,
+              quantity: 1,
+            },
+          ],
+        });
+      })
+      .catch(() => {});
   }, [commandeId, confirm]);
 
   return (
@@ -139,4 +169,10 @@ function TimelineStep({
       </div>
     </li>
   );
+}
+// gtag.js est defini globalement dans src/routes/__root.tsx (GA4).
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
 }

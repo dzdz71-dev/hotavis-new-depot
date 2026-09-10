@@ -114,12 +114,42 @@ export const confirmStripeSession = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const { data: commande, error: cErr } = await supabaseAdmin
       .from("commandes")
-      .select("id, statut, stripe_session_id")
+      .select("id, statut, stripe_session_id, stripe_payment_id, montant_centimes")
       .eq("id", data.commande_id)
       .single();
     if (cErr || !commande) throw new Error("Commande introuvable");
-    // Si déjà payée (webhook est passé avant), on short-circuite.
-    if (commande.statut !== "en_attente") return { paid: true };
+    // Si deja payee (le webhook est passe avant le fallback) : short-circuit,
+    // mais on recupere quand meme le montant reellement paye (session
+    // .amount_total = code promo inclus) pour l'evenement GA4 "purchase".
+    if (commande.statut !== "en_attente") {
+      let montantCentimes = commande.montant_centimes ?? MONTANT;
+      let paymentId: string | null = commande.stripe_payment_id ?? null;
+      const stripeKey = process.env.STRIPE_SECRET_KEY;
+      if (stripeKey) {
+        try {
+          const stripe = new Stripe(stripeKey, {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            apiVersion: "2024-12-18.acacia" as any,
+          });
+          const session = await stripe.checkout.sessions.retrieve(data.session_id);
+          if (session.metadata?.commande_id === data.commande_id) {
+            if (typeof session.amount_total === "number") {
+              montantCentimes = session.amount_total;
+            }
+            paymentId = (session.payment_intent as string) ?? paymentId;
+          }
+        } catch (e) {
+          console.error("Stripe session retrieve failed (already paid):", e);
+        }
+      }
+      return {
+        paid: true,
+        commande_id: commande.id,
+        transaction_id: commande.id,
+        montant_centimes: montantCentimes,
+        payment_id: paymentId,
+      };
+    }
 
     // Si stripe_session_id diverge, c'est un retry avec une nouvelle session
     // (le client a peut-être abandonné puis relancé un checkout). On accepte
@@ -245,7 +275,13 @@ export const confirmStripeSession = createServerFn({ method: "POST" })
           }
         }
       }
-      return { paid: true };
+      return {
+        paid: true,
+        commande_id: data.commande_id,
+        transaction_id: data.commande_id,
+        montant_centimes: session.amount_total ?? fullCmd?.montant_centimes ?? MONTANT,
+        payment_id: (session.payment_intent as string) ?? null,
+      };
     }
     return { paid: false };
   });
