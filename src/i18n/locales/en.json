@@ -270,8 +270,8 @@
   "guarantee": {
     "tag": "Our promise",
     "title": "Satisfaction or money-back guarantee",
-    "title_long_a": "Delivery within 7 business days guarantee",
-    "title_long_b": "or your money back",
+    "title_long_a": "Satisfaction or money-back guarantee",
+    "title_long_b": "",
     "body": "We guarantee delivery of your fully configured Google Business profile within 7 business days. If the deadline is missed or the information is inaccurate, and no corrective solution can be provided, we refund you in full, no questions asked.",
     "body_long": "We guarantee delivery of your fully configured Google Business profile within 7 business days. If the deadline is missed or the information is inaccurate, and no corrective solution can be provided, we refund you in full, no questions asked.",
     "chip_delay": "7 business days max",

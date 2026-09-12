@@ -273,8 +273,8 @@
   "guarantee": {
     "tag": "Nuestra promesa",
     "title": "Garantía de satisfacción o reembolso",
-    "title_long_a": "Garantía de entrega en 7 días laborables",
-    "title_long_b": "o te devolvemos el dinero",
+    "title_long_a": "Garantía de satisfacción o reembolso",
+    "title_long_b": "",
     "body": "Te garantizamos la entrega de tu ficha de Google totalmente configurada en un máximo de 7 días laborables. Si se supera el plazo o los datos son inexactos, y no es posible aplicar una solución correctiva, te reembolsamos íntegramente, sin discusión.",
     "body_long": "Te garantizamos la entrega de tu ficha de Google totalmente configurada en un máximo de 7 días laborables. Si se supera el plazo o los datos son inexactos, y no es posible aplicar una solución correctiva, te reembolsamos íntegramente, sin discusión.",
     "chip_delay": "7 días laborables máx.",
