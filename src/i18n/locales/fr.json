@@ -275,10 +275,10 @@
   "guarantee": {
     "tag": "Garantie Hotavis",
     "title": "Satisfait ou remboursé sous 14 jours",
-    "body": "Si vous n'êtes pas satisfait de votre fiche Google, nous vous remboursons intégralement. Sans condition, sans justification.",
+    "body": "Nous garantissons la livraison de votre fiche Google entièrement configurée sous 7 jours ouvrés. En cas de dépassement de délai ou d'informations inexactes, et si aucune solution corrective ne peut être apportée, nous vous remboursons intégralement, sans discussion.",
     "title_long_a": "Garantie de livraison sous 7 jours ouvrés",
     "title_long_b": "ou remboursé intégralement",
-    "body_long": "Nous garantissons la livraison de votre fiche Google My Business, entièrement configurée avec les informations exactes de votre établissement, sous 7 jours ouvrés maximum. Si le délai n'est pas respecté ou si les informations livrées sont inexactes, nous vous remboursons intégralement, sans discussion.",
+    "body_long": "Nous garantissons la livraison de votre fiche Google entièrement configurée sous 7 jours ouvrés. En cas de dépassement de délai ou d'informations inexactes, et si aucune solution corrective ne peut être apportée, nous vous remboursons intégralement, sans discussion.",
     "chip_delay": "7 jours ouvrés max",
     "chip_conform": "Informations 100% exactes",
     "chip_refund": "Remboursement intégral"
