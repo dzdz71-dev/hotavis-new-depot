@@ -12,7 +12,7 @@ const schema = z.object({
   activite: z.string().trim().min(1).max(120),
 });
 
-const MONTANT = 37900; // 379€
+const MONTANT = 19900; // 199€
 
 function buildRateLimitKey(request: Request): string {
   try {

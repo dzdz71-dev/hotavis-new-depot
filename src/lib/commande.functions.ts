@@ -15,7 +15,7 @@ const schema = z.object({
   activite: z.string().trim().min(1).max(120),
 });
 
-const MONTANT = 37900; // 379€
+const MONTANT = 19900; // 199€
 
 // Step 1 of the funnel: just create the commande. NO Stripe yet.
 // The client is redirected to /onboarding/{id} to fill the briefing first.

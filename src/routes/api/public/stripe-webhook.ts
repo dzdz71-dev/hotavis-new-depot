@@ -62,7 +62,7 @@ export const Route = createFileRoute("/api/public/stripe-webhook")({
                 const successUrl = `https://${host}/onboarding-success/${commande.id}`;
                 const onboardingUrl = `https://${host}/onboarding/${commande.id}`;
 
-                const montantEuros = ((commande.montant_centimes ?? 37900) / 100).toFixed(2);
+                const montantEuros = ((commande.montant_centimes ?? 19900) / 100).toFixed(2);
                 const dateStr = new Date(commande.paid_at || Date.now()).toLocaleDateString(
                   "fr-FR",
                   { day: "2-digit", month: "long", year: "numeric" },

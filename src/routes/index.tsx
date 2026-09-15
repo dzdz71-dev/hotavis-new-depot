@@ -46,11 +46,11 @@ const HERO_PHOTOS = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Hotavis — Création & optimisation de fiche Google My Business — 379€" },
+      { title: "Hotavis — Création & optimisation de fiche Google My Business — 199€" },
       {
         name: "description",
         content:
-          "Agence française spécialisée Google My Business. Nous créons et optimisons votre fiche pour que vos clients vous trouvent sur Google Maps. 379€ — Garantie livraison sous 7 jours ouvrés ou remboursé.",
+          "Agence française spécialisée Google My Business. Nous créons et optimisons votre fiche pour que vos clients vous trouvent sur Google Maps. 199€ — Garantie livraison sous 7 jours ouvrés ou remboursé.",
       },
     ],
   }),
@@ -741,7 +741,7 @@ function PricingSection() {
               {t("pricing.pack_name")}
             </div>
             <div className="mt-2 flex items-baseline gap-2">
-              <span className="text-6xl font-extrabold">379€</span>
+              <span className="text-6xl font-extrabold">199€</span>
               <span className="text-sm opacity-80">{t("pricing.price_meta")}</span>
             </div>
             <div className="text-sm opacity-90">{t("pricing.one_time")}</div>

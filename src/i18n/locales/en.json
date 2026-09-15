@@ -1,7 +1,7 @@
 {
   "common": {
-    "cta_order": "Get my Google profile — €379",
-    "cta_start": "Get started — €379",
+    "cta_order": "Get my Google profile — €199",
+    "cta_start": "Get started — €199",
     "menu_home": "Home",
     "menu_services": "Services",
     "menu_process": "How it works",
@@ -25,7 +25,7 @@
     "title_b": "invisible on Google",
     "title_c": "? We'll take care of it.",
     "subtitle": "We create and optimize your Google My Business profile so your customers can easily find you on Google Maps and in local search.",
-    "cta": "I want to be visible on Google — €379",
+    "cta": "I want to be visible on Google — €199",
     "badge_delivery": "⭐ Delivered in 7 days",
     "badge_secure": "🔒 Secure payment",
     "badge_report": "📄 Delivery report included",
@@ -46,7 +46,7 @@
   "video": {
     "title": "Why is your Google My Business profile your best local visibility tool?",
     "subtitle": "Watch this short video to understand why thousands of businesses rely on Google My Business to attract new customers.",
-    "cta": "Get my Google profile — €379"
+    "cta": "Get my Google profile — €199"
   },
   "problem": {
     "tag": "You're losing customers without knowing it",
@@ -223,7 +223,7 @@
       { "title": "You contact us", "desc": "Fill in the contact form. We reply within 24h." },
       {
         "title": "You pay for the service",
-        "desc": "Secure online payment of €379 via Stripe. Instant email confirmation."
+        "desc": "Secure online payment of €199 via Stripe. Instant email confirmation."
       },
       {
         "title": "You send your info",
@@ -259,7 +259,7 @@
       "Delivery within 7 business days",
       "Email support included"
     ],
-    "cta": "Get my Google profile — €379",
+    "cta": "Get my Google profile — €199",
     "badges": [
       "🔒 Secure payment",
       "⚡ Delivery in 7 days",
@@ -379,7 +379,7 @@
     "city": "City",
     "activity": "Activity",
     "activity_placeholder": "E.g. Bakery, Plumber...",
-    "submit": "Pay €379 by card →",
+    "submit": "Pay €199 by card →",
     "redirecting": "Redirecting...",
     "secure_line": "100% secure payment via Stripe · Satisfaction or money-back guarantee",
     "recap": "Summary",

@@ -1,7 +1,7 @@
 {
   "common": {
-    "cta_order": "Je veux ma fiche Google — 379€",
-    "cta_start": "Commencer — 379€",
+    "cta_order": "Je veux ma fiche Google — 199€",
+    "cta_start": "Commencer — 199€",
     "menu_home": "Accueil",
     "menu_services": "Services",
     "menu_process": "Comment ça marche",
@@ -25,7 +25,7 @@
     "title_b": "invisible sur Google",
     "title_c": "? On s'en occupe.",
     "subtitle": "Nous créons et optimisons votre fiche Google My Business pour que vos clients vous trouvent facilement sur Google Maps et dans les recherches locales.",
-    "cta": "Je veux être visible sur Google — 379€",
+    "cta": "Je veux être visible sur Google — 199€",
     "badge_delivery": "⭐ Livraison sous 7 jours",
     "badge_secure": "🔒 Paiement sécurisé",
     "badge_report": "📄 Rapport de livraison inclus",
@@ -46,7 +46,7 @@
   "video": {
     "title": "Pourquoi votre fiche Google My Business est votre meilleur outil de visibilité locale ?",
     "subtitle": "Regardez cette courte vidéo pour comprendre pourquoi des milliers de commerces misent sur Google My Business pour attirer de nouveaux clients.",
-    "cta": "Je veux ma fiche Google — 379€"
+    "cta": "Je veux ma fiche Google — 199€"
   },
   "problem": {
     "tag": "Vous perdez des clients sans le savoir",
@@ -226,7 +226,7 @@
       },
       {
         "title": "Vous réglez la prestation",
-        "desc": "Paiement sécurisé en ligne de 379€ via Stripe. Confirmation immédiate par email."
+        "desc": "Paiement sécurisé en ligne de 199€ via Stripe. Confirmation immédiate par email."
       },
       {
         "title": "Vous nous envoyez vos informations",
@@ -248,7 +248,7 @@
     "subtitle": "Pas d'abonnement, pas de surprise. Un seul paiement.",
     "popular": "⭐ Pack le plus populaire",
     "pack_name": "Pack Visibilité Google",
-    "price": "379€",
+    "price": "199€",
     "period": "paiement unique",
     "features": [
       "Création et configuration complète de votre fiche Google",
@@ -261,7 +261,7 @@
       "Accompagnement dans la procédure de vérification demandée par Google",
       "Support email inclus pendant 30 jours"
     ],
-    "cta": "Commander — 379€",
+    "cta": "Commander — 199€",
     "price_meta": "TTC",
     "one_time": "Prestation unique, sans abonnement",
     "badges": [

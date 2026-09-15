@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Hotavis crée et optimise votre fiche Google Business Profile en 5 jours. SEO local, photos, services, avis — tout est géré pour vous. À partir de 379€.",
+          "Hotavis crée et optimise votre fiche Google Business Profile en 5 jours. SEO local, photos, services, avis — tout est géré pour vous. À partir de 199€.",
       },
       { name: "author", content: "Hotavis" },
       { property: "og:title", content: "Hotavis — Votre fiche Google professionnelle en 5 jours" },
       {
         property: "og:description",
         content:
-          "Création et optimisation complète de votre fiche Google Business Profile. À partir de 379€, garanti satisfait ou remboursé.",
+          "Création et optimisation complète de votre fiche Google Business Profile. À partir de 199€, garanti satisfait ou remboursé.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

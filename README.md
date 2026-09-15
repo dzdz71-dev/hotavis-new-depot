@@ -1,6 +1,6 @@
 # Hotavis-Boost
 
-Application full-stack SSR pour **Hotavis**, agence française spécialisée dans la création et l'optimisation de fiches **Google Business Profile** à 379 €.
+Application full-stack SSR pour **Hotavis**, agence française spécialisée dans la création et l'optimisation de fiches **Google Business Profile** à 199 €.
 
 ## Stack technique
 
@@ -227,7 +227,7 @@ hotavis-boost/
 ### Funnel client
 
 ```
-/                → page d'accueil + CTA "Commencer — 379€"
+/                → page d'accueil + CTA "Commencer — 199€"
   ↓
 /commander       → formulaire coordonnées (prenom/nom/email/telephone/entreprise/ville/activite)
   ↓ (createCommande → insert Supabase)

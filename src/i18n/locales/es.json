@@ -1,7 +1,7 @@
 {
   "common": {
-    "cta_order": "Quiero mi ficha de Google — 379 €",
-    "cta_start": "Empezar — 379 €",
+    "cta_order": "Quiero mi ficha de Google — 199 €",
+    "cta_start": "Empezar — 199 €",
     "menu_home": "Inicio",
     "menu_services": "Servicios",
     "menu_process": "Cómo funciona",
@@ -25,7 +25,7 @@
     "title_b": "invisible en Google",
     "title_c": "? Nos encargamos.",
     "subtitle": "Creamos y optimizamos tu ficha de Google My Business para que tus clientes te encuentren fácilmente en Google Maps y en las búsquedas locales.",
-    "cta": "Quiero ser visible en Google — 379 €",
+    "cta": "Quiero ser visible en Google — 199 €",
     "badge_delivery": "⭐ Entrega en 7 días",
     "badge_secure": "🔒 Pago seguro",
     "badge_report": "📄 Informe de entrega incluido",
@@ -46,7 +46,7 @@
   "video": {
     "title": "¿Por qué tu ficha de Google My Business es tu mejor herramienta de visibilidad local?",
     "subtitle": "Mira este corto vídeo para entender por qué miles de comercios confían en Google My Business para captar clientes nuevos.",
-    "cta": "Quiero mi ficha de Google — 379 €"
+    "cta": "Quiero mi ficha de Google — 199 €"
   },
   "problem": {
     "tag": "Estás perdiendo clientes sin saberlo",
@@ -226,7 +226,7 @@
       },
       {
         "title": "Pagas el servicio",
-        "desc": "Pago seguro en línea de 379 € vía Stripe. Confirmación inmediata por email."
+        "desc": "Pago seguro en línea de 199 € vía Stripe. Confirmación inmediata por email."
       },
       {
         "title": "Nos envías tu información",
@@ -262,7 +262,7 @@
       "Entrega en 7 días laborables",
       "Soporte por email incluido"
     ],
-    "cta": "Quiero mi ficha de Google — 379 €",
+    "cta": "Quiero mi ficha de Google — 199 €",
     "badges": [
       "🔒 Pago seguro",
       "⚡ Entrega en 7 días",
@@ -382,7 +382,7 @@
     "city": "Ciudad",
     "activity": "Actividad",
     "activity_placeholder": "Ej.: Panadería, Fontanero...",
-    "submit": "Pagar 379 € con tarjeta →",
+    "submit": "Pagar 199 € con tarjeta →",
     "redirecting": "Redirigiendo...",
     "secure_line": "Pago 100 % seguro vía Stripe · Garantía de satisfacción o reembolso",
     "recap": "Resumen",

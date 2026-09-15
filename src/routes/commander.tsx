@@ -8,7 +8,7 @@ import { createCommande } from "@/lib/commande.functions";
 import { Section } from "@/components/site/Section";
 
 export const Route = createFileRoute("/commander")({
-  head: () => ({ meta: [{ title: "Commander mon pack Hotavis — 379€" }] }),
+  head: () => ({ meta: [{ title: "Commander mon pack Hotavis — 199€" }] }),
   component: CommanderPage,
 });
 
@@ -163,7 +163,7 @@ function CommanderPage() {
             </div>
             <h3 className="mt-3 text-xl font-bold">{t("commander.pack")}</h3>
             <div className="mt-1 flex items-baseline gap-2">
-              <span className="text-4xl font-extrabold">379€</span>
+              <span className="text-4xl font-extrabold">199€</span>
               <span className="text-muted-foreground">{t("commander.price_meta")}</span>
             </div>
 
