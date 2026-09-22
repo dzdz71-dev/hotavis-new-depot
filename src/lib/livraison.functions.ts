@@ -255,6 +255,18 @@ export const livrerCommande = createServerFn({ method: "POST" })
       .single();
     if (cmdErr || !commande) throw new Error("Commande introuvable");
 
+    // Source de verite : l'email client enregistre sur la commande (formulaire
+    // initial, avant onboarding). Jamais d'email arbitraire envoye par le client.
+    const clientEmail = typeof commande.email === "string" ? commande.email.trim() : "";
+    console.log(`[livraison] commande_id=${commande.id} email_enregistre=${clientEmail ? "oui" : "NON"}`);
+
+    if (!clientEmail) {
+      throw new Error(
+        "Impossible d'envoyer le rapport : aucune adresse email client n'est enregistrée sur cette commande.",
+      );
+    }
+    console.log(`[livraison] commande_id=${commande.id} génération rapport+facture...`);
+
     const captures = data.captures.map((p) => assertCapturePath(data.commande_id, p));
 
     // 1. Telecharge les captures pour les integrer au PDF
@@ -356,16 +368,21 @@ export const livrerCommande = createServerFn({ method: "POST" })
     // 6. Un seul email au client : rapport + facture en pieces jointes
     //    (echec non bloquant : documents conserves, renvoi possible)
     try {
-      await sendLivraisonEmail(commande.email, commande.prenom, commande.entreprise, [
+      console.log(`[livraison] commande_id=${commande.id} tentative d'envoi email...`);
+      await sendLivraisonEmail(clientEmail, commande.prenom, commande.entreprise, [
         { kind: "rapport", filename: rapportFilename(commande.entreprise), content: pdfBytes },
         { kind: "facture", filename: factureFilename(commande.id), content: factureBytes },
       ]);
+      console.log(`[livraison] commande_id=${commande.id} envoi email OK`);
       await supabaseAdmin
         .from("commandes")
         .update({ rapport_sent_at: new Date().toISOString() })
         .eq("id", commande.id);
       return { ok: true, email_sent: true };
     } catch (e) {
+      console.error(
+        `[livraison] commande_id=${commande.id} envoi email ÉCHEC : ${(e as Error)?.message}`,
+      );
       return {
         ok: true,
         email_sent: false,
@@ -394,6 +411,14 @@ export const renvoyerDocuments = createServerFn({ method: "POST" })
       .eq("id", data.commande_id)
       .single();
     if (error || !commande) throw new Error("Commande introuvable");
+
+    const clientEmail = typeof commande.email === "string" ? commande.email.trim() : "";
+    console.log(`[renvoi] commande_id=${commande.id} email_enregistre=${clientEmail ? "oui" : "NON"}`);
+    if (!clientEmail) {
+      throw new Error(
+        "Impossible d'envoyer : aucune adresse email client n'est enregistrée sur cette commande.",
+      );
+    }
 
     const wantRapport = data.only !== "facture";
     const wantFacture = data.only !== "rapport";
@@ -426,7 +451,7 @@ export const renvoyerDocuments = createServerFn({ method: "POST" })
     }
 
     try {
-      await sendLivraisonEmail(commande.email, commande.prenom, commande.entreprise, docs);
+      await sendLivraisonEmail(clientEmail, commande.prenom, commande.entreprise, docs);
       if (wantRapport) {
         await supabaseAdmin
           .from("commandes")

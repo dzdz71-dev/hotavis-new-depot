@@ -179,13 +179,17 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
     }
   }
 
-  function onDeliverClick() {
-    // Pré-vérifications : conditions requises pour la clôture complète.
+  async function onDeliverClick() {
+    // Pré-vérification indicative : la source de vérité reste la base (relecture
+    // côté serveur dans livrerCommande). Si le cache ne connaît pas l'email,
+    // on re-synchronise plutôt que de bloquer.
     if (!data?.email || !data.email.trim()) {
-      toast.error("Adresse email du client manquante — livraison impossible.");
-      return;
+      await qc.refetchQueries({ queryKey: ["admin-livraison", commandeId] });
+      toast.info(
+        "Email non trouvé localement — le serveur relira l'email enregistré sur la commande.",
+      );
     }
-    if (!(0 < (data.montant_centimes ?? 0))) {
+    if (!(0 < (data?.montant_centimes ?? 0))) {
       toast.error("Montant de la commande invalide — facture impossible à générer.");
       return;
     }
@@ -544,7 +548,9 @@ export function LivraisonSection({ commandeId }: { commandeId: string }) {
           <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
             <li>générer le rapport de livraison ;</li>
             <li>générer la facture PDF si nécessaire ;</li>
-            <li>envoyer le rapport et la facture au client par email ;</li>
+            <li>
+              envoyer le rapport et la facture à <strong className="text-foreground">{data?.email || "—"}</strong> par email ;
+            </li>
             <li>passer la facture au statut « Émise » ;</li>
             <li>passer la commande au statut « Livrée ».</li>
           </ul>

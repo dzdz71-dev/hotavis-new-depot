@@ -53,6 +53,37 @@ export const listCommandes = createServerFn({ method: "GET" })
     return { commandes: data, stats, agentEmails, period_start_at: periodStart };
   });
 
+/** Met à jour l'adresse email du client d'une commande (correction avant livraison). */
+export const updateClientEmail = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((i) =>
+    z
+      .object({
+        commande_id: z.string().uuid(),
+        email: z.string().trim().email().max(255),
+      })
+      .parse(i),
+  )
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context.userId);
+
+    const { data: existing, error: existErr } = await supabaseAdmin
+      .from("commandes")
+      .select("id")
+      .eq("id", data.commande_id)
+      .single();
+    if (existErr || !existing) throw new Error("Commande introuvable");
+
+    const email = data.email.toLowerCase().trim();
+    const { error } = await supabaseAdmin
+      .from("commandes")
+      .update({ email, updated_at: new Date().toISOString() })
+      .eq("id", data.commande_id);
+    if (error) throw new Error(error.message);
+
+    return { ok: true, email };
+  });
+
 /** "Commencer à zéro" : fixe le début de période des cartes Total / CA total. */
 export const resetStatsPeriod = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])

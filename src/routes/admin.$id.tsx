@@ -8,6 +8,7 @@ import {
   Loader2,
   Lock,
   MessageSquare,
+  Pencil,
   Save,
   Send,
   Unlock,
@@ -21,6 +22,7 @@ import {
   addAdminNote,
   getCommandeAdmin,
   getCommandeNotes,
+  updateClientEmail,
   updateCommandeStatut,
   updateFactureStatus,
 } from "@/lib/admin.functions";
@@ -73,6 +75,7 @@ function AdminCommande() {
   const updateFactureFn = useServerFn(updateFactureStatus);
   const unblock = useServerFn(unblockCommande);
   const renvoyerDocsFn = useServerFn(renvoyerDocuments);
+  const updateEmailFn = useServerFn(updateClientEmail);
   const [statut, setStatut] = useState<(typeof STATUTS)[number]>("payé");
   const [notes, setNotes] = useState("");
   const [saving, setSaving] = useState(false);
@@ -84,6 +87,9 @@ function AdminCommande() {
   const [chatInput, setChatInput] = useState("");
   const [sendingNote, setSendingNote] = useState(false);
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
+  const [editingEmail, setEditingEmail] = useState(false);
+  const [emailValue, setEmailValue] = useState("");
+  const [savingEmail, setSavingEmail] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   const { data, isLoading, error } = useQuery({
@@ -214,6 +220,26 @@ function AdminCommande() {
     }
   }
 
+  async function saveEmail() {
+    const email = emailValue.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast.error("Adresse email invalide.");
+      return;
+    }
+    setSavingEmail(true);
+    try {
+      await updateEmailFn({ data: { commande_id: id, email } });
+      toast.success("Email du client mis à jour");
+      setEditingEmail(false);
+      qc.invalidateQueries({ queryKey: ["admin-commande", id] });
+      qc.invalidateQueries({ queryKey: ["admin-livraison", id] });
+    } catch (e: unknown) {
+      toast.error((e as Error)?.message || "Erreur lors de la mise à jour de l'email");
+    } finally {
+      setSavingEmail(false);
+    }
+  }
+
   async function save(markDelivered = false) {
     setSaving(true);
     try {
@@ -339,9 +365,65 @@ function AdminCommande() {
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <h1 className="text-2xl md:text-3xl font-extrabold">{commande.entreprise}</h1>
-            <p className="text-muted-foreground">
-              {commande.prenom} {commande.nom} · {commande.email} · {commande.telephone}
-            </p>
+            <div className="flex flex-wrap items-center gap-2 text-muted-foreground">
+              {editingEmail ? (
+                <span className="inline-flex items-center gap-1.5">
+                  <input
+                    type="email"
+                    value={emailValue}
+                    onChange={(e) => setEmailValue(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") saveEmail();
+                      if (e.key === "Escape") setEditingEmail(false);
+                    }}
+                    placeholder="email@client.fr"
+                    className="rounded-lg border border-input bg-background px-3 py-1.5 text-sm text-foreground w-64"
+                    autoFocus
+                  />
+                  <button
+                    type="button"
+                    onClick={saveEmail}
+                    disabled={savingEmail}
+                    className="inline-flex items-center gap-1 rounded-full bg-google-blue text-white px-3 py-1.5 text-xs font-semibold disabled:opacity-60"
+                  >
+                    {savingEmail ? (
+                      <Loader2 className="h-3 w-3 animate-spin" />
+                    ) : (
+                      <Check className="h-3 w-3" />
+                    )}
+                    Enregistrer
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEditingEmail(false)}
+                    className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold"
+                  >
+                    Annuler
+                  </button>
+                </span>
+              ) : (
+                <>
+                  <span>
+                    {commande.prenom} {commande.nom}
+                  </span>
+                  <span>·</span>
+                  <span>{commande.email || "(email manquant)"}</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEmailValue(commande.email || "");
+                      setEditingEmail(true);
+                    }}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-google-blue hover:underline"
+                    title="Modifier l'email du client"
+                  >
+                    <Pencil className="h-3 w-3" /> Modifier
+                  </button>
+                  <span>·</span>
+                  <span>{commande.telephone}</span>
+                </>
+              )}
+            </div>
           </div>
           {deadlineInfo && (
             <div
